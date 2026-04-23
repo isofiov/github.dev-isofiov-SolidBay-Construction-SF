@@ -1,0 +1,71 @@
+# SolidBay Construction SF — Brand Guidelines
+# Reference this file in all Claude prompts for consistent design
+
+## COMPANY INFO
+Name: SolidBay Construction SF
+Founded: 2016
+Address: 2181 Greenwich St, San Francisco, CA 94123
+Service Areas: San Francisco & Marin County
+Specialty: Residential & Commercial Renovation
+Team: 2 Partners, 2 Designers, 2 Structural Engineers, 2 Architects, 1 Expeditor
+Projects: 100+ completed
+Website: www.solidbayconstructionsf.com
+
+## BRAND COLORS
+Primary Green:     #2E6B3E  (buttons, headings, accents)
+Deep Green:        #1e4f2c  (hover states, dark sections)
+Light Green:       #3a7d4e  (light accents)
+Gold Primary:      #C9A84C  (gold accents, dividers, highlights)
+Gold Dark:         #A8872E  (gold text on light backgrounds)
+Gold Bright:       #D4A843  (logo gradient start)
+Cream Background:  #FAF8F3  (main page background)
+Cream Alt:         #F2EFE6  (section backgrounds)
+Cream Dark:        #eae6d8  (hero gradient end)
+Dark Text:         #1a2e1a  (headings, body text)
+Gray Text:         #6b7c6b  (body text, descriptions)
+Border Color:      rgba(46,107,62,0.12–0.20)
+
+## TYPOGRAPHY
+Display Font:  'Bebas Neue' — ALL CAPS headings, hero text, section titles
+Body Font:     'DM Sans' — body text, labels, buttons, UI elements
+Serif Accent:  Georgia — logo wordmark ONLY (SOLID/BAY lettering)
+
+## LOGO
+The logo consists of:
+- Building icon (green towers with gold peak/roof accent)
+- "SOLID" in gold (Georgia serif, bold)
+- "BAY" in green (Georgia serif, bold)
+- Divider line + "CONSTRUCTION / SAN FRANCISCO / EST. 2016" tagline
+
+## DESIGN PRINCIPLES
+- Light/cream background (NOT dark) — matches logo light version
+- Mobile-first responsive design
+- Tailwind CSS via CDN for consistent spacing
+- Smooth reveal animations on scroll
+- Card hover: translateY(-4px) with green border
+- Section tags: uppercase, letter-spaced, green with line prefix
+- Section dividers: 48px wide, 2px tall, gold (#C9A84C)
+
+## SEO RULES
+- H1: One per page, descriptive, includes location
+- H2: Section headings, include "San Francisco" or "Marin County" where natural
+- H3: Card/FAQ titles, answer specific user questions
+- Schema: GeneralContractor + FAQPage JSON-LD on all pages
+- Meta description: Under 160 characters, include location
+- Alt text: Describe image content + location context
+
+## CONTENT VOICE
+- Professional but approachable
+- Confident — we are experts, not salespeople
+- Location-specific — always mention SF and/or Marin County
+- Specific numbers — "100+ projects", "10 years", "7 experts"
+- No fluff — every sentence earns its place
+
+## DO NOT USE
+- Dark backgrounds on main site (reserved for process section only)
+- Purple gradients or generic AI color schemes
+- Generic fonts (Inter, Roboto, Arial as primary)
+- Oakland or East Bay references
+- North Bay references (only SF and Marin County)
+- Testimonials (not yet available)
+- Placeholder phone/email (show "Coming soon")
