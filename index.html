@@ -5,378 +5,361 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>SolidBay Construction SF | Renovation Experts San Francisco & Marin County</title>
 <meta name="description" content="SolidBay Construction SF — boutique renovation firm founded 2016. Residential & commercial renovation across San Francisco and Marin County. 100+ projects completed."/>
+<script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--g:#2E6B3E;--gd:#1a3d24;--gold:#C9A84C;--bg:#0b1209;--bg2:#121a10;--cream:#F2EFE6;--gray:#7a8c78;--line:rgba(46,107,62,0.2)}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;font-weight:300}
-a{text-decoration:none;color:inherit}
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(11,18,9,0.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.12em}.logo span{color:var(--g)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);transition:color .2s}
-.nav-links a:hover{color:var(--cream)}
-.nav-cta{background:var(--g)!important;color:var(--cream)!important;padding:9px 20px}
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 80px),repeating-linear-gradient(0deg,var(--line) 0 1px,transparent 1px 80px);pointer-events:none}
-.hero-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:24px;display:flex;align-items:center;gap:10px;animation:up .7s .2s both}
-.hero-tag::before{content:'';width:24px;height:1px;background:var(--g)}
-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,10vw,130px);line-height:.92;animation:up .8s .35s both}
-h1 em{color:var(--g);font-style:normal}
-.hero-sub{margin-top:28px;font-size:15px;line-height:1.75;color:var(--gray);max-width:520px;animation:up .8s .5s both}
-.hero-btns{margin-top:40px;display:flex;gap:16px;align-items:center;animation:up .8s .65s both}
-.btn{background:var(--g);color:var(--cream);padding:15px 34px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;display:inline-block;transition:background .2s,transform .15s}
-.btn:hover{background:var(--gd);transform:translateY(-2px)}
-.btn-o{color:var(--gray);font-size:13px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--gray);padding-bottom:2px;transition:color .2s,border-color .2s}
-.btn-o:hover{color:var(--cream);border-color:var(--cream)}
-.stats{margin-top:60px;display:flex;gap:48px;animation:up .8s .8s both}
-.stat-n{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--gold);line-height:1}
-.stat-l{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-top:3px}
-@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-/* TICKER */
-.ticker{background:var(--g);padding:13px 0;overflow:hidden;white-space:nowrap}
-.ticker-inner{display:inline-flex;animation:tick 22s linear infinite}
-.ticker-item{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.18em;color:var(--cream);padding:0 36px}
-.ticker-item::after{content:'✦';margin-left:36px;opacity:.4;font-size:9px}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-/* SECTIONS */
-.sec{padding:100px 48px;border-top:1px solid var(--line)}
-.tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.tag::before{content:'';width:22px;height:1px;background:var(--g)}
-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,68px);line-height:.95;margin-bottom:52px}
-/* SERVICES */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
-.card{background:var(--bg2);padding:44px 36px;position:relative;overflow:hidden;transition:background .3s}
-.card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--g);transform:scaleX(0);transform-origin:left;transition:transform .35s}
-.card:hover{background:#1a2e18}.card:hover::after{transform:scaleX(1)}
-.card-num{font-size:11px;letter-spacing:.2em;color:var(--g);margin-bottom:20px}
-.card-icon{font-size:28px;margin-bottom:14px}
-.card-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--cream);margin-bottom:10px}
-.card-desc{font-size:13px;line-height:1.7;color:var(--gray)}
-/* ABOUT */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.about-img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(20%)}
-.about-img-wrap{position:relative}
-.about-accent{position:absolute;top:-16px;right:-16px;width:100px;height:100px;background:var(--g);z-index:-1}
-.about-year{position:absolute;bottom:-14px;left:-14px;background:var(--gold);padding:18px 20px;font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--bg);line-height:1}
-.about-year small{display:block;font-size:10px;letter-spacing:.14em;font-family:'DM Sans',sans-serif}
-.body-text{font-size:15px;line-height:1.8;color:var(--gray);margin-bottom:18px}
-.check-list{list-style:none;margin:28px 0}
-.check-list li{padding:12px 0;border-top:1px solid var(--line);font-size:14px;color:var(--cream);display:flex;gap:12px}
-.check-list li::before{content:'→';color:var(--g)}
-/* TEAM */
-.team-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line)}
-.team-featured{background:var(--g)!important;padding:48px 44px}
-.team-featured .card-num{color:rgba(255,255,255,.55)}
-.team-featured .card-title{font-size:28px;color:#fff;margin-bottom:12px}
-.team-featured .card-desc{color:rgba(255,255,255,.75)}
-.team-badges{display:flex;gap:12px;margin-top:24px}
-.badge{padding:10px 16px;border:1px solid rgba(255,255,255,.25);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-/* PROJECTS */
-.proj-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:4px}
-.proj-card{position:relative;overflow:hidden;background:var(--bg2);min-height:220px}
-.proj-card:first-child{grid-row:1/3;min-height:460px}
-.proj-img{width:100%;height:100%;object-fit:cover;filter:grayscale(25%);display:block;transition:transform .6s,filter .4s}
-.proj-card:hover .proj-img{transform:scale(1.04);filter:grayscale(0%)}
-.proj-info{position:absolute;bottom:0;left:0;right:0;padding:22px 24px;background:linear-gradient(0deg,rgba(11,18,9,.95),transparent)}
-.proj-type{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:5px}
-.proj-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--cream)}
-/* TESTIMONIALS */
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
-.tcard{background:var(--bg2);padding:36px 32px;transition:background .3s}
-.tcard:hover{background:#1a2e18}
-.stars{color:var(--gold);font-size:13px;margin-bottom:18px}
-.quote{font-size:14px;line-height:1.75;color:var(--gray);font-style:italic;margin-bottom:24px;padding-left:16px;border-left:2px solid var(--g)}
-.author-name{font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--cream)}
-.author-role{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:3px}
-/* CONTACT */
-.contact{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-.contact-l{padding:80px 48px;background:var(--g);display:flex;flex-direction:column;justify-content:center}
-.contact-l h2{color:#fff;margin-bottom:16px}
-.contact-l .tag{color:rgba(255,255,255,.55)}.contact-l .tag::before{background:rgba(255,255,255,.4)}
-.contact-body{font-size:14px;line-height:1.75;color:rgba(255,255,255,.75);margin-bottom:32px}
-.contact-info{list-style:none}
-.contact-info li{padding:14px 0;border-top:1px solid rgba(255,255,255,.15);font-size:13px;color:rgba(255,255,255,.8);display:flex;gap:10px}
-.setup-box{margin-top:28px;padding:18px 20px;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.15)}
-.setup-box p{font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:10px}
-.setup-label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:6px;margin-top:10px}
-.setup-input{width:100%;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.2);padding:9px 12px;color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;outline:none}
-.setup-btn{width:100%;margin-top:12px;background:var(--gold);color:var(--bg);border:none;padding:11px;font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;cursor:pointer}
-.contact-r{padding:80px 48px;background:var(--bg2);display:flex;flex-direction:column;justify-content:center}
-.fg{margin-bottom:20px}
-.fg label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:8px}
-.fg input,.fg textarea,.fg select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);padding:12px 16px;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color .2s;appearance:none}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--g)}
-.fg textarea{min-height:110px;resize:vertical}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.submit-btn{width:100%;background:var(--g);color:var(--cream);border:none;padding:15px;font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:background .2s}
-.submit-btn:hover{background:var(--gd)}
-.msg{padding:12px 16px;margin-bottom:14px;font-size:13px;display:none}
-.msg.err{border:1px solid #c0392b;background:rgba(192,57,43,.1);color:#e74c3c}
-.msg.ok{border:1px solid var(--g);background:rgba(46,107,62,.12);color:var(--cream)}
-/* FOOTER */
-footer{padding:56px 48px 32px;border-top:1px solid var(--line);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px}
-.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;display:block;margin-bottom:12px}
-.foot-logo span{color:var(--g)}
-.foot-tag{font-size:13px;color:var(--gray);line-height:1.6;max-width:220px}
-.foot-col h4{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:16px}
-.foot-col ul{list-style:none}
-.foot-col ul li{margin-bottom:10px}
-.foot-col ul a{color:var(--gray);font-size:13px;transition:color .2s}
-.foot-col ul a:hover{color:var(--cream)}
-.foot-bot{padding:20px 48px;border-top:1px solid var(--line);display:flex;justify-content:space-between}
-.foot-bot p{font-size:12px;color:var(--gray)}
-/* MOBILE */
-@media(max-width:860px){
-  nav{padding:18px 20px}.nav-links{display:none}
-  .hero{padding:100px 20px 60px}.stats{gap:24px;flex-wrap:wrap}
-  .sec{padding:72px 20px}
-  .grid3,.team-grid,.tgrid{grid-template-columns:1fr}
-  .team-featured{grid-column:auto}
-  .about{grid-template-columns:1fr;gap:40px}
-  .proj-grid{grid-template-columns:1fr}.proj-card:first-child{grid-row:auto;min-height:280px}
-  .contact{grid-template-columns:1fr}
-  .contact-l,.contact-r{padding:56px 20px}
-  footer{grid-template-columns:1fr 1fr;padding:48px 20px 28px}
-  .foot-bot{padding:16px 20px;flex-direction:column;gap:6px}
-}
+body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a}
+.font-display{font-family:'Bebas Neue',sans-serif}
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.anim-1{animation:fadeUp .7s .1s both}.anim-2{animation:fadeUp .7s .25s both}.anim-3{animation:fadeUp .7s .4s both}.anim-4{animation:fadeUp .7s .55s both}.anim-5{animation:fadeUp .7s .7s both}
+.ticker-inner{display:inline-flex;animation:ticker 24s linear infinite;white-space:nowrap}
+.tag-line{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#2E6B3E}
+.tag-line::before{content:'';width:22px;height:1.5px;background:#2E6B3E}
+.card-hover{transition:transform .25s,box-shadow .25s,border-color .25s}
+.card-hover:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(46,107,62,.12);border-color:#2E6B3E!important}
+.btn-primary{background:#2E6B3E;color:#FAF8F3;padding:14px 32px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:background .2s,transform .15s;display:inline-block}
+.btn-primary:hover{background:#1e4f2c;transform:translateY(-2px)}
+.btn-gold{background:transparent;color:#A8872E;border:1.5px solid #C9A84C;padding:13px 28px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:all .2s;display:inline-block}
+.btn-gold:hover{background:#C9A84C;color:#FAF8F3}
+.nav-link{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#6b7c6b;transition:color .2s}
+.nav-link:hover{color:#2E6B3E}
+.section-divider{width:48px;height:2px;background:#C9A84C;margin-bottom:20px}
+#mobile-menu{display:none}
+#mobile-menu.open{display:block}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
-
-<nav>
-  <a href="#" class="logo">Solid<span>Bay</span></a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#team">Team</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
-  </ul>
+<nav class="fixed top-0 left-0 right-0 z-50 border-b" style="background:rgba(250,248,243,0.96);border-color:rgba(46,107,62,0.1);backdrop-filter:blur(8px)">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="220" height="50">
+          <defs><linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#D4A843"/><stop offset="100%" style="stop-color:#A8872E"/></linearGradient></defs>
+          <rect x="0" y="40" width="56" height="26" fill="#2E6B3E"/>
+          <rect x="0" y="20" width="17" height="46" fill="#1e4f2c"/>
+          <rect x="39" y="27" width="17" height="39" fill="#1e4f2c"/>
+          <polygon points="17,6 28,20 39,6" fill="url(#ng)"/>
+          <rect x="0" y="17" width="17" height="4" fill="url(#ng)"/>
+          <rect x="39" y="24" width="17" height="4" fill="url(#ng)"/>
+          <rect x="4" y="26" width="7" height="9" fill="url(#ng)" opacity=".85"/>
+          <rect x="4" y="40" width="7" height="9" fill="url(#ng)" opacity=".55"/>
+          <rect x="45" y="33" width="7" height="9" fill="url(#ng)" opacity=".85"/>
+          <rect x="25" y="50" width="10" height="16" fill="#FAF8F3"/>
+          <rect x="0" y="64" width="56" height="2" fill="url(#ng)"/>
+          <text x="68" y="46" font-family="Georgia,serif" font-size="30" font-weight="700" fill="url(#ng)" letter-spacing="-0.5">SOLID</text>
+          <text x="68" y="68" font-family="Georgia,serif" font-size="30" font-weight="700" fill="#2E6B3E" letter-spacing="-0.5">BAY</text>
+          <rect x="210" y="18" width="1" height="46" fill="#C9A84C" opacity=".4"/>
+          <text x="218" y="34" font-family="Georgia,serif" font-size="7" letter-spacing="2.5" fill="#A8872E">CONSTRUCTION</text>
+          <text x="218" y="46" font-family="Arial,sans-serif" font-size="6" letter-spacing="2.5" fill="#6b7c6b">SAN FRANCISCO</text>
+          <rect x="218" y="51" width="42" height="0.8" fill="#C9A84C" opacity=".5"/>
+          <text x="218" y="61" font-family="Arial,sans-serif" font-size="6" letter-spacing="2" fill="#999">EST. 2016</text>
+        </svg>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#team" class="nav-link">Team</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="#contact" class="btn-primary">Get a Quote</a>
+      </div>
+      <button class="md:hidden p-2 flex flex-col gap-1.5" onclick="toggleMenu()">
+        <div class="w-6 h-0.5" style="background:#2E6B3E"></div>
+        <div class="w-6 h-0.5" style="background:#2E6B3E"></div>
+        <div class="w-6 h-0.5" style="background:#2E6B3E"></div>
+      </button>
+    </div>
+    <div id="mobile-menu" class="pb-6 border-t" style="border-color:rgba(46,107,62,0.1)">
+      <div class="flex flex-col gap-4 pt-4">
+        <a href="#services" class="nav-link text-base" onclick="toggleMenu()">Services</a>
+        <a href="#about" class="nav-link text-base" onclick="toggleMenu()">About</a>
+        <a href="#team" class="nav-link text-base" onclick="toggleMenu()">Team</a>
+        <a href="#projects" class="nav-link text-base" onclick="toggleMenu()">Projects</a>
+        <a href="blog.html" class="nav-link text-base">Blog</a>
+        <a href="#contact" class="btn-primary text-center mt-2" onclick="toggleMenu()">Get a Quote</a>
+      </div>
+    </div>
+  </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <p class="hero-tag">Two Partners · San Francisco · Est. 2016</p>
-  <h1>RENOVATE.<br><em>REINVENT.</em><br>RESTORE.</h1>
-  <p class="hero-sub">SolidBay Construction SF is a boutique renovation firm founded by two partners with a decade of experience transforming residential and commercial spaces across San Francisco and Marin County.</p>
-  <div class="hero-btns">
-    <a href="#contact" class="btn">Start Your Project</a>
-    <a href="#about" class="btn-o">Meet the Team</a>
-  </div>
-  <div class="stats">
-    <div><div class="stat-n">10</div><div class="stat-l">Years in SF</div></div>
-    <div><div class="stat-n">100+</div><div class="stat-l">Projects Completed</div></div>
-    <div><div class="stat-n">2</div><div class="stat-l">Founding Partners</div></div>
+<section class="min-h-screen flex items-center pt-20 pb-16 px-6 lg:px-12 relative overflow-hidden" style="background:linear-gradient(135deg,#FAF8F3 0%,#F2EFE6 60%,#eae6d8 100%)">
+  <div class="absolute inset-0 opacity-25" style="background-image:repeating-linear-gradient(90deg,rgba(46,107,62,0.08) 0 1px,transparent 1px 72px),repeating-linear-gradient(0deg,rgba(46,107,62,0.08) 0 1px,transparent 1px 72px)"></div>
+  <div class="absolute top-24 right-0 w-96 h-96 rounded-full opacity-10" style="background:radial-gradient(circle,#C9A84C,transparent);transform:translate(30%,-20%)"></div>
+  <div class="max-w-7xl mx-auto w-full relative z-10">
+    <div class="max-w-3xl">
+      <p class="tag-line mb-6 anim-1">Two Partners · San Francisco · Est. 2016</p>
+      <h1 class="font-display text-7xl md:text-8xl lg:text-9xl mb-6 anim-2" style="color:#1a2e1a;line-height:.92">
+        RENOVATE.<br><span style="color:#2E6B3E">REINVENT.</span><br>RESTORE.
+      </h1>
+      <p class="text-base md:text-lg max-w-xl leading-relaxed mb-8 anim-3" style="color:#6b7c6b">SolidBay Construction SF is a boutique renovation firm founded by two partners with a decade of experience transforming residential and commercial spaces across San Francisco and Marin County.</p>
+      <div class="flex flex-col sm:flex-row gap-4 mb-12 anim-4">
+        <a href="#contact" class="btn-primary text-center">Start Your Project</a>
+        <a href="#about" class="btn-gold text-center">Meet the Team</a>
+      </div>
+      <div class="flex gap-8 md:gap-12 pt-8 border-t anim-5" style="border-color:rgba(46,107,62,0.15)">
+        <div><div class="font-display text-4xl md:text-5xl" style="color:#C9A84C">10</div><div class="text-xs tracking-widest uppercase mt-1" style="color:#6b7c6b">Years in SF</div></div>
+        <div><div class="font-display text-4xl md:text-5xl" style="color:#C9A84C">100+</div><div class="text-xs tracking-widest uppercase mt-1" style="color:#6b7c6b">Projects Done</div></div>
+        <div><div class="font-display text-4xl md:text-5xl" style="color:#C9A84C">7</div><div class="text-xs tracking-widest uppercase mt-1" style="color:#6b7c6b">In-House Experts</div></div>
+        <div><div class="font-display text-4xl md:text-5xl" style="color:#C9A84C">2</div><div class="text-xs tracking-widest uppercase mt-1" style="color:#6b7c6b">Service Areas</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- TICKER -->
-<div class="ticker"><div class="ticker-inner">
-  <span class="ticker-item">Residential Renovation</span><span class="ticker-item">Commercial Renovation</span><span class="ticker-item">Structural Engineering</span><span class="ticker-item">Architectural Design</span><span class="ticker-item">Permit Expediting</span><span class="ticker-item">Interior Design</span><span class="ticker-item">San Francisco Specialists</span><span class="ticker-item">Marin County</span>
-  <span class="ticker-item">Residential Renovation</span><span class="ticker-item">Commercial Renovation</span><span class="ticker-item">Structural Engineering</span><span class="ticker-item">Architectural Design</span><span class="ticker-item">Permit Expediting</span><span class="ticker-item">Interior Design</span><span class="ticker-item">San Francisco Specialists</span><span class="ticker-item">Marin County</span>
-</div></div>
+<div class="overflow-hidden py-3.5" style="background:#2E6B3E">
+  <div class="ticker-inner">
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Residential Renovation</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Commercial Renovation</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Structural Engineering</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Architectural Design</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Permit Expediting</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Interior Design</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">San Francisco Specialists</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Marin County</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Residential Renovation</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Commercial Renovation</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Structural Engineering</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Architectural Design</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Permit Expediting</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Interior Design</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">San Francisco Specialists</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+    <span class="font-display text-sm tracking-widest px-10" style="color:#FAF8F3">Marin County</span><span style="color:#C9A84C;font-size:8px;opacity:.6">✦</span>
+  </div>
+</div>
 
 <!-- SERVICES -->
-<section class="sec" id="services">
-  <p class="tag">What We Do</p>
-  <h2>Renovation Built Around Your Vision</h2>
-  <div class="grid3">
-    <div class="card"><div class="card-num">01</div><div class="card-icon">🏠</div><div class="card-title">Residential Renovation</div><p class="card-desc">Full home remodels, kitchen and bath transformations, additions, and ADUs across San Francisco and Marin County.</p></div>
-    <div class="card"><div class="card-num">02</div><div class="card-icon">🏢</div><div class="card-title">Commercial Renovation</div><p class="card-desc">Office fit-outs, retail transformations, restaurant build-outs, and tenant improvements. We keep your business moving while we work.</p></div>
-    <div class="card"><div class="card-num">03</div><div class="card-icon">📐</div><div class="card-title">Architectural Design</div><p class="card-desc">Our two in-house architects turn ideas into permitted, buildable drawings — from concept through city approval.</p></div>
-    <div class="card"><div class="card-num">04</div><div class="card-icon">🔩</div><div class="card-title">Structural Engineering</div><p class="card-desc">Our structural engineers assess and certify every project — from removing load-bearing walls to full seismic upgrades.</p></div>
-    <div class="card"><div class="card-num">05</div><div class="card-icon">🎨</div><div class="card-title">Interior Design</div><p class="card-desc">Our designers bring spaces to life with material selections, space planning, and finish specifications coordinated with construction.</p></div>
-    <div class="card"><div class="card-num">06</div><div class="card-icon">📋</div><div class="card-title">Permit Expediting</div><p class="card-desc">Our dedicated expeditor knows the SF Planning and DBI process inside out — saving weeks of delays on your project.</p></div>
+<section class="py-20 md:py-28 px-6 lg:px-12" id="services" style="background:#FAF8F3">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal mb-12">
+      <p class="tag-line mb-4">What We Do</p>
+      <div class="section-divider"></div>
+      <h2 class="font-display text-5xl md:text-7xl" style="color:#1a2e1a">RENOVATION BUILT<br>AROUND YOUR VISION</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style="background:rgba(46,107,62,0.12)">
+      <div class="card-hover reveal p-10 border border-transparent" style="background:#FAF8F3"><div class="text-3xl mb-4">🏠</div><div class="text-xs tracking-widest uppercase mb-3" style="color:#C9A84C">01</div><h3 class="font-display text-2xl mb-3" style="color:#1a2e1a">Residential Renovation</h3><p class="text-sm leading-relaxed" style="color:#6b7c6b">Full home remodels, kitchen and bath transformations, additions, and ADUs. We work with SF's unique building stock — Victorians, Edwardians, and modern condos alike.</p></div>
+      <div class="card-hover reveal p-10 border border-transparent" style="background:#FAF8F3"><div class="text-3xl mb-4">🏢</div><div class="text-xs tracking-widest uppercase mb-3" style="color:#C9A84C">02</div><h3 class="font-display text-2xl mb-3" style="color:#1a2e1a">Commercial Renovation</h3><p class="text-sm leading-relaxed" style="color:#6b7c6b">Office fit-outs, retail transformations, restaurant build-outs, and tenant improvements. We keep your business moving while we work.</p></div>
+      <div class="card-hover reveal p-10 border border-transparent" style="background:#FAF8F3"><div class="text-3xl mb-4">📐</div><div class="text-xs tracking-widest uppercase mb-3" style="color:#C9A84C">03</div><h3 class="font-display text-2xl mb-3" style="color:#1a2e1a">Architectural Design</h3><p class="text-sm leading-relaxed" style="color:#6b7c6b">Our two in-house architects turn ideas into permitted, buildable drawings — handling everything from concept through city approval.</p></div>
+      <div class="card-hover reveal p-10 border border-transparent" style="background:#FAF8F3"><div class="text-3xl mb-4">🔩</div><div class="text-xs tracking-widest uppercase mb-3" style="color:#C9A84C">04</div><h3 class="font-display text-2xl mb-3" style="color:#1a2e1a">Structural Engineering</h3><p class="text-sm leading-relaxed" style="color:#6b7c6b">Our structural engineers assess and certify every project — from removing load-bearing walls to full seismic upgrades required in San Francisco.</p></div>
+      <div class="card-hover reveal p-10 border border-transparent" style="background:#FAF8F3"><div class="text-3xl mb-4">🎨</div><div class="text-xs tracking-widest uppercase mb-3" style="color:#C9A84C">05</div><h3 class="font-display text-2xl mb-3" style="color:#1a2e1a">Interior Design</h3><p class="text-sm leading-relaxed" style="color:#6b7c6b">Our designers bring spaces to life with material selections, space planning, and finish specifications — fully coordinated with construction from day one.</p></div>
+      <div class="card-hover reveal p-10 border border-transparent" style="background:#FAF8F3"><div class="text-3xl mb-4">📋</div><div class="text-xs tracking-widest uppercase mb-3" style="color:#C9A84C">06</div><h3 class="font-display text-2xl mb-3" style="color:#1a2e1a">Permit Expediting</h3><p class="text-sm leading-relaxed" style="color:#6b7c6b">Our dedicated expeditor knows SF Planning and DBI inside out — saving weeks of delays and keeping your project on schedule.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="sec" id="about">
-  <div class="about">
-    <div class="about-img-wrap">
-      <div class="about-accent"></div>
-      <img class="about-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=700&q=80" alt="SolidBay team"/>
-      <div class="about-year">2016<small>EST. IN SF</small></div>
-    </div>
-    <div>
-      <p class="tag">Who We Are</p>
-      <h2>Two Partners.<br>One Mission.<br>100+ Projects.</h2>
-      <p class="body-text">SolidBay Construction SF was founded in 2016 by two partners who shared a simple belief: that renovation in San Francisco deserved a firm combining design intelligence, engineering precision, and permitting expertise — all under one roof.</p>
-      <p class="body-text">Over the past decade, we've delivered more than 100 residential and commercial renovation projects across San Francisco and Marin County.</p>
-      <ul class="check-list">
-        <li>2 Founding Partners with 10+ years in SF renovation</li>
-        <li>100+ completed projects — SF & Marin County</li>
-        <li>Residential & commercial renovation specialists</li>
-        <li>Full in-house team: design, engineering & permitting</li>
-        <li>California General Contractor Licensed & Bonded</li>
-      </ul>
-      <a href="#contact" class="btn">Work With Us</a>
+<section class="py-20 md:py-28 px-6 lg:px-12" id="about" style="background:#F2EFE6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal relative">
+        <div class="absolute -top-4 -right-4 w-24 h-24 md:w-32 md:h-32 opacity-15" style="background:#2E6B3E"></div>
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=700&q=80" alt="SolidBay team" class="w-full object-cover relative z-10" style="aspect-ratio:4/5"/>
+        <div class="absolute -bottom-4 -left-4 z-20 p-5" style="background:#C9A84C">
+          <div class="font-display text-4xl" style="color:#1a2e1a;line-height:1">2016</div>
+          <div class="text-xs tracking-widest mt-1" style="color:#1a2e1a">EST. IN SF</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="tag-line mb-4">Who We Are</p>
+        <div class="section-divider"></div>
+        <h2 class="font-display text-5xl md:text-6xl mb-6" style="color:#1a2e1a;line-height:1">TWO PARTNERS.<br>ONE MISSION.<br>100+ PROJECTS.</h2>
+        <p class="text-base leading-relaxed mb-4" style="color:#6b7c6b">SolidBay Construction SF was founded in 2016 by two partners who shared a simple belief: that renovation in San Francisco deserved a firm combining design intelligence, engineering precision, and permitting expertise — all under one roof.</p>
+        <p class="text-base leading-relaxed mb-8" style="color:#6b7c6b">Over the past decade, we've delivered more than 100 residential and commercial renovation projects across San Francisco and Marin County.</p>
+        <ul class="space-y-3 mb-10">
+          <li class="flex items-center gap-3 text-sm pb-3 border-b" style="color:#1a2e1a;border-color:rgba(46,107,62,0.12)"><span style="color:#2E6B3E">→</span>2 Founding Partners with 10+ years in SF renovation</li>
+          <li class="flex items-center gap-3 text-sm pb-3 border-b" style="color:#1a2e1a;border-color:rgba(46,107,62,0.12)"><span style="color:#2E6B3E">→</span>100+ completed projects across SF & Marin County</li>
+          <li class="flex items-center gap-3 text-sm pb-3 border-b" style="color:#1a2e1a;border-color:rgba(46,107,62,0.12)"><span style="color:#2E6B3E">→</span>Residential & commercial renovation specialists</li>
+          <li class="flex items-center gap-3 text-sm pb-3 border-b" style="color:#1a2e1a;border-color:rgba(46,107,62,0.12)"><span style="color:#2E6B3E">→</span>Full in-house team: design, engineering & permitting</li>
+          <li class="flex items-center gap-3 text-sm" style="color:#1a2e1a"><span style="color:#2E6B3E">→</span>California General Contractor Licensed & Bonded</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Work With Us</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- TEAM -->
-<section class="sec" id="team">
-  <p class="tag">Our Team</p>
-  <h2>Seven Experts. Every Discipline.</h2>
-  <div class="team-grid">
-    <div class="card team-featured">
-      <div class="card-num">Founding Partners</div>
-      <div class="card-title">The Two Behind It All</div>
-      <p class="card-desc">Both partners are hands-on and on-site. With backgrounds spanning construction management and architecture, they oversee every project personally — ensuring quality, communication, and accountability never slip.</p>
-      <div class="team-badges"><span class="badge">10 Years in SF</span><span class="badge">100+ Projects</span></div>
+<section class="py-20 md:py-28 px-6 lg:px-12" id="team" style="background:#FAF8F3">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal mb-12">
+      <p class="tag-line mb-4">Our Team</p>
+      <div class="section-divider"></div>
+      <h2 class="font-display text-5xl md:text-7xl" style="color:#1a2e1a">SEVEN EXPERTS.<br>EVERY DISCIPLINE.</h2>
     </div>
-    <div class="card"><div class="card-num">Design</div><div class="card-icon">🎨</div><div class="card-title">2 Designers</div><p class="card-desc">Space planning, material selections, and finish specifications — coordinated directly with construction from day one.</p></div>
-    <div class="card"><div class="card-num">Engineering</div><div class="card-icon">🔩</div><div class="card-title">2 Structural Engineers</div><p class="card-desc">Licensed engineers who assess every wall, beam, and foundation. Critical for SF's seismic requirements.</p></div>
-    <div class="card"><div class="card-num">Architecture</div><div class="card-icon">📐</div><div class="card-title">2 Architects</div><p class="card-desc">In-house architects produce full permit-ready drawings and manage design intent through construction.</p></div>
-    <div class="card" style="grid-column:span 2"><div class="card-num">Permitting</div><div class="card-icon">📋</div><div class="card-title">1 Dedicated Expeditor</div><p class="card-desc">Our full-time expeditor has direct relationships with SF Planning, DBI, and the Fire Department — getting approvals faster and keeping your project on schedule. No waiting months for permits.</p></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="reveal lg:col-span-2 p-10 md:p-12" style="background:#2E6B3E">
+        <div class="text-xs tracking-widest uppercase mb-4" style="color:rgba(255,255,255,0.5)">Founding Partners</div>
+        <h3 class="font-display text-3xl md:text-4xl mb-4" style="color:#FAF8F3">The Two Behind It All</h3>
+        <p class="text-sm leading-relaxed mb-6" style="color:rgba(255,255,255,0.75)">Both partners are hands-on and on-site. With backgrounds spanning construction management and architecture, they oversee every project personally — ensuring quality, communication, and accountability never slip.</p>
+        <div class="flex gap-3 flex-wrap">
+          <span class="text-xs tracking-widest uppercase px-4 py-2.5" style="border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7)">10 Years in SF</span>
+          <span class="text-xs tracking-widest uppercase px-4 py-2.5" style="border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7)">100+ Projects</span>
+          <span class="text-xs tracking-widest uppercase px-4 py-2.5" style="border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7)">SF & Marin County</span>
+        </div>
+      </div>
+      <div class="card-hover reveal p-8 border border-transparent" style="background:#F2EFE6"><div class="text-2xl mb-3">🎨</div><div class="text-xs tracking-widest uppercase mb-2" style="color:#C9A84C">Design</div><h3 class="font-display text-xl mb-2" style="color:#1a2e1a">2 Designers</h3><p class="text-sm leading-relaxed" style="color:#6b7c6b">Space planning, material selections, and finish specs — coordinated directly with construction from day one.</p></div>
+      <div class="card-hover reveal p-8 border border-transparent" style="background:#F2EFE6"><div class="text-2xl mb-3">🔩</div><div class="text-xs tracking-widest uppercase mb-2" style="color:#C9A84C">Engineering</div><h3 class="font-display text-xl mb-2" style="color:#1a2e1a">2 Structural Engineers</h3><p class="text-sm leading-relaxed" style="color:#6b7c6b">Licensed engineers who assess every wall, beam, and foundation. Critical for SF's seismic requirements.</p></div>
+      <div class="card-hover reveal p-8 border border-transparent" style="background:#F2EFE6"><div class="text-2xl mb-3">📐</div><div class="text-xs tracking-widest uppercase mb-2" style="color:#C9A84C">Architecture</div><h3 class="font-display text-xl mb-2" style="color:#1a2e1a">2 Architects</h3><p class="text-sm leading-relaxed" style="color:#6b7c6b">In-house architects produce full permit-ready drawings and manage design intent through construction.</p></div>
+      <div class="card-hover reveal p-8 border border-transparent" style="background:#F2EFE6;border-left:3px solid #C9A84C!important"><div class="text-2xl mb-3">📋</div><div class="text-xs tracking-widest uppercase mb-2" style="color:#C9A84C">Permitting</div><h3 class="font-display text-xl mb-2" style="color:#1a2e1a">1 Dedicated Expeditor</h3><p class="text-sm leading-relaxed" style="color:#6b7c6b">Direct relationships with SF Planning, DBI, and the Fire Department — faster approvals, no waiting months for permits.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section class="sec" id="projects">
-  <p class="tag">Featured Work</p>
-  <h2>100+ Projects Across SF & Marin County</h2>
-  <div class="proj-grid">
-    <div class="proj-card"><img class="proj-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Commercial"/><div class="proj-info"><div class="proj-type">Commercial · SF</div><div class="proj-title">Embarcadero Office Renovation</div></div></div>
-    <div class="proj-card"><img class="proj-img" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" alt="Residential"/><div class="proj-info"><div class="proj-type">Residential · Noe Valley</div><div class="proj-title">Victorian Flat Renovation</div></div></div>
-    <div class="proj-card"><img class="proj-img" src="https://images.unsplash.com/photo-1548092372-0d1bd40894a3?w=600&q=80" alt="Office"/><div class="proj-info"><div class="proj-type">Commercial · SoMa</div><div class="proj-title">Tech Office Fit-Out</div></div></div>
-    <div class="proj-card"><img class="proj-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Home"/><div class="proj-info"><div class="proj-type">Residential · Marin County</div><div class="proj-title">Hillside Home Renovation</div></div></div>
-    <div class="proj-card"><img class="proj-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Restaurant"/><div class="proj-info"><div class="proj-type">Commercial · Marina</div><div class="proj-title">Restaurant Build-Out</div></div></div>
+<section class="py-20 md:py-28 px-6 lg:px-12" id="projects" style="background:#F2EFE6">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div>
+        <p class="tag-line mb-4">Featured Work</p>
+        <div class="section-divider"></div>
+        <h2 class="font-display text-5xl md:text-7xl" style="color:#1a2e1a">100+ PROJECTS<br>SF & MARIN COUNTY</h2>
+      </div>
+      <a href="#contact" class="btn-gold self-start md:self-end">Start Your Project →</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="reveal lg:row-span-2 relative overflow-hidden group" style="min-height:400px"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Office" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="min-height:400px"/><div class="absolute inset-0" style="background:linear-gradient(0deg,rgba(26,46,26,.85) 0%,transparent 50%)"></div><div class="absolute bottom-0 left-0 right-0 p-6"><div class="text-xs tracking-widest uppercase mb-2" style="color:#C9A84C">Commercial · SF</div><div class="font-display text-xl" style="color:#FAF8F3">Embarcadero Office Renovation</div></div></div>
+      <div class="reveal relative overflow-hidden group" style="min-height:220px"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" alt="Victorian" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="min-height:220px"/><div class="absolute inset-0" style="background:linear-gradient(0deg,rgba(26,46,26,.85) 0%,transparent 50%)"></div><div class="absolute bottom-0 left-0 right-0 p-5"><div class="text-xs tracking-widest uppercase mb-1" style="color:#C9A84C">Residential · Noe Valley</div><div class="font-display text-lg" style="color:#FAF8F3">Victorian Flat Renovation</div></div></div>
+      <div class="reveal relative overflow-hidden group" style="min-height:220px"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Office" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="min-height:220px"/><div class="absolute inset-0" style="background:linear-gradient(0deg,rgba(26,46,26,.85) 0%,transparent 50%)"></div><div class="absolute bottom-0 left-0 right-0 p-5"><div class="text-xs tracking-widest uppercase mb-1" style="color:#C9A84C">Commercial · SoMa</div><div class="font-display text-lg" style="color:#FAF8F3">Tech Office Fit-Out</div></div></div>
+      <div class="reveal relative overflow-hidden group" style="min-height:220px"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Home" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="min-height:220px"/><div class="absolute inset-0" style="background:linear-gradient(0deg,rgba(26,46,26,.85) 0%,transparent 50%)"></div><div class="absolute bottom-0 left-0 right-0 p-5"><div class="text-xs tracking-widest uppercase mb-1" style="color:#C9A84C">Residential · Marin County</div><div class="font-display text-lg" style="color:#FAF8F3">Hillside Home Renovation</div></div></div>
+      <div class="reveal relative overflow-hidden group" style="min-height:220px"><img src="https://images.unsplash.com/photo-1548092372-0d1bd40894a3?w=600&q=80" alt="Restaurant" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="min-height:220px"/><div class="absolute inset-0" style="background:linear-gradient(0deg,rgba(26,46,26,.85) 0%,transparent 50%)"></div><div class="absolute bottom-0 left-0 right-0 p-5"><div class="text-xs tracking-widest uppercase mb-1" style="color:#C9A84C">Commercial · Marina</div><div class="font-display text-lg" style="color:#FAF8F3">Restaurant Build-Out</div></div></div>
+    </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="sec" id="testimonials">
-  <p class="tag">Client Testimonials</p>
-  <h2>What Our Clients Are Saying</h2>
-  <div class="tgrid">
-    <div class="tcard"><div class="stars">★★★★★</div><div class="quote">SolidBay didn't just build our office — they solved problems we didn't know we had. On budget, three weeks early, and the quality is exceptional.</div><div class="author-name">Marcus T.</div><div class="author-role">CEO · Veritas Capital Partners</div></div>
-    <div class="tcard"><div class="stars">★★★★★</div><div class="quote">From permit to punch list, SolidBay was flawless. They navigated our seismic retrofit without disrupting a single tenant. I've never seen a contractor this organized.</div><div class="author-name">Diana R.</div><div class="author-role">Property Manager · Nob Hill Properties</div></div>
-    <div class="tcard"><div class="stars">★★★★★</div><div class="quote">We came in with a complex design and a tight timeline. SolidBay made it happen. The craftsmanship on our Pacific Heights home is beyond anything we imagined.</div><div class="author-name">James & Priya W.</div><div class="author-role">Homeowners · Pacific Heights</div></div>
-    <div class="tcard"><div class="stars">★★★★★</div><div class="quote">As a first-time developer, I needed a team I could trust. SolidBay held my hand through the whole process — permits, subs, inspections. Delivered under budget.</div><div class="author-name">Kevin L.</div><div class="author-role">Developer · Mission District</div></div>
-    <div class="tcard"><div class="stars">★★★★★</div><div class="quote">Historic renovation is notoriously tricky in SF. SolidBay knew exactly how to work with the city's preservation office and kept the project moving without a single stop-work order.</div><div class="author-name">Thomas A.</div><div class="author-role">Executive Director · SF Heritage Trust</div></div>
-    <div class="tcard"><div class="stars">★★★★★</div><div class="quote">Our SoMa campus needed to be ready for 400 employees in six months. SolidBay coordinated 12 subcontractors and hit the date. Incredible execution under pressure.</div><div class="author-name">Rachel S.</div><div class="author-role">COO · Bay Tech Ventures</div></div>
+<!-- PROCESS -->
+<section class="py-20 md:py-28 px-6 lg:px-12" style="background:#2E6B3E">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal mb-12">
+      <p class="mb-4 flex items-center gap-3 text-xs tracking-widest uppercase" style="color:rgba(201,168,76,0.8)"><span style="width:22px;height:1.5px;background:#C9A84C;display:inline-block"></span>How We Work</p>
+      <h2 class="font-display text-5xl md:text-7xl" style="color:#FAF8F3">A PROCESS BUILT<br>ON PRECISION</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px" style="background:rgba(255,255,255,0.08)">
+      <div class="reveal p-8" style="background:#2E6B3E"><div class="font-display text-6xl mb-4" style="color:rgba(201,168,76,0.25)">01</div><h3 class="font-display text-xl mb-3" style="color:#FAF8F3">Discovery & Planning</h3><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.6)">Site assessment, scope definition, budget modeling, and realistic timeline — all before a shovel hits ground.</p></div>
+      <div class="reveal p-8" style="background:#2E6B3E"><div class="font-display text-6xl mb-4" style="color:rgba(201,168,76,0.25)">02</div><h3 class="font-display text-xl mb-3" style="color:#FAF8F3">Design & Permitting</h3><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.6)">Our architects and engineers produce construction documents and navigate SF's complex permitting landscape.</p></div>
+      <div class="reveal p-8" style="background:#2E6B3E"><div class="font-display text-6xl mb-4" style="color:rgba(201,168,76,0.25)">03</div><h3 class="font-display text-xl mb-3" style="color:#FAF8F3">Build & Manage</h3><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.6)">Daily on-site supervision, real-time progress reports, and proactive problem-solving throughout construction.</p></div>
+      <div class="reveal p-8" style="background:#2E6B3E"><div class="font-display text-6xl mb-4" style="color:rgba(201,168,76,0.25)">04</div><h3 class="font-display text-xl mb-3" style="color:#FAF8F3">Delivery & Beyond</h3><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.6)">Punch list walkthrough, certificate of occupancy, and a 2-year warranty on all workmanship.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-l">
-    <p class="tag">Let's Build Together</p>
-    <h2>Ready to Break Ground?</h2>
-    <p class="contact-body">Tell us about your project. We'll respond within one business day with a scope assessment and next steps.</p>
-    <ul class="contact-info">
-      <li>📍 <span>2181 Greenwich St, San Francisco, CA 94123</span></li>
-      <li>📞 <span>Coming soon</span></li>
-      <li>✉️ <span>Coming soon</span></li>
-      <li>🕐 <span>Mon–Fri, 7AM–6PM PST</span></li>
-    </ul>
-    <div class="setup-box" id="setupBox">
-      <p><strong style="color:#fff">⚙ Supabase Setup</strong><br>Enter your credentials to store form submissions in your database.</p>
-      <label class="setup-label">Project URL</label>
-      <input class="setup-input" id="cfgUrl" placeholder="https://xxxx.supabase.co"/>
-      <label class="setup-label">Anon Key</label>
-      <input class="setup-input" id="cfgKey" placeholder="eyJhbGci..."/>
-      <button class="setup-btn" onclick="saveConfig()">Save & Activate →</button>
+<section class="py-20 md:py-28 px-6 lg:px-12" id="contact" style="background:#FAF8F3">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div class="reveal">
+        <p class="tag-line mb-4">Let's Build Together</p>
+        <div class="section-divider"></div>
+        <h2 class="font-display text-5xl md:text-6xl mb-6" style="color:#1a2e1a">READY TO BREAK GROUND?</h2>
+        <p class="text-base leading-relaxed mb-8" style="color:#6b7c6b">Tell us about your project. We'll respond within one business day with a preliminary scope assessment and next steps.</p>
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3 text-sm pb-4 border-b" style="color:#1a2e1a;border-color:rgba(46,107,62,0.12)"><span class="text-lg">📍</span><div><strong>Address</strong><br><span style="color:#6b7c6b">2181 Greenwich St, San Francisco, CA 94123</span></div></li>
+          <li class="flex items-start gap-3 text-sm pb-4 border-b" style="color:#1a2e1a;border-color:rgba(46,107,62,0.12)"><span class="text-lg">📞</span><div><strong>Phone</strong><br><span style="color:#6b7c6b">Coming soon</span></div></li>
+          <li class="flex items-start gap-3 text-sm pb-4 border-b" style="color:#1a2e1a;border-color:rgba(46,107,62,0.12)"><span class="text-lg">✉️</span><div><strong>Email</strong><br><span style="color:#6b7c6b">Coming soon</span></div></li>
+          <li class="flex items-start gap-3 text-sm" style="color:#1a2e1a"><span class="text-lg">🕐</span><div><strong>Hours</strong><br><span style="color:#6b7c6b">Mon–Fri, 7AM–6PM PST</span></div></li>
+        </ul>
+        <div id="setupBox" class="p-5 border" style="border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.06)">
+          <p class="text-xs tracking-widest uppercase mb-1" style="color:#A8872E">⚙ Supabase Setup</p>
+          <p class="text-xs mb-4 leading-relaxed" style="color:#6b7c6b">Enter credentials to store form submissions. <a href="https://supabase.com" target="_blank" style="color:#A8872E;text-decoration:underline">Create free account →</a></p>
+          <label class="block text-xs tracking-widest uppercase mb-1.5" style="color:#6b7c6b">Project URL</label>
+          <input id="cfgUrl" class="w-full text-sm px-3 py-2.5 mb-3 outline-none border" style="border-color:rgba(46,107,62,0.2);background:#FAF8F3;color:#1a2e1a;font-family:'DM Sans',sans-serif" placeholder="https://xxxx.supabase.co"/>
+          <label class="block text-xs tracking-widest uppercase mb-1.5" style="color:#6b7c6b">Anon Key</label>
+          <input id="cfgKey" class="w-full text-sm px-3 py-2.5 mb-4 outline-none border" style="border-color:rgba(46,107,62,0.2);background:#FAF8F3;color:#1a2e1a;font-family:'DM Sans',sans-serif" placeholder="eyJhbGci..."/>
+          <button onclick="saveConfig()" class="w-full py-3 text-xs tracking-widest uppercase font-medium" style="background:#C9A84C;color:#1a2e1a;border:none;cursor:pointer">Save & Activate →</button>
+        </div>
+        <div id="setupOk" class="hidden p-4 border mt-4" style="border-color:rgba(46,107,62,0.3);background:rgba(46,107,62,0.06)">
+          <p class="text-sm" style="color:#2E6B3E">✓ Supabase connected. <button onclick="resetConfig()" class="underline" style="background:none;border:none;color:#A8872E;cursor:pointer;font-size:13px">Reset</button></p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div><label class="block text-xs tracking-widest uppercase mb-2" style="color:#6b7c6b">First Name</label><input id="fFN" class="w-full px-4 py-3 text-sm outline-none border" style="border-color:rgba(46,107,62,0.2);background:#F2EFE6;color:#1a2e1a;font-family:'DM Sans',sans-serif" placeholder="John"/></div>
+          <div><label class="block text-xs tracking-widest uppercase mb-2" style="color:#6b7c6b">Last Name</label><input id="fLN" class="w-full px-4 py-3 text-sm outline-none border" style="border-color:rgba(46,107,62,0.2);background:#F2EFE6;color:#1a2e1a;font-family:'DM Sans',sans-serif" placeholder="Smith"/></div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div><label class="block text-xs tracking-widest uppercase mb-2" style="color:#6b7c6b">Email</label><input id="fEM" type="email" class="w-full px-4 py-3 text-sm outline-none border" style="border-color:rgba(46,107,62,0.2);background:#F2EFE6;color:#1a2e1a;font-family:'DM Sans',sans-serif" placeholder="john@company.com"/></div>
+          <div><label class="block text-xs tracking-widest uppercase mb-2" style="color:#6b7c6b">Phone</label><input id="fPH" type="tel" class="w-full px-4 py-3 text-sm outline-none border" style="border-color:rgba(46,107,62,0.2);background:#F2EFE6;color:#1a2e1a;font-family:'DM Sans',sans-serif" placeholder="(415) 555-0000"/></div>
+        </div>
+        <div class="mb-4"><label class="block text-xs tracking-widest uppercase mb-2" style="color:#6b7c6b">Project Type</label><select id="fPT" class="w-full px-4 py-3 text-sm outline-none border appearance-none" style="border-color:rgba(46,107,62,0.2);background:#F2EFE6;color:#1a2e1a;font-family:'DM Sans',sans-serif"><option value="">Select a service</option><option>Residential Renovation</option><option>Commercial Renovation</option><option>Architectural Design</option><option>Structural Engineering</option><option>Interior Design</option><option>Permit Expediting</option><option>Other</option></select></div>
+        <div class="mb-4"><label class="block text-xs tracking-widest uppercase mb-2" style="color:#6b7c6b">Estimated Budget</label><select id="fBU" class="w-full px-4 py-3 text-sm outline-none border appearance-none" style="border-color:rgba(46,107,62,0.2);background:#F2EFE6;color:#1a2e1a;font-family:'DM Sans',sans-serif"><option value="">Select a range</option><option>Under $250K</option><option>$250K – $1M</option><option>$1M – $5M</option><option>$5M+</option></select></div>
+        <div class="mb-6"><label class="block text-xs tracking-widest uppercase mb-2" style="color:#6b7c6b">Project Details</label><textarea id="fDT" rows="4" class="w-full px-4 py-3 text-sm outline-none border resize-none" style="border-color:rgba(46,107,62,0.2);background:#F2EFE6;color:#1a2e1a;font-family:'DM Sans',sans-serif" placeholder="Tell us about your project, timeline, and any specific requirements..."></textarea></div>
+        <div id="fErr" class="hidden text-sm p-3 mb-4 border" style="border-color:#c0392b;background:rgba(192,57,43,.06);color:#c0392b"></div>
+        <div id="fOk" class="hidden p-4 mb-4 border" style="border-color:rgba(46,107,62,.3);background:rgba(46,107,62,.06)"><p class="text-sm font-medium mb-1" style="color:#2E6B3E">✓ Message received!</p><p class="text-sm" style="color:#6b7c6b">We'll be in touch within one business day.</p></div>
+        <button id="fBtn" onclick="submitForm()" class="btn-primary w-full text-center">Send Project Inquiry →</button>
+        <p class="text-xs text-center mt-3" style="color:#6b7c6b">Your information is stored securely and never shared.</p>
+      </div>
     </div>
-    <div id="setupOk" style="display:none;margin-top:24px;padding:14px 16px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.2)">
-      <p style="font-size:13px;color:rgba(255,255,255,.8)">✓ Supabase connected — submissions are being saved. <button onclick="resetConfig()" style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:13px;text-decoration:underline">Reset</button></p>
-    </div>
-  </div>
-  <div class="contact-r">
-    <div class="form-row">
-      <div class="fg"><label>First Name</label><input id="fFN" placeholder="John"/></div>
-      <div class="fg"><label>Last Name</label><input id="fLN" placeholder="Smith"/></div>
-    </div>
-    <div class="form-row">
-      <div class="fg"><label>Email</label><input id="fEM" type="email" placeholder="john@company.com"/></div>
-      <div class="fg"><label>Phone</label><input id="fPH" type="tel" placeholder="(415) 555-0000"/></div>
-    </div>
-    <div class="fg"><label>Project Type</label><select id="fPT"><option value="">Select a service</option><option>Residential Renovation</option><option>Commercial Renovation</option><option>Architectural Design</option><option>Structural Engineering</option><option>Interior Design</option><option>Permit Expediting</option><option>Other</option></select></div>
-    <div class="fg"><label>Estimated Budget</label><select id="fBU"><option value="">Select a range</option><option>Under $250K</option><option>$250K – $1M</option><option>$1M – $5M</option><option>$5M+</option></select></div>
-    <div class="fg"><label>Project Details</label><textarea id="fDT" placeholder="Tell us about your project, timeline, and any specific requirements..."></textarea></div>
-    <div class="msg err" id="fErr"></div>
-    <div class="msg ok" id="fOk"><strong>✓ Message received!</strong><br>We'll be in touch within one business day.</div>
-    <button class="submit-btn" id="fBtn" onclick="submitForm()">Send Project Inquiry →</button>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div><a href="#" class="foot-logo">Solid<span>Bay</span></a><p class="foot-tag">Two partners. 10 years. 100+ renovations across San Francisco and Marin County.</p></div>
-  <div class="foot-col"><h4>Services</h4><ul><li><a href="#services">Residential Renovation</a></li><li><a href="#services">Commercial Renovation</a></li><li><a href="#services">Architectural Design</a></li><li><a href="#services">Structural Engineering</a></li><li><a href="#services">Permit Expediting</a></li></ul></div>
-  <div class="foot-col"><h4>Company</h4><ul><li><a href="#about">About Us</a></li><li><a href="#projects">Projects</a></li><li><a href="blog.html">Blog & Resources</a></li><li><a href="#testimonials">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
-  <div class="foot-col"><h4>Service Areas</h4><ul><li><a href="#">San Francisco</a></li><li><a href="#">Marin County</a></li><li><a href="#">Marina District</a></li><li><a href="#">Pacific Heights</a></li><li><a href="#">Mill Valley</a></li></ul></div>
+<footer class="pt-16 pb-8 px-6 lg:px-12 border-t" style="background:#F2EFE6;border-color:rgba(46,107,62,0.15)">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+      <div class="col-span-2 md:col-span-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" width="130" height="60" class="mb-4">
+          <defs><linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#D4A843"/><stop offset="100%" style="stop-color:#A8872E"/></linearGradient></defs>
+          <rect x="0" y="46" width="56" height="26" fill="#2E6B3E"/>
+          <rect x="0" y="20" width="17" height="52" fill="#1e4f2c"/>
+          <rect x="39" y="28" width="17" height="44" fill="#1e4f2c"/>
+          <polygon points="17,6 28,20 39,6" fill="url(#fg)"/>
+          <rect x="0" y="17" width="17" height="4" fill="url(#fg)"/>
+          <rect x="39" y="25" width="17" height="4" fill="url(#fg)"/>
+          <rect x="25" y="56" width="10" height="16" fill="#F2EFE6"/>
+          <rect x="0" y="70" width="56" height="2" fill="url(#fg)"/>
+          <text x="66" y="40" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#A8872E" letter-spacing="-0.5">SOLID</text>
+          <text x="66" y="62" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#2E6B3E" letter-spacing="-0.5">BAY</text>
+        </svg>
+        <p class="text-xs leading-relaxed" style="color:#6b7c6b;max-width:180px">Two partners. 10 years. 100+ renovations across San Francisco and Marin County.</p>
+      </div>
+      <div><h4 class="text-xs tracking-widest uppercase mb-4 font-medium" style="color:#2E6B3E">Services</h4><ul class="space-y-2.5"><li><a href="#services" class="text-xs" style="color:#6b7c6b">Residential Renovation</a></li><li><a href="#services" class="text-xs" style="color:#6b7c6b">Commercial Renovation</a></li><li><a href="#services" class="text-xs" style="color:#6b7c6b">Architectural Design</a></li><li><a href="#services" class="text-xs" style="color:#6b7c6b">Structural Engineering</a></li><li><a href="#services" class="text-xs" style="color:#6b7c6b">Permit Expediting</a></li></ul></div>
+      <div><h4 class="text-xs tracking-widest uppercase mb-4 font-medium" style="color:#2E6B3E">Company</h4><ul class="space-y-2.5"><li><a href="#about" class="text-xs" style="color:#6b7c6b">About Us</a></li><li><a href="#team" class="text-xs" style="color:#6b7c6b">Our Team</a></li><li><a href="#projects" class="text-xs" style="color:#6b7c6b">Projects</a></li><li><a href="blog.html" class="text-xs" style="color:#6b7c6b">Blog & Resources</a></li><li><a href="#contact" class="text-xs" style="color:#6b7c6b">Contact</a></li></ul></div>
+      <div><h4 class="text-xs tracking-widest uppercase mb-4 font-medium" style="color:#2E6B3E">Service Areas</h4><ul class="space-y-2.5"><li><a href="#" class="text-xs" style="color:#6b7c6b">San Francisco</a></li><li><a href="#" class="text-xs" style="color:#6b7c6b">Marin County</a></li><li><a href="#" class="text-xs" style="color:#6b7c6b">Marina District</a></li><li><a href="#" class="text-xs" style="color:#6b7c6b">Pacific Heights</a></li><li><a href="#" class="text-xs" style="color:#6b7c6b">Mill Valley</a></li></ul></div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t gap-4" style="border-color:rgba(46,107,62,.12)">
+      <p class="text-xs" style="color:#6b7c6b">© 2026 SolidBay Construction SF. Est. 2016. All rights reserved.</p>
+      <p class="text-xs" style="color:#6b7c6b">Privacy Policy · Terms of Service</p>
+    </div>
+  </div>
 </footer>
-<div class="foot-bot"><p>© 2026 SolidBay Construction SF. Est. 2016. All rights reserved.</p><p>Privacy Policy · Terms of Service</p></div>
 
 <script>
+function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open')}
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80)})},{threshold:.1});
+reveals.forEach(el=>obs.observe(el));
 const KEY='solidbay_cfg';
 function loadCfg(){try{return JSON.parse(localStorage.getItem(KEY))||null}catch{return null}}
 function saveConfig(){
   const url=document.getElementById('cfgUrl').value.trim().replace(/\/$/,'');
   const key=document.getElementById('cfgKey').value.trim();
   if(!url||!key){alert('Please enter both fields.');return}
-  localStorage.setItem(KEY,JSON.stringify({url,key}));
-  showOk();
-  console.log('%cRun this SQL in Supabase → SQL Editor:','color:#C9A84C;font-weight:bold;font-size:14px');
-  console.log(`CREATE TABLE IF NOT EXISTS contact_submissions (
-  id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
-  created_at timestamptz DEFAULT now(),
-  first_name text NOT NULL,
-  last_name text NOT NULL,
-  email text NOT NULL,
-  phone text,
-  project_type text,
-  budget text,
-  details text
-);
-ALTER TABLE contact_submissions ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow public inserts" ON contact_submissions FOR INSERT TO anon WITH CHECK (true);`);
+  localStorage.setItem(KEY,JSON.stringify({url,key}));showOk();
+  console.log('%cRun this SQL in Supabase SQL Editor:','color:#C9A84C;font-weight:bold');
+  console.log('CREATE TABLE IF NOT EXISTS contact_submissions (id uuid DEFAULT gen_random_uuid() PRIMARY KEY, created_at timestamptz DEFAULT now(), first_name text NOT NULL, last_name text NOT NULL, email text NOT NULL, phone text, project_type text, budget text, details text);\nALTER TABLE contact_submissions ENABLE ROW LEVEL SECURITY;\nCREATE POLICY "Allow public inserts" ON contact_submissions FOR INSERT TO anon WITH CHECK (true);');
 }
-function showOk(){document.getElementById('setupBox').style.display='none';document.getElementById('setupOk').style.display='block'}
-function resetConfig(){localStorage.removeItem(KEY);document.getElementById('setupBox').style.display='block';document.getElementById('setupOk').style.display='none'}
+function showOk(){document.getElementById('setupBox').classList.add('hidden');document.getElementById('setupOk').classList.remove('hidden')}
+function resetConfig(){localStorage.removeItem(KEY);document.getElementById('setupBox').classList.remove('hidden');document.getElementById('setupOk').classList.add('hidden')}
 window.addEventListener('DOMContentLoaded',()=>{if(loadCfg())showOk()});
-
 async function submitForm(){
-  const btn=document.getElementById('fBtn');
-  const err=document.getElementById('fErr');
-  const ok=document.getElementById('fOk');
-  const fn=document.getElementById('fFN').value.trim();
-  const ln=document.getElementById('fLN').value.trim();
-  const em=document.getElementById('fEM').value.trim();
-  err.style.display='none';ok.style.display='none';
+  const btn=document.getElementById('fBtn'),err=document.getElementById('fErr'),ok=document.getElementById('fOk');
+  const fn=document.getElementById('fFN').value.trim(),ln=document.getElementById('fLN').value.trim(),em=document.getElementById('fEM').value.trim();
+  err.classList.add('hidden');ok.classList.add('hidden');
   if(!fn||!ln){showErr('Please enter your first and last name.');return}
   if(!em||!em.includes('@')){showErr('Please enter a valid email address.');return}
   const cfg=loadCfg();
-  if(!cfg){showErr('Please configure Supabase first using the panel on the left.');return}
+  if(!cfg){showErr('Please configure Supabase first.');return}
   btn.textContent='Sending…';btn.disabled=true;btn.style.opacity='.7';
   try{
-    const r=await fetch(`${cfg.url}/rest/v1/contact_submissions`,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','apikey':cfg.key,'Authorization':`Bearer ${cfg.key}`,'Prefer':'return=minimal'},
-      body:JSON.stringify({first_name:fn,last_name:ln,email:em,phone:document.getElementById('fPH').value||null,project_type:document.getElementById('fPT').value||null,budget:document.getElementById('fBU').value||null,details:document.getElementById('fDT').value||null})
-    });
-    if(r.ok){
-      ok.style.display='block';
-      ['fFN','fLN','fEM','fPH','fDT'].forEach(i=>document.getElementById(i).value='');
-      document.getElementById('fPT').selectedIndex=0;document.getElementById('fBU').selectedIndex=0;
-      btn.textContent='✓ Sent!';btn.style.background='#1a3d24';
-      setTimeout(()=>{btn.textContent='Send Project Inquiry →';btn.style.background='';btn.disabled=false;btn.style.opacity='1'},4000);
-    } else {
-      const b=await r.json().catch(()=>({}));
-      showErr(r.status===404?'Table not found — run the SQL from browser console in Supabase.':r.status===401?'Auth error — check your Anon Key.':`Error: ${b.message||r.status}`);
-      resetBtn();
-    }
+    const r=await fetch(`${cfg.url}/rest/v1/contact_submissions`,{method:'POST',headers:{'Content-Type':'application/json','apikey':cfg.key,'Authorization':`Bearer ${cfg.key}`,'Prefer':'return=minimal'},body:JSON.stringify({first_name:fn,last_name:ln,email:em,phone:document.getElementById('fPH').value||null,project_type:document.getElementById('fPT').value||null,budget:document.getElementById('fBU').value||null,details:document.getElementById('fDT').value||null})});
+    if(r.ok){ok.classList.remove('hidden');['fFN','fLN','fEM','fPH','fDT'].forEach(i=>document.getElementById(i).value='');document.getElementById('fPT').selectedIndex=0;document.getElementById('fBU').selectedIndex=0;btn.textContent='✓ Sent!';btn.style.background='#1e4f2c';setTimeout(()=>{btn.textContent='Send Project Inquiry →';btn.style.background='';btn.disabled=false;btn.style.opacity='1'},4000)}
+    else{const b=await r.json().catch(()=>({}));showErr(r.status===404?'Table not found — run SQL in Supabase.':r.status===401?'Auth error — check your Anon Key.':`Error: ${b.message||r.status}`);resetBtn()}
   }catch(e){showErr('Could not reach Supabase — check your Project URL.');resetBtn()}
 }
-function showErr(m){const e=document.getElementById('fErr');e.textContent=m;e.style.display='block'}
+function showErr(m){const e=document.getElementById('fErr');e.textContent=m;e.classList.remove('hidden')}
 function resetBtn(){const b=document.getElementById('fBtn');b.textContent='Send Project Inquiry →';b.disabled=false;b.style.opacity='1'}
 </script>
 </body>
