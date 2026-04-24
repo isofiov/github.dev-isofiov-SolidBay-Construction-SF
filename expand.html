@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Expand & Finance Your Home | SolidBay Construction SF</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --dark: #1a2e1a;
+    --green: #2E6B3E;
+    --green-light: #3d8a52;
+    --gold: #C9A84C;
+    --gold-light: #e8c97a;
+    --muted: #6B6555;
+    --border: #DDD5C0;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--dark);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--cream);
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+
+  .logo span { color: var(--gold); }
+
+  nav a.back {
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--dark);
+    padding: 80px 40px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 10% 50%, rgba(46,107,62,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse at 90% 20%, rgba(201,168,76,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+    opacity: .5;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 58px);
+    font-weight: 600;
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-desc {
+    font-size: 13px;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .badge {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px;
+    padding: 6px 14px;
+    font-size: 10px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* STATS */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .stat-card {
+    background: rgba(245,240,232,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    padding: 24px;
+  }
+
+  .stat-card .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-card .label {
+    font-size: 10px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+  }
+
+  /* HOW IT WORKS */
+  .how {
+    background: var(--white);
+    padding: 80px 40px;
+  }
+
+  .how-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    font-size: 10px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-tag::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--green);
+    opacity: .4;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 48px;
+    line-height: 1.1;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .step {
+    position: relative;
+    padding: 32px;
+    background: var(--cream);
+    border-radius: 4px;
+    border-top: 3px solid var(--green);
+  }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgba(46,107,62,0.15);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .step h3 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    color: var(--dark);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .step p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* SERVICES */
+  .services {
+    background: var(--dark);
+    padding: 80px 40px;
+  }
+
+  .services-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .services .section-tag { color: var(--gold); }
+  .services .section-tag::after { background: var(--gold); }
+  .services .section-title { color: var(--cream); }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .service-card {
+    background: rgba(245,240,232,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 4px;
+    padding: 28px 32px;
+    transition: border-color .2s, background .2s;
+  }
+
+  .service-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    background: rgba(245,240,232,0.07);
+  }
+
+  .service-icon { font-size: 28px; margin-bottom: 14px; }
+
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .service-card p {
+    font-size: 12px;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .service-value {
+    margin-top: 14px;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  /* FORM SECTION */
+  .form-section {
+    background: var(--cream);
+    padding: 80px 40px;
+  }
+
+  .form-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .form-left .section-title { margin-bottom: 20px; }
+
+  .form-left p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+
+  .trust-items { display: flex; flex-direction: column; gap: 14px; }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--dark);
+  }
+
+  .trust-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* FORM */
+  .form-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+
+  .form-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .form-card .form-sub {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .05em;
+    margin-bottom: 28px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .form-group.half { margin-bottom: 0; }
+
+  label {
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 12px 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: var(--dark);
+    outline: none;
+    transition: border-color .2s;
+    width: 100%;
+  }
+
+  input::placeholder, textarea::placeholder { color: rgba(107,101,85,0.5); }
+  input:focus, select:focus, textarea:focus { border-color: var(--green); }
+
+  select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6555' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+
+  textarea { resize: vertical; min-height: 80px; }
+
+  .divider-line {
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0;
+  }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .btn-submit {
+    width: 100%;
+    margin-top: 20px;
+    background: var(--green);
+    color: var(--cream);
+    border: none;
+    border-radius: 3px;
+    padding: 16px 32px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+  }
+
+  .btn-submit:hover { background: var(--green-light); transform: translateY(-1px); }
+  .btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+  .form-privacy {
+    font-size: 10px;
+    color: rgba(107,101,85,0.5);
+    text-align: center;
+    margin-top: 12px;
+    letter-spacing: .03em;
+  }
+
+  .error-msg {
+    font-size: 11px;
+    color: #e74c3c;
+    margin-top: 10px;
+    display: none;
+    text-align: center;
+  }
+
+  /* SUCCESS */
+  .success-card {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+    color: white;
+  }
+
+  .success-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .success-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(221,213,192,0.1);
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 11px;
+    color: rgba(245,240,232,0.2);
+    letter-spacing: .05em;
+  }
+
+  @media (max-width: 768px) {
+    .hero-inner, .form-inner, .steps, .service-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    nav, .hero, .how, .services, .form-section { padding-left: 20px; padding-right: 20px; }
+    .form-card { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://solidbayconstructionsf.com" class="logo">SOLID<span>BAY</span></a>
+  <a href="https://solidbayconstructionsf.com" class="back">← Back to Site</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">SolidBay Construction SF</div>
+      <h1>Build More.<br/><em>Own More.</em><br/>Earn More.</h1>
+      <p class="hero-desc">Whether you're buying a new home or expanding the one you have — we partner with you from financing through construction to maximize your property's potential.</p>
+      <div class="hero-badges">
+        <span class="badge">ADU Construction</span>
+        <span class="badge">Garage Conversion</span>
+        <span class="badge">Home Additions</span>
+        <span class="badge">Mortgage Partner</span>
+        <span class="badge">Vertical Additions</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="num">$500K+</div>
+        <div class="label">Avg. value added per ADU in SF</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">100+</div>
+        <div class="label">Projects completed in SF & Marin</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">10yr</div>
+        <div class="label">Experience in SF renovations</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">1 Call</div>
+        <div class="label">From inquiry to expert advice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="how-inner">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">From Property to Profit<br/>in Three Steps</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Share Your Property</h3>
+        <p>Fill out the form below with your property details — whether you own it already or are looking to buy. Our team reviews your equity and expansion potential.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Get Your Strategy</h3>
+        <p>Our mortgage partner and construction team will call you within 24 hours with a financing and expansion plan tailored to your property and goals.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Build & Grow</h3>
+        <p>We handle everything — permits, design, financing, construction — so you can add square footage, rental income, or resale value to your property.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="services-inner">
+    <div class="section-tag">What We Offer</div>
+    <h2 class="section-title">Every Way to Expand<br/>Your Property</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>ADU Construction</h3>
+        <p>Build a fully permitted accessory dwelling unit on your property. Generate $3,000–$5,000/month in rental income while adding significant resale value.</p>
+        <div class="service-value">↑ $300K–$500K property value increase</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚗</div>
+        <h3>Garage Conversion</h3>
+        <p>Transform your unused garage into a legal living unit. The most cost-effective way to add square footage and rental income in SF and Marin County.</p>
+        <div class="service-value">↑ Starting from $180K fully permitted</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⬆️</div>
+        <h3>Vertical Addition</h3>
+        <p>Add a full floor to your existing home. Ideal for SF's narrow lots — double your living space without losing your yard.</p>
+        <div class="service-value">↑ Most value per sq ft in SF</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">➡️</div>
+        <h3>Horizontal Addition</h3>
+        <p>Expand outward with a room addition, expanded kitchen, or new master suite. Perfect for Marin County properties with yard space.</p>
+        <div class="service-value">↑ $200–$400/sq ft added value</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+  <div class="form-inner">
+    <div class="form-left">
+      <div class="section-tag">Get Started</div>
+      <h2 class="section-title">Tell Us About<br/>Your Property</h2>
+      <p>Our team — including our mortgage partner — will review your details and call you within one business day with a personalized expansion and financing strategy.</p>
+      <div class="trust-items">
+        <div class="trust-item"><div class="trust-dot"></div>Free consultation — no obligation</div>
+        <div class="trust-item"><div class="trust-dot"></div>Response within 1 business day</div>
+        <div class="trust-item"><div class="trust-dot"></div>In-house architects, engineers & mortgage partner</div>
+        <div class="trust-item"><div class="trust-dot"></div>100+ projects across SF & Marin County</div>
+        <div class="trust-item"><div class="trust-dot"></div>Licensed & bonded California contractor</div>
+      </div>
+    </div>
+
+    <div class="form-card" id="formCard">
+      <h3>Start Your Free Assessment</h3>
+      <p class="form-sub">We'll call you within 1 business day</p>
+
+      <div class="section-label">Your Info</div>
+      <div class="form-row">
+        <div class="form-group half">
+          <label>First Name *</label>
+          <input type="text" id="firstName" placeholder="John"/>
+        </div>
+        <div class="form-group half">
+          <label>Last Name</label>
+          <input type="text" id="lastName" placeholder="Smith"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Email *</label>
+          <input type="email" id="email" placeholder="john@email.com"/>
+        </div>
+        <div class="form-group half">
+          <label>Phone *</label>
+          <input type="tel" id="phone" placeholder="(415) 000-0000"/>
+        </div>
+      </div>
+
+      <div class="divider-line"></div>
+      <div class="section-label">Property Details</div>
+
+      <div class="form-group">
+        <label>Property Address *</label>
+        <input type="text" id="address" placeholder="123 Main St, San Francisco, CA"/>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Purchase Price / Current Value</label>
+          <input type="text" id="propertyValue" placeholder="e.g. $1,200,000"/>
+        </div>
+        <div class="form-group half">
+          <label>Current Loan Balance</label>
+          <input type="text" id="loanBalance" placeholder="e.g. $600,000"/>
+        </div>
+      </div>
+
+      <div class="divider-line"></div>
+      <div class="section-label">Project Goals</div>
+
+      <div class="form-group">
+        <label>Type of Project *</label>
+        <select id="projectType">
+          <option value="">Select a project type...</option>
+          <option>ADU Construction</option>
+          <option>Garage Conversion</option>
+          <option>Vertical Addition (add a floor)</option>
+          <option>Horizontal Addition (room addition)</option>
+          <option>Full Home Renovation + Expansion</option>
+          <option>Buying a new home + renovation</option>
+          <option>Not sure — need advice</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Estimated Budget Range</label>
+        <select id="budget">
+          <option value="">Select a range...</option>
+          <option>Under $250K</option>
+          <option>$250K – $500K</option>
+          <option>$500K – $1M</option>
+          <option>$1M+</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Tell Us More (optional)</label>
+        <textarea id="notes" placeholder="Describe your goals, timeline, or any questions you have..."></textarea>
+      </div>
+
+      <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">
+        Request My Free Assessment →
+      </button>
+      <div class="error-msg" id="errorMsg">Something went wrong. Please try again.</div>
+      <p class="form-privacy">Your information is private and never shared. We'll only contact you about your project.</p>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="form-card" id="successCard" style="display:none;">
+      <div class="success-card" style="display:block;">
+        <div class="success-icon">✓</div>
+        <h3>We'll Be In Touch!</h3>
+        <p>Thank you for submitting your property details.<br/>Our team will call you within <strong>1 business day</strong> with your personalized expansion and financing strategy.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2025 SolidBay Construction SF · Est. 2016 · <a href="https://solidbayconstructionsf.com" style="color:inherit;">solidbayconstructionsf.com</a>
+</footer>
+
+<script>
+const SUPABASE_URL = 'https://ovkaxkaixelforlelvrw.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92a2F4a2FpeGVsZm9ybGVsdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4ODQ0NzksImV4cCI6MjA5MjQ2MDQ3OX0.haE9YGi2riH_2lHPDInI3h-Sl5bQukRe5YyC2fdjnG4';
+
+async function handleSubmit() {
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName = document.getElementById('lastName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const propertyValue = document.getElementById('propertyValue').value.trim();
+  const loanBalance = document.getElementById('loanBalance').value.trim();
+  const projectType = document.getElementById('projectType').value;
+  const budget = document.getElementById('budget').value;
+  const notes = document.getElementById('notes').value.trim();
+
+  const btn = document.getElementById('submitBtn');
+  const errorMsg = document.getElementById('errorMsg');
+  errorMsg.style.display = 'none';
+
+  if (!firstName) { alert('Please enter your first name.'); return; }
+  if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
+  if (!phone) { alert('Please enter your phone number.'); return; }
+  if (!address) { alert('Please enter your property address.'); return; }
+  if (!projectType) { alert('Please select a project type.'); return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  try {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/property_leads`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        phone,
+        address,
+        property_value: propertyValue,
+        loan_balance: loanBalance,
+        project_type: projectType,
+        budget,
+        notes
+      })
+    });
+
+    if (response.ok || response.status === 201) {
+      document.getElementById('formCard').style.display = 'none';
+      document.getElementById('successCard').style.display = 'block';
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Request My Free Assessment →';
+    errorMsg.style.display = 'block';
+  }
+}
+</script>
+</body>
+</html>
