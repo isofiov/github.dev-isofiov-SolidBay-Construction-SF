@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Checklist: How to Choose a Contractor | SolidBay Construction SF</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --dark: #1a2e1a;
+    --green: #2E6B3E;
+    --gold: #C9A84C;
+    --gold-light: #e8c97a;
+    --muted: #6B6555;
+    --border: #DDD5C0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--dark); font-family: 'Montserrat', sans-serif; color: var(--cream); min-height: 100vh; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(ellipse at 20% 20%, rgba(46,107,62,0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.08) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+  .page-wrapper { position: relative; z-index: 1; }
+  nav { padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--cream); text-decoration: none; letter-spacing: 2px; }
+  .logo span { color: var(--gold); }
+  nav a.back { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+  .hero { max-width: 900px; margin: 0 auto; padding: 80px 40px 60px; text-align: center; }
+  .tag-line { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+  .tag-line::before, .tag-line::after { content: ''; width: 30px; height: 1px; background: var(--gold); opacity: .5; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 6vw, 72px); font-weight: 600; line-height: 1.05; color: var(--cream); margin-bottom: 12px; }
+  h1 em { font-style: italic; color: var(--gold); }
+  .subtitle { font-size: 14px; color: rgba(245,240,232,0.6); letter-spacing: .05em; margin-bottom: 48px; font-weight: 300; }
+  .form-box { background: rgba(245,240,232,0.04); border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; padding: 40px; max-width: 520px; margin: 0 auto 60px; backdrop-filter: blur(10px); }
+  .form-label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
+  .input-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  input[type="text"], input[type="email"] { flex: 1; min-width: 180px; background: rgba(245,240,232,0.07); border: 1px solid rgba(221,213,192,0.3); border-radius: 3px; padding: 14px 18px; font-family: 'Montserrat', sans-serif; font-size: 13px; color: var(--cream); outline: none; transition: border-color .2s; }
+  input::placeholder { color: rgba(245,240,232,0.35); }
+  input:focus { border-color: var(--gold); }
+  .btn-download { width: 100%; margin-top: 14px; background: var(--gold); color: var(--dark); border: none; border-radius: 3px; padding: 16px 32px; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .15s; }
+  .btn-download:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-download:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+  .privacy { font-size: 10px; color: rgba(245,240,232,0.3); margin-top: 12px; letter-spacing: .05em; }
+  .error-msg { font-size: 11px; color: #e74c3c; margin-top: 10px; display: none; }
+  .success-box { text-align: center; padding: 20px 0; }
+  .checkmark { width: 56px; height: 56px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px; }
+  .success-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--cream); margin-bottom: 8px; }
+  .success-box p { font-size: 12px; color: rgba(245,240,232,0.5); }
+  .btn-get { display: inline-block; margin-top: 20px; background: transparent; border: 1px solid var(--gold); color: var(--gold); border-radius: 3px; padding: 14px 32px; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: all .2s; }
+  .btn-get:hover { background: var(--gold); color: var(--dark); }
+  .divider { display: flex; align-items: center; gap: 20px; max-width: 600px; margin: 0 auto 60px; }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: rgba(221,213,192,0.2); }
+  .divider span { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,240,232,0.3); }
+  .preview { max-width: 760px; margin: 0 auto; padding: 0 40px 100px; }
+  .preview-title { text-align: center; font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: rgba(245,240,232,0.3); margin-bottom: 32px; }
+  .checklist-preview { background: var(--cream); color: var(--dark); border-radius: 4px; padding: 48px 52px; box-shadow: 0 40px 80px rgba(0,0,0,0.4); position: relative; overflow: hidden; }
+  .checklist-preview::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--green); }
+  .cl-header { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .cl-tag { font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+  .cl-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--dark); line-height: 1.2; margin-bottom: 6px; }
+  .cl-sub { font-size: 11px; color: var(--muted); letter-spacing: .05em; }
+  .section-title { font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: var(--green); margin: 24px 0 14px; display: flex; align-items: center; gap: 10px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(221,213,192,0.4); }
+  .check-item:last-child { border-bottom: none; }
+  .check-box { width: 18px; height: 18px; border: 1.5px solid var(--border); border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+  .check-item strong { display: block; font-size: 12px; font-weight: 600; color: var(--dark); margin-bottom: 2px; }
+  .check-item span { font-size: 11px; color: var(--muted); font-weight: 300; }
+  .red-flag { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(221,213,192,0.4); }
+  .red-flag:last-child { border-bottom: none; }
+  .flag-icon { font-size: 14px; margin-top: 2px; flex-shrink: 0; }
+  .red-flag strong { display: block; font-size: 12px; font-weight: 600; color: #c0392b; margin-bottom: 2px; }
+  .red-flag span { font-size: 11px; color: var(--muted); font-weight: 300; }
+  .unlock-cta { text-align: center; padding: 32px 20px 0; }
+  .unlock-cta p { font-size: 13px; color: rgba(245,240,232,0.5); margin-bottom: 16px; }
+  footer { border-top: 1px solid rgba(221,213,192,0.1); padding: 24px 40px; text-align: center; font-size: 11px; color: rgba(245,240,232,0.2); letter-spacing: .05em; }
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    .hero { padding: 50px 20px 40px; }
+    .form-box { padding: 28px 20px; margin: 0 20px 40px; }
+    .checklist-preview { padding: 32px 24px; }
+    .preview { padding: 0 20px 60px; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <nav>
+    <a href="https://solidbayconstructionsf.com" class="logo">SOLID<span>BAY</span></a>
+    <a href="https://solidbayconstructionsf.com" class="back">← Back to Site</a>
+  </nav>
+
+  <div class="hero">
+    <div class="tag-line">Free Download · San Francisco</div>
+    <h1>How to Choose a Contractor<br/><em>and Not Get Burned</em></h1>
+    <p class="subtitle">The exact checklist SF homeowners use before signing anything</p>
+  </div>
+
+  <div class="form-box" id="formBox">
+    <span class="form-label">Get the free checklist →</span>
+    <div class="input-row">
+      <input type="text" id="nameInput" placeholder="Your first name" autocomplete="given-name"/>
+      <input type="email" id="emailInput" placeholder="Your email address" autocomplete="email"/>
+    </div>
+    <button class="btn-download" id="submitBtn" onclick="handleSubmit()">Send Me the Checklist →</button>
+    <div class="error-msg" id="errorMsg">Something went wrong. Please try again.</div>
+    <p class="privacy">No spam. Unsubscribe anytime. We respect your privacy.</p>
+  </div>
+
+  <div class="form-box" id="successBox" style="display:none;">
+    <div class="success-box">
+      <div class="checkmark">✓</div>
+      <h3>It's on its way!</h3>
+      <p>Check your inbox — your checklist is waiting.<br/>While you're here, scroll down for a preview.</p>
+      <a href="#checklist" class="btn-get">See the Full Checklist ↓</a>
+    </div>
+  </div>
+
+  <div class="divider"><span>Preview what's inside</span></div>
+
+  <div class="preview" id="checklist">
+    <p class="preview-title">Inside the checklist</p>
+    <div class="checklist-preview">
+      <div class="cl-header">
+        <div class="cl-tag">SolidBay Construction SF · Free Resource</div>
+        <div class="cl-title">How to Choose a Contractor<br/>and Not Fall for the Trap</div>
+        <div class="cl-sub">12 Must-Ask Questions · 8 Red Flags · SF-Specific Tips</div>
+      </div>
+
+      <div class="section-title">✓ Must-Ask Questions Before You Sign</div>
+
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>Are you licensed in California?</strong><span>Ask for their CSLB license number and verify at cslb.ca.gov. Any legit contractor will give this instantly.</span></div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>Do you carry general liability + workers' comp insurance?</strong><span>Ask for a certificate of insurance. Minimum $1M liability. Without this, YOU are liable if a worker gets hurt on your property.</span></div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>Can you provide 3 recent references in SF or Marin?</strong><span>Not just names — actual phone numbers of past clients you can call. Ask them: "Would you hire them again?"</span></div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>Who will be on-site daily?</strong><span>Some contractors win the bid then hand off to a subcontractor you've never met. Know who's actually running your job.</span></div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div><strong>What does your payment schedule look like?</strong><span>Never pay more than 10% upfront (California law). A fair schedule ties payments to completed milestones.</span></div>
+      </div>
+
+      <div class="section-title">🚩 Red Flags — Walk Away If You See These</div>
+
+      <div class="red-flag">
+        <div class="flag-icon">🚩</div>
+        <div><strong>They ask for more than 10% upfront</strong><span>California law caps initial deposits at 10% or $1,000 — whichever is less. More than that is illegal and a serious warning sign.</span></div>
+      </div>
+      <div class="red-flag">
+        <div class="flag-icon">🚩</div>
+        <div><strong>No written contract — "let's just shake on it"</strong><span>Every legitimate contractor works from a written contract. Verbal agreements are unenforceable and almost always end badly.</span></div>
+      </div>
+      <div class="red-flag">
+        <div class="flag-icon">🚩</div>
+        <div><strong>They say you don't need a permit</strong><span>Almost every structural, electrical, or plumbing change in SF requires a permit. A contractor who skips permits is protecting themselves, not you.</span></div>
+      </div>
+    </div>
+
+    <div class="unlock-cta">
+      <p>Enter your email above to unlock the full checklist with all 12 questions, 8 red flags, and SF-specific permit tips.</p>
+      <a href="#formBox" class="btn-get" onclick="document.getElementById('emailInput').focus()">Get the Full Checklist Free →</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 SolidBay Construction SF · Est. 2016 · <a href="https://solidbayconstructionsf.com" style="color:inherit;">solidbayconstructionsf.com</a>
+  </footer>
+
+</div>
+
+<script>
+const SUPABASE_URL = 'https://ovkaxkaixelforlelvrw.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92a2F4a2FpeGVsZm9ybGVsdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4ODQ0NzksImV4cCI6MjA5MjQ2MDQ3OX0.haE9YGi2riH_2lHPDInI3h-Sl5bQukRe5YyC2fdjnG4';
+
+async function handleSubmit() {
+  const name = document.getElementById('nameInput').value.trim();
+  const email = document.getElementById('emailInput').value.trim();
+  const btn = document.getElementById('submitBtn');
+  const errorMsg = document.getElementById('errorMsg');
+
+  errorMsg.style.display = 'none';
+
+  if (!name) { alert('Please enter your first name.'); document.getElementById('nameInput').focus(); return; }
+  if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); document.getElementById('emailInput').focus(); return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  try {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ name, email })
+    });
+
+    if (response.ok || response.status === 201) {
+      document.getElementById('formBox').style.display = 'none';
+      document.getElementById('successBox').style.display = 'block';
+      setTimeout(() => { document.getElementById('checklist').scrollIntoView({ behavior: 'smooth' }); }, 800);
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Send Me the Checklist →';
+    errorMsg.style.display = 'block';
+  }
+}
+
+document.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleSubmit(); });
+</script>
+</body>
+</html>
