@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SolidBay Service Area Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --gold: #B8952A;
+    --gold-light: #D4AF4A;
+    --dark: #2C2C2C;
+    --muted: #6B6555;
+    --border: #DDD5C0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark);
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .service-area-section {
+    padding: 80px 40px;
+    background: var(--cream);
+  }
+
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 1px;
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  /* ── LAYOUT ── */
+  .map-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .map-layout { grid-template-columns: 1fr; }
+    .service-area-section { padding: 60px 20px; }
+  }
+
+  /* ── MAP ── */
+  #map {
+    height: 520px;
+    border: 1px solid var(--border);
+    filter: grayscale(20%) sepia(10%);
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar { display: flex; flex-direction: column; gap: 24px; }
+
+  .area-card {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    transition: border-color 0.2s;
+  }
+
+  .area-card:hover { border-color: var(--gold); }
+
+  .area-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .area-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-sf { background: var(--gold); }
+  .dot-marin { background: #5A7A5A; }
+
+  .zip-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .zip-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: var(--cream);
+  }
+
+  .city-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .city-item {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    padding: 2px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .city-item:last-child { border-bottom: none; }
+
+  /* ── CUSTOM MARKER ── */
+  .custom-marker {
+    width: 28px;
+    height: 28px;
+    background: var(--gold, #B8952A);
+    border: 2px solid white;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+
+  .custom-marker-marin {
+    background: #5A7A5A !important;
+  }
+
+  /* Leaflet popup styling */
+  .leaflet-popup-content-wrapper {
+    background: white;
+    border: 1px solid var(--border, #DDD5C0);
+    border-radius: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .leaflet-popup-tip { background: white; }
+
+  .popup-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2C2C2C;
+    margin-bottom: 4px;
+  }
+
+  .popup-zip {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #B8952A;
+    font-weight: 600;
+  }
+
+  .popup-type {
+    font-size: 11px;
+    color: #6B6555;
+    margin-top: 4px;
+    font-weight: 300;
+  }
+</style>
+</head>
+<body>
+
+<section class="service-area-section">
+  <div style="max-width:1200px; margin:0 auto;">
+    <p class="section-label">Where We Work</p>
+    <h2 class="section-title">OUR SERVICE AREAS</h2>
+    <p class="section-subtitle">From Victorian flats in Noe Valley to hillside homes in Marin County — we've renovated across San Francisco and beyond.</p>
+  </div>
+
+  <div class="map-layout">
+    <div id="map"></div>
+
+    <div class="sidebar">
+
+      <!-- SF Card -->
+      <div class="area-card">
+        <div class="area-card-title">
+          <span class="area-dot dot-sf"></span>
+          San Francisco
+        </div>
+        <div class="zip-grid">
+          <span class="zip-tag">94102</span>
+          <span class="zip-tag">94103</span>
+          <span class="zip-tag">94104</span>
+          <span class="zip-tag">94105</span>
+          <span class="zip-tag">94107</span>
+          <span class="zip-tag">94109</span>
+          <span class="zip-tag">94110</span>
+          <span class="zip-tag">94114</span>
+          <span class="zip-tag">94115</span>
+          <span class="zip-tag">94116</span>
+          <span class="zip-tag">94117</span>
+          <span class="zip-tag">94118</span>
+          <span class="zip-tag">94121</span>
+          <span class="zip-tag">94122</span>
+          <span class="zip-tag">94123</span>
+          <span class="zip-tag">94131</span>
+          <span class="zip-tag">94132</span>
+          <span class="zip-tag">94133</span>
+        </div>
+        <div class="city-list">
+          <div class="city-item">Marina District</div>
+          <div class="city-item">Pacific Heights</div>
+          <div class="city-item">Noe Valley</div>
+          <div class="city-item">SoMa</div>
+          <div class="city-item">Mission District</div>
+          <div class="city-item">Castro</div>
+          <div class="city-item">Haight-Ashbury</div>
+          <div class="city-item">Richmond District</div>
+          <div class="city-item">Sunset District</div>
+          <div class="city-item">Embarcadero</div>
+        </div>
+      </div>
+
+      <!-- Marin Card -->
+      <div class="area-card">
+        <div class="area-card-title">
+          <span class="area-dot dot-marin"></span>
+          Marin County
+        </div>
+        <div class="zip-grid">
+          <span class="zip-tag">94901</span>
+          <span class="zip-tag">94920</span>
+          <span class="zip-tag">94925</span>
+          <span class="zip-tag">94930</span>
+          <span class="zip-tag">94939</span>
+          <span class="zip-tag">94941</span>
+          <span class="zip-tag">94960</span>
+          <span class="zip-tag">94965</span>
+        </div>
+        <div class="city-list">
+          <div class="city-item">Mill Valley</div>
+          <div class="city-item">Sausalito</div>
+          <div class="city-item">Tiburon</div>
+          <div class="city-item">Corte Madera</div>
+          <div class="city-item">San Anselmo</div>
+          <div class="city-item">Fairfax</div>
+          <div class="city-item">Larkspur</div>
+          <div class="city-item">San Rafael</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Initialize map centered between SF and Marin
+  const map = L.map('map', {
+    center: [37.82, -122.46],
+    zoom: 11,
+    zoomControl: true,
+    scrollWheelZoom: false
+  });
+
+  // Warm, minimal tile layer
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap © CARTO',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  // Custom icon factory
+  function makeIcon(color) {
+    return L.divIcon({
+      className: '',
+      html: `<div style="
+        width:22px;height:22px;
+        background:${color};
+        border:2px solid white;
+        border-radius:50% 50% 50% 0;
+        transform:rotate(-45deg);
+        box-shadow:0 2px 8px rgba(0,0,0,0.3);
+      "></div>`,
+      iconSize: [22, 22],
+      iconAnchor: [11, 22],
+      popupAnchor: [0, -24]
+    });
+  }
+
+  const sfIcon    = makeIcon('#B8952A');
+  const marinIcon = makeIcon('#5A7A5A');
+
+  // SF Locations
+  const sfLocations = [
+    { name: "Marina District",   zip: "94123", lat: 37.8030, lng: -122.4360 },
+    { name: "Pacific Heights",   zip: "94115", lat: 37.7925, lng: -122.4382 },
+    { name: "Noe Valley",        zip: "94114", lat: 37.7502, lng: -122.4330 },
+    { name: "SoMa",              zip: "94103", lat: 37.7785, lng: -122.4056 },
+    { name: "Mission District",  zip: "94110", lat: 37.7599, lng: -122.4148 },
+    { name: "Castro",            zip: "94114", lat: 37.7609, lng: -122.4350 },
+    { name: "Haight-Ashbury",    zip: "94117", lat: 37.7692, lng: -122.4481 },
+    { name: "Richmond District", zip: "94118", lat: 37.7799, lng: -122.4644 },
+    { name: "Sunset District",   zip: "94122", lat: 37.7527, lng: -122.4877 },
+    { name: "Embarcadero",       zip: "94105", lat: 37.7955, lng: -122.3937 },
+  ];
+
+  // Marin Locations
+  const marinLocations = [
+    { name: "Mill Valley",    zip: "94941", lat: 37.9060, lng: -122.5450 },
+    { name: "Sausalito",      zip: "94965", lat: 37.8590, lng: -122.4853 },
+    { name: "Tiburon",        zip: "94920", lat: 37.8907, lng: -122.4570 },
+    { name: "Corte Madera",   zip: "94925", lat: 37.9254, lng: -122.5241 },
+    { name: "San Anselmo",    zip: "94960", lat: 37.9749, lng: -122.5614 },
+    { name: "Fairfax",        zip: "94930", lat: 37.9871, lng: -122.5886 },
+    { name: "Larkspur",       zip: "94939", lat: 37.9349, lng: -122.5341 },
+    { name: "San Rafael",     zip: "94901", lat: 37.9735, lng: -122.5311 },
+  ];
+
+  function popupHTML(loc, region) {
+    return `
+      <div class="popup-title">${loc.name}</div>
+      <div class="popup-zip">${loc.zip}</div>
+      <div class="popup-type">${region}</div>
+    `;
+  }
+
+  sfLocations.forEach(loc => {
+    L.marker([loc.lat, loc.lng], { icon: sfIcon })
+      .addTo(map)
+      .bindPopup(popupHTML(loc, 'San Francisco'));
+  });
+
+  marinLocations.forEach(loc => {
+    L.marker([loc.lat, loc.lng], { icon: marinIcon })
+      .addTo(map)
+      .bindPopup(popupHTML(loc, 'Marin County'));
+  });
+
+  // Draw a subtle polygon for SF area
+  const sfPolygon = L.polygon([
+    [37.8324, -122.3564],
+    [37.8120, -122.3780],
+    [37.7080, -122.3630],
+    [37.7080, -122.5140],
+    [37.7560, -122.5140],
+    [37.8288, -122.4755],
+  ], {
+    color: '#B8952A',
+    weight: 1.5,
+    fillColor: '#B8952A',
+    fillOpacity: 0.08,
+    dashArray: '4 4'
+  }).addTo(map);
+
+  // Draw a subtle polygon for Marin area
+  const marinPolygon = L.polygon([
+    [37.8500, -122.4900],
+    [37.8700, -122.4500],
+    [37.9200, -122.4500],
+    [38.0100, -122.5800],
+    [38.0100, -122.6300],
+    [37.9200, -122.6300],
+    [37.8600, -122.5500],
+  ], {
+    color: '#5A7A5A',
+    weight: 1.5,
+    fillColor: '#5A7A5A',
+    fillOpacity: 0.08,
+    dashArray: '4 4'
+  }).addTo(map);
+</script>
+
+</body>
+</html>
