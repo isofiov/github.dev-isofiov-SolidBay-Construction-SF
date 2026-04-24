@@ -824,6 +824,54 @@ alert('Status: ' + debugResponse.status);
     errorMsg.style.display = 'block';
   }
 }
+<script>
+const SUPABASE_URL = 'https://ovkaxkaixelforlelvrw.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92a2F4a2FpeGVsZm9ybGVsdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4ODQ0NzksImV4cCI6MjA5MjQ2MDQ3OX0.haE9YGi2riH_2lHPDInI3h-Sl5bQukRe5YyC2fdjnG4';
+
+async function handleSubmit() {
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName = document.getElementById('lastName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const propertyValue = document.getElementById('propertyValue').value.trim();
+  const loanBalance = document.getElementById('loanBalance').value.trim();
+  const projectType = document.getElementById('projectType').value;
+  const budget = document.getElementById('budget').value;
+  const notes = document.getElementById('notes').value.trim();
+
+  if (!firstName) { alert('Please enter your first name.'); return; }
+  if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
+  if (!phone) { alert('Please enter your phone number.'); return; }
+  if (!address) { alert('Please enter your property address.'); return; }
+  if (!projectType) { alert('Please select a project type.'); return; }
+
+  try {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/property_leads`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ first_name: firstName, last_name: lastName, email, phone, address, property_value: propertyValue, loan_balance: loanBalance, project_type: projectType, budget, notes })
+    });
+
+    const statusCode = response.status;
+    alert('Response status: ' + statusCode);
+
+    if (statusCode === 200 || statusCode === 201 || statusCode === 204) {
+      document.getElementById('formCard').style.display = 'none';
+      document.getElementById('successCard').style.display = 'block';
+    } else {
+      const errText = await response.text();
+      alert('Error: ' + errText);
+    }
+  } catch (err) {
+    alert('Catch error: ' + err.message);
+  }
+}
 </script>
 </body>
 </html>
