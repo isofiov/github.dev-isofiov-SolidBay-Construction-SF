@@ -784,7 +784,8 @@ async function handleSubmit() {
   if (!projectType) { alert('Please select a project type.'); return; }
 
   btn.disabled = true;
-  btn.textContent = 'Submitting...';
+  btn.textContent = 'Submitting...';const debugResponse = await fetch(`${SUPABASE_URL}/rest/v1/property_leads`, {method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':`Bearer ${SUPABASE_ANON_KEY}`,'Prefer':'return=minimal'},body:JSON.stringify({first_name:'test',email:'test@test.com',phone:'415',address:'123',project_type:'ADU Construction'})});
+alert('Status: ' + debugResponse.status);
 
   try {
     const response = await fetch(`${SUPABASE_URL}/rest/v1/property_leads`, {
@@ -808,8 +809,10 @@ async function handleSubmit() {
         notes
       })
     });
-
-    if (response.ok || response.status === 201) {
+} else {
+      const errText = await response.text();
+      throw new Error(errText);
+    if (response.status === 200 || response.status === 201 || response.status === 204) {
       document.getElementById('formCard').style.display = 'none';
       document.getElementById('successCard').style.display = 'block';
     } else {
