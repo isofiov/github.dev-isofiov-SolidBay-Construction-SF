@@ -515,8 +515,7 @@ function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('o
 const reveals=document.querySelectorAll('.reveal');
 const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80)})},{threshold:.1});
 reveals.forEach(el=>obs.observe(el));
-const KEY='solidbay_cfg';
-function loadCfg(){try{return JSON.parse(localStorage.getItem(KEY))||null}catch{return null}}
+
 async function submitForm(){
   const btn=document.getElementById('fBtn'),err=document.getElementById('fErr'),ok=document.getElementById('fOk');
   const fn=document.getElementById('fFN').value.trim(),ln=document.getElementById('fLN').value.trim();
