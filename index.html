@@ -514,7 +514,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a}
 function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open')}
 const reveals=document.querySelectorAll('.reveal');
 const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80)})},{threshold:.1});
-reveals.forEach(el=>obs.observe(el));
+reveals.forEach(el=>obs.observe(el));document.getElementById('setupBox').style.display='none';
 
 async function submitForm(){
   const btn=document.getElementById('fBtn'),err=document.getElementById('fErr'),ok=document.getElementById('fOk');
