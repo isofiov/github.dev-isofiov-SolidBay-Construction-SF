@@ -517,34 +517,39 @@ const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIn
 reveals.forEach(el=>obs.observe(el));
 const KEY='solidbay_cfg';
 function loadCfg(){try{return JSON.parse(localStorage.getItem(KEY))||null}catch{return null}}
-function saveConfig(){
-  const url=document.getElementById('cfgUrl').value.trim().replace(/\/$/,'');
-  const key=document.getElementById('cfgKey').value.trim();
-  if(!url||!key){alert('Please enter both fields.');return}
-  localStorage.setItem(KEY,JSON.stringify({url,key}));showOk();
-  console.log('%cRun this SQL in Supabase SQL Editor:','color:#C9A84C;font-weight:bold');
-  console.log('CREATE TABLE IF NOT EXISTS contact_submissions (id uuid DEFAULT gen_random_uuid() PRIMARY KEY, created_at timestamptz DEFAULT now(), first_name text NOT NULL, last_name text NOT NULL, email text NOT NULL, phone text, project_type text, budget text, details text);\nALTER TABLE contact_submissions ENABLE ROW LEVEL SECURITY;\nCREATE POLICY "Allow public inserts" ON contact_submissions FOR INSERT TO anon WITH CHECK (true);');
-}
-function showOk(){document.getElementById('setupBox').classList.add('hidden');document.getElementById('setupOk').classList.remove('hidden')}
-function resetConfig(){localStorage.removeItem(KEY);document.getElementById('setupBox').classList.remove('hidden');document.getElementById('setupOk').classList.add('hidden')}
-window.addEventListener('DOMContentLoaded',()=>{if(loadCfg())showOk()});
 async function submitForm(){
   const btn=document.getElementById('fBtn'),err=document.getElementById('fErr'),ok=document.getElementById('fOk');
-  const fn=document.getElementById('fFN').value.trim(),ln=document.getElementById('fLN').value.trim(),em=document.getElementById('fEM').value.trim();
-  err.classList.add('hidden');ok.classList.add('hidden');
+  const fn=document.getElementById('fFN').value.trim(),ln=document.getElementById('fLN').value.trim();
+  const em=document.getElementById('fEM').value.trim(),ph=document.getElementById('fPH').value.trim();
+  const dt=document.getElementById('fDT').value.trim();
+  const pt=document.getElementById('fPT')?document.getElementById('fPT').value:'';
+  const bud=document.getElementById('fBud')?document.getElementById('fBud').value:'';
+  
+  err.classList.add('hidden');
   if(!fn||!ln){showErr('Please enter your first and last name.');return}
   if(!em||!em.includes('@')){showErr('Please enter a valid email address.');return}
-  const cfg=loadCfg();
-  if(!cfg){showErr('Please configure Supabase first.');return}
+  
   btn.textContent='Sending…';btn.disabled=true;btn.style.opacity='.7';
+  
   try{
-    const r=await fetch(`${cfg.url}/rest/v1/contact_submissions`,{method:'POST',headers:{'Content-Type':'application/json','apikey':cfg.key,'Authorization':`Bearer ${cfg.key}`,'Prefer':'return=minimal'},body:JSON.stringify({first_name:fn,last_name:ln,email:em,phone:document.getElementById('fPH').value||null,project_type:document.getElementById('fPT').value||null,budget:document.getElementById('fBU').value||null,details:document.getElementById('fDT').value||null})});
-    if(r.ok){ok.classList.remove('hidden');['fFN','fLN','fEM','fPH','fDT'].forEach(i=>document.getElementById(i).value='');document.getElementById('fPT').selectedIndex=0;document.getElementById('fBU').selectedIndex=0;btn.textContent='✓ Sent!';btn.style.background='#1e4f2c';setTimeout(()=>{btn.textContent='Send Project Inquiry →';btn.style.background='';btn.disabled=false;btn.style.opacity='1'},4000)}
-    else{const b=await r.json().catch(()=>({}));showErr(r.status===404?'Table not found — run SQL in Supabase.':r.status===401?'Auth error — check your Anon Key.':`Error: ${b.message||r.status}`);resetBtn()}
-  }catch(e){showErr('Could not reach Supabase — check your Project URL.');resetBtn()}
+    const r=await fetch('https://ovkaxkaixelforlelvrw.supabase.co/rest/v1/contact_submissions',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92a2F4a2FpeGVsZm9ybGVsdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4ODQ0NzksImV4cCI6MjA5MjQ2MDQ3OX0.haE9YGi2riH_2lHPDInI3h-Sl5bQukRe5YyC2fdjnG4',
+        'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92a2F4a2FpeGVsZm9ybGVsdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4ODQ0NzksImV4cCI6MjA5MjQ2MDQ3OX0.haE9YGi2riH_2lHPDInI3h-Sl5bQukRe5YyC2fdjnG4',
+        'Prefer':'return=minimal'
+      },
+      body:JSON.stringify({first_name:fn,last_name:ln,email:em,phone:ph,project_type:pt,budget:bud,details:dt})
+    });
+    if(r.ok||r.status===201||r.status===204){
+      ok.classList.remove('hidden');
+      ['fFN','fLN','fEM','fPH','fDT'].forEach(i=>document.getElementById(i).value='');
+      btn.textContent='Send Project Inquiry →';btn.disabled=false;btn.style.opacity='1';
+    }else{
+      showErr('Something went wrong. Please try again.');resetBtn();
+    }
+  }catch(e){showErr('Could not send. Please try again.');resetBtn()}
 }
 function showErr(m){const e=document.getElementById('fErr');e.textContent=m;e.classList.remove('hidden')}
-function resetBtn(){const b=document.getElementById('fBtn');b.textContent='Send Project Inquiry →';b.disabled=false;b.style.opacity='1'}
-</script>
-</body>
-</html>
+function resetBtn(){const b=document.getElementById('fBtn');b.textContent='Send Project Inquiry →';b.disabled=false;b.style.opacity='1';}
