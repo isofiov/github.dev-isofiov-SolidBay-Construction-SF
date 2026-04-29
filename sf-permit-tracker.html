@@ -104,10 +104,6 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-t
     </select>
   </div>
   <div class="filter-group">
-    <label>Min Value ($)</label>
-    <input type="number" id="minValue" placeholder="50000" min="0" step="10000"/>
-  </div>
-  <div class="filter-group">
     <label>Days Back</label>
     <select id="daysFilter">
       <option value="7">Last 7 days</option>
@@ -130,7 +126,7 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-t
 
 <div>
   <div class="loading" id="loadingEl" style="display:none"><div class="spinner"></div><p>Fetching permits from SF DBI...</p></div>
-  <div class="empty" id="emptyEl" style="display:none"><h3>No Permits Found</h3><p>Try adjusting your filters.</p></div>
+  <div class="empty" id="emptyEl" style="display:none"></div>
   <div class="table-wrap" id="tableWrap" style="display:none">
     <table>
       <thead><tr><th>Filed Date</th><th>Address</th><th>Type</th><th>Description</th><th>Est. Value</th><th>Status</th><th>Action</th></tr></thead>
@@ -163,42 +159,95 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-t
 
 <script>
 let allPermits=[];
-function getDateStr(days){const d=new Date();d.setDate(d.getDate()-days);return d.toISOString().split('T')[0];}
-function fmtVal(v){if(!v)return'—';const n=parseFloat(v);if(isNaN(n)||n===0)return'—';if(n>=1000000)return'$'+(n/1000000).toFixed(1)+'M';if(n>=1000)return'$'+Math.round(n/1000)+'K';return'$'+n.toLocaleString();}
-function fmtDate(d){if(!d)return'—';try{return new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});}catch(e){return d;}}
-function typeClass(t){if(!t)return'type-other';t=t.toLowerCase();if(t.includes('new'))return'type-new';if(t.includes('alt')||t.includes('addition'))return'type-alt';if(t.includes('demo'))return'type-demo';return'type-other';}
-function statusClass(s){if(!s)return'';s=s.toLowerCase();if(s.includes('issued')||s.includes('complete'))return'status-issued';if(s.includes('filed')||s.includes('pending')||s.includes('plan'))return'status-filed';return'';}
+
+function getDateStr(days){
+  const d=new Date();
+  d.setDate(d.getDate()-days);
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+
+function fmtVal(v){
+  if(!v)return'—';
+  const n=parseFloat(v);
+  if(isNaN(n)||n===0)return'—';
+  if(n>=1000000)return'$'+(n/1000000).toFixed(1)+'M';
+  if(n>=1000)return'$'+Math.round(n/1000)+'K';
+  return'$'+n.toLocaleString();
+}
+
+function fmtDate(d){
+  if(!d)return'—';
+  try{return new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});}
+  catch(e){return d;}
+}
+
+function typeClass(t){
+  if(!t)return'type-other';
+  t=t.toLowerCase();
+  if(t.includes('new'))return'type-new';
+  if(t.includes('alt')||t.includes('addition'))return'type-alt';
+  if(t.includes('demo'))return'type-demo';
+  return'type-other';
+}
+
+function statusClass(s){
+  if(!s)return'';
+  s=s.toLowerCase();
+  if(s.includes('issued')||s.includes('complete'))return'status-issued';
+  if(s.includes('filed')||s.includes('pending')||s.includes('plan'))return'status-filed';
+  return'';
+}
 
 async function fetchPermits(){
   ['welcomeEl','emptyEl','tableWrap','statsBar'].forEach(id=>document.getElementById(id).style.display='none');
   document.getElementById('loadingEl').style.display='block';
+
   const days=parseInt(document.getElementById('daysFilter').value);
   const type=document.getElementById('typeFilter').value.toLowerCase();
   const hood=document.getElementById('neighborhoodFilter').value;
-  const minVal=document.getElementById('minValue').value;
-  let conds=[`filed_date >= '${getDateStr(days)}'`];
-  if(hood)conds.push(`neighborhoods_analysis_boundaries='${hood}'`);
-  if(minVal)conds.push(`estimated_cost>=${minVal}`);
-  const fields='permit_number,permit_type_definition,filed_date,issued_date,street_number,street_name,street_suffix,description,estimated_cost,status,neighborhoods_analysis_boundaries,zipcode,existing_use,proposed_use,applicant';
-  const url=`https://data.sfgov.org/resource/i98e-djp9.json?$where=${encodeURIComponent(conds.join(' AND '))}&$limit=500&$order=filed_date DESC&$select=${fields}`;
+  const dateStr=getDateStr(days);
+
+  // Use simple query params instead of $where for reliability
+  let url=`https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date DESC&$select=permit_number,permit_type_definition,filed_date,issued_date,street_number,street_name,street_suffix,description,estimated_cost,status,neighborhoods_analysis_boundaries,zipcode,existing_use,proposed_use,applicant`;
+
+  // Add filters via $where
+  let where=`filed_date>'${dateStr}'`;
+  if(hood) where+=` AND neighborhoods_analysis_boundaries='${hood}'`;
+
+  url+=`&$where=${encodeURIComponent(where)}`;
+
   try{
-    const res=await fetch(url,{headers:{'Accept':'application/json'}});
-    if(!res.ok)throw new Error(`HTTP ${res.status}`);
+    const res=await fetch(url);
+    if(!res.ok){
+      const txt=await res.text();
+      throw new Error(`HTTP ${res.status}: ${txt.substring(0,100)}`);
+    }
     let data=await res.json();
-    if(type)data=data.filter(p=>(p.description&&p.description.toLowerCase().includes(type))||(p.permit_type_definition&&p.permit_type_definition.toLowerCase().includes(type)));
+
+    // Client side filters
+    if(type) data=data.filter(p=>
+      (p.description&&p.description.toLowerCase().includes(type))||
+      (p.permit_type_definition&&p.permit_type_definition.toLowerCase().includes(type))
+    );
+
     allPermits=data;
     renderTable(data);
   }catch(e){
     document.getElementById('loadingEl').style.display='none';
     const el=document.getElementById('emptyEl');
     el.style.display='block';
-    el.innerHTML=`<h3>Connection Error</h3><p>${e.message}</p><br/><button class="btn-search" onclick="fetchPermits()" style="margin-top:12px">Try Again</button>`;
+    el.innerHTML=`<h3>Error</h3><p style="font-size:12px;word-break:break-all;max-width:500px;margin:0 auto">${e.message}</p><br/><button class="btn-search" onclick="fetchPermits()" style="margin-top:12px">Try Again</button>`;
   }
 }
 
 function renderTable(data){
   document.getElementById('loadingEl').style.display='none';
-  if(!data||!data.length){const el=document.getElementById('emptyEl');el.style.display='block';el.innerHTML='<h3>No Permits Found</h3><p>Try expanding your date range.</p>';return;}
+  if(!data||!data.length){
+    const el=document.getElementById('emptyEl');
+    el.style.display='block';
+    el.innerHTML='<h3>No Permits Found</h3><p>Try expanding your date range.</p>';
+    return;
+  }
   const total=data.reduce((s,p)=>s+(parseFloat(p.estimated_cost)||0),0);
   document.getElementById('statTotal').textContent=data.length;
   document.getElementById('statValue').textContent=fmtVal(total);
@@ -233,9 +282,12 @@ function closeModalBtn(){document.getElementById('modalOverlay').classList.remov
 function exportCSV(){
   if(!allPermits.length){alert('Run a search first.');return;}
   const h=['Date','Permit #','Address','Type','Description','Value','Status','Neighborhood'];
-  const rows=allPermits.map(p=>[fmtDate(p.filed_date),p.permit_number||'',[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' '),p.permit_type_definition||'',(p.description||'').replace(/,/g,';').replace(/\n/g,' '),p.estimated_cost||'',p.status||'',p.neighborhoods_analysis_boundaries||'']);
+  const rows=allPermits.map(p=>[fmtDate(p.filed_date),p.permit_number||'',[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' '),p.permit_type_definition||'',(p.description||'').replace(/,/g,';'),p.estimated_cost||'',p.status||'',p.neighborhoods_analysis_boundaries||'']);
   const csv=[h,...rows].map(r=>r.map(v=>`"${v}"`).join(',')).join('\n');
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download=`sf-permits-${new Date().toISOString().split('T')[0]}.csv`;a.click();
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download=`sf-permits-${new Date().toISOString().split('T')[0]}.csv`;
+  a.click();
 }
 
 fetchPermits();
