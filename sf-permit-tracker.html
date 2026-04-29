@@ -18,7 +18,7 @@ header p{font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:.1em;text-tra
 .filters{background:#fff;border-bottom:1px solid rgba(46,107,62,0.12);padding:20px 32px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
 .filter-group{display:flex;flex-direction:column;gap:6px}
 .filter-group label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
-.filter-group select,.filter-group input{padding:8px 14px;border:1px solid rgba(46,107,62,0.2);background:var(--light);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;min-width:160px}
+.filter-group select{padding:8px 14px;border:1px solid rgba(46,107,62,0.2);background:var(--light);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;min-width:160px}
 .btn-search{background:var(--green);color:var(--cream);border:none;padding:9px 24px;font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;cursor:pointer}
 .btn-export{background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:8px 20px;font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
 .stats-bar{background:var(--light);padding:16px 32px;display:flex;gap:32px;flex-wrap:wrap;border-bottom:1px solid rgba(46,107,62,0.1)}
@@ -167,8 +167,7 @@ function getDateStr(days){
 }
 
 function fmtVal(v){
-  if(!v)return'—';
-  const n=parseFloat(v);
+  if(!v)return'—';const n=parseFloat(v);
   if(isNaN(n)||n===0)return'—';
   if(n>=1000000)return'$'+(n/1000000).toFixed(1)+'M';
   if(n>=1000)return'$'+Math.round(n/1000)+'K';
@@ -182,8 +181,7 @@ function fmtDate(d){
 }
 
 function typeClass(t){
-  if(!t)return'type-other';
-  t=t.toLowerCase();
+  if(!t)return'type-other';t=t.toLowerCase();
   if(t.includes('new'))return'type-new';
   if(t.includes('alt')||t.includes('addition'))return'type-alt';
   if(t.includes('demo'))return'type-demo';
@@ -191,8 +189,7 @@ function typeClass(t){
 }
 
 function statusClass(s){
-  if(!s)return'';
-  s=s.toLowerCase();
+  if(!s)return'';s=s.toLowerCase();
   if(s.includes('issued')||s.includes('complete'))return'status-issued';
   if(s.includes('filed')||s.includes('pending')||s.includes('plan'))return'status-filed';
   return'';
@@ -207,29 +204,23 @@ async function fetchPermits(){
   const hood=document.getElementById('neighborhoodFilter').value;
   const dateStr=getDateStr(days);
 
-  // Use simple query params instead of $where for reliability
-  let url=`https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date DESC&$select=permit_number,permit_type_definition,filed_date,issued_date,street_number,street_name,street_suffix,description,estimated_cost,status,neighborhoods_analysis_boundaries,zipcode,existing_use,proposed_use,applicant`;
-
-  // Add filters via $where
   let where=`filed_date>'${dateStr}'`;
   if(hood) where+=` AND neighborhoods_analysis_boundaries='${hood}'`;
 
-  url+=`&$where=${encodeURIComponent(where)}`;
+  const fields='permit_number,permit_type_definition,filed_date,issued_date,street_number,street_name,street_suffix,description,estimated_cost,current_status,neighborhoods_analysis_boundaries,zipcode,existing_use,proposed_use';
+  const url=`https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date DESC&$select=${fields}&$where=${encodeURIComponent(where)}`;
 
   try{
     const res=await fetch(url);
     if(!res.ok){
       const txt=await res.text();
-      throw new Error(`HTTP ${res.status}: ${txt.substring(0,100)}`);
+      throw new Error(`HTTP ${res.status}: ${txt.substring(0,150)}`);
     }
     let data=await res.json();
-
-    // Client side filters
     if(type) data=data.filter(p=>
       (p.description&&p.description.toLowerCase().includes(type))||
       (p.permit_type_definition&&p.permit_type_definition.toLowerCase().includes(type))
     );
-
     allPermits=data;
     renderTable(data);
   }catch(e){
@@ -261,7 +252,7 @@ function renderTable(data){
       <td><span class="permit-type ${typeClass(p.permit_type_definition)}">${p.permit_type_definition||'N/A'}</span></td>
       <td style="max-width:200px;font-size:12px;color:var(--muted)">${(p.description||'—').substring(0,80)}${(p.description||'').length>80?'...':''}</td>
       <td style="font-weight:500">${fmtVal(p.estimated_cost)}</td>
-      <td><span class="${statusClass(p.status)}">${p.status||'—'}</span></td>
+      <td><span class="${statusClass(p.current_status)}">${p.current_status||'—'}</span></td>
       <td><button class="lead-btn" onclick="event.stopPropagation();showDetail(${i})">View</button></td>
     </tr>`).join('');
   document.getElementById('tableWrap').style.display='block';
@@ -271,18 +262,40 @@ function showDetail(i){
   const p=allPermits[i];if(!p)return;
   document.getElementById('mAddress').textContent=[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' ')+', SF';
   document.getElementById('mPermitNo').textContent='Permit #'+(p.permit_number||'N/A');
-  const fields=[['Filed Date',fmtDate(p.filed_date)],['Issued Date',fmtDate(p.issued_date)],['Type',p.permit_type_definition||'—'],['Status',p.status||'—'],['Est. Cost',fmtVal(p.estimated_cost)],['Description',p.description||'—'],['Existing Use',p.existing_use||'—'],['Proposed Use',p.proposed_use||'—'],['Neighborhood',p.neighborhoods_analysis_boundaries||'—'],['Zipcode',p.zipcode||'—'],['Applicant',p.applicant||'—']];
+  const fields=[
+    ['Filed Date',fmtDate(p.filed_date)],
+    ['Issued Date',fmtDate(p.issued_date)],
+    ['Type',p.permit_type_definition||'—'],
+    ['Status',p.current_status||'—'],
+    ['Est. Cost',fmtVal(p.estimated_cost)],
+    ['Description',p.description||'—'],
+    ['Existing Use',p.existing_use||'—'],
+    ['Proposed Use',p.proposed_use||'—'],
+    ['Neighborhood',p.neighborhoods_analysis_boundaries||'—'],
+    ['Zipcode',p.zipcode||'—']
+  ];
   document.getElementById('mBody').innerHTML=fields.map(([l,v])=>`<div class="detail-row"><span class="detail-label">${l}</span><span class="detail-value">${v}</span></div>`).join('');
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
 
-function closeModalBtn(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow='';}
+function closeModalBtn(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
 
 function exportCSV(){
   if(!allPermits.length){alert('Run a search first.');return;}
   const h=['Date','Permit #','Address','Type','Description','Value','Status','Neighborhood'];
-  const rows=allPermits.map(p=>[fmtDate(p.filed_date),p.permit_number||'',[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' '),p.permit_type_definition||'',(p.description||'').replace(/,/g,';'),p.estimated_cost||'',p.status||'',p.neighborhoods_analysis_boundaries||'']);
+  const rows=allPermits.map(p=>[
+    fmtDate(p.filed_date),p.permit_number||'',
+    [p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' '),
+    p.permit_type_definition||'',
+    (p.description||'').replace(/,/g,';'),
+    p.estimated_cost||'',
+    p.current_status||'',
+    p.neighborhoods_analysis_boundaries||''
+  ]);
   const csv=[h,...rows].map(r=>r.map(v=>`"${v}"`).join(',')).join('\n');
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
