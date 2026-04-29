@@ -15,6 +15,8 @@ header p{font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:.1em;text-tra
 .live-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);padding:6px 14px;border-radius:20px;font-size:11px;color:#fff;letter-spacing:.1em;text-transform:uppercase}
 .live-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.tip-bar{background:rgba(201,168,76,0.12);border-left:3px solid var(--gold);padding:12px 32px;font-size:12px;color:var(--text);line-height:1.6}
+.tip-bar strong{color:#8a6d1a}
 .filters{background:#fff;border-bottom:1px solid rgba(46,107,62,0.12);padding:20px 32px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
 .filter-group{display:flex;flex-direction:column;gap:6px}
 .filter-group label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
@@ -36,11 +38,11 @@ tbody td{padding:12px 16px;vertical-align:top}
 .type-alt{background:rgba(201,168,76,0.15);color:#8a6d1a}
 .type-demo{background:rgba(192,57,43,0.1);color:#c0392b}
 .type-other{background:rgba(107,124,107,0.1);color:var(--muted)}
-.status-filed{color:var(--gold);font-weight:500}
+.filed-badge{display:inline-block;background:rgba(201,168,76,0.15);color:#8a6d1a;padding:3px 10px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
 .address{font-weight:500}
 .permit-no{font-size:11px;color:var(--muted);font-family:monospace}
-.lead-btn{background:var(--green);color:#fff;border:none;padding:5px 12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
-.owner-btn{background:var(--gold);color:#fff;border:none;padding:5px 12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-block}
+.btn-owner{background:var(--gold);color:#fff;border:none;padding:5px 12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-block}
+.btn-view{background:var(--green);color:#fff;border:none;padding:5px 12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
 .loading{text-align:center;padding:60px 32px;color:var(--muted)}
 .spinner{width:40px;height:40px;border:3px solid rgba(46,107,62,0.2);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -48,7 +50,7 @@ tbody td{padding:12px 16px;vertical-align:top}
 .empty h3{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--text);margin-bottom:8px}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(26,46,26,0.7);z-index:999;align-items:center;justify-content:center;padding:20px}
 .modal-overlay.open{display:flex}
-.modal{background:var(--cream);max-width:600px;width:100%;max-height:90vh;overflow-y:auto}
+.modal{background:var(--cream);max-width:620px;width:100%;max-height:90vh;overflow-y:auto}
 .modal-header{background:var(--green);padding:24px 28px;position:relative}
 .modal-header h2{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#fff}
 .modal-header p{font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px}
@@ -56,21 +58,21 @@ tbody td{padding:12px 16px;vertical-align:top}
 .modal-body{padding:24px 28px}
 .detail-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(46,107,62,0.1);font-size:13px;gap:16px}
 .detail-label{color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase;min-width:130px}
-.detail-value{color:var(--text);font-weight:500;text-align:right;word-break:break-word;max-width:300px}
-.owner-section{background:var(--light);padding:20px 28px;margin-top:4px;border-top:2px solid var(--gold)}
-.owner-section h3{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--text);margin-bottom:8px}
-.owner-section p{font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.6}
-.owner-links{display:flex;gap:10px;flex-wrap:wrap}
-.owner-link{display:inline-block;padding:8px 16px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;text-decoration:none}
-.owner-link-green{background:var(--green);color:#fff}
-.owner-link-gold{background:var(--gold);color:#fff}
-.owner-link-blue{background:#1a3c5e;color:#fff}
-.cta-section{background:var(--green);padding:20px 28px;margin-top:4px}
+.detail-value{color:var(--text);font-weight:500;text-align:right;word-break:break-word;max-width:320px}
+.owner-section{background:var(--light);padding:20px 28px;border-top:2px solid var(--gold)}
+.owner-section h3{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--text);margin-bottom:6px;letter-spacing:.04em}
+.owner-section p{font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6}
+.owner-steps{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.owner-step{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:var(--text)}
+.step-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px}
+.owner-buttons{display:flex;gap:8px;flex-wrap:wrap}
+.owner-btn-link{display:inline-block;padding:9px 16px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;text-decoration:none;cursor:pointer;border:none}
+.btn-assessor{background:var(--green);color:#fff}
+.btn-google{background:#1a3c5e;color:#fff}
+.btn-skip{background:var(--gold);color:#fff}
+.cta-section{background:var(--green);padding:20px 28px}
 .cta-section p{color:rgba(255,255,255,0.8);font-size:13px;margin-bottom:12px}
 .cta-section a{background:var(--gold);color:#fff;padding:10px 20px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;font-weight:500;display:inline-block}
-.tip-bar{background:rgba(201,168,76,0.1);border-left:3px solid var(--gold);padding:12px 32px;font-size:12px;color:var(--text)}
-.tip-bar strong{color:var(--gold)}
-.filed-badge{display:inline-block;background:rgba(201,168,76,0.15);color:#8a6d1a;padding:3px 10px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
 footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-top:1px solid rgba(46,107,62,0.1)}
 @media(max-width:768px){.filters,.table-wrap{padding:16px}header{padding:16px}.tip-bar{padding:12px 16px}}
 </style>
@@ -86,7 +88,7 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-t
 </header>
 
 <div class="tip-bar">
-  🎯 <strong>Showing FILED permits only</strong> — these homeowners applied but haven't hired a contractor yet. Contact them now before your competition does!
+  🎯 <strong>Showing FILED permits only</strong> — homeowners actively planning who haven't hired a contractor yet. Click <strong>"Owner Lookup"</strong> on any permit to find the owner instantly!
 </div>
 
 <div class="filters">
@@ -144,7 +146,17 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-t
   <div class="empty" id="emptyEl" style="display:none"></div>
   <div class="table-wrap" id="tableWrap" style="display:none">
     <table>
-      <thead><tr><th>Filed Date</th><th>Address</th><th>Type</th><th>Description</th><th>Est. Value</th><th>Status</th><th>Owner Info</th><th>Details</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Filed Date</th>
+          <th>Address</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Est. Value</th>
+          <th>Owner Lookup</th>
+          <th>Details</th>
+        </tr>
+      </thead>
       <tbody id="permitTable"></tbody>
     </table>
   </div>
@@ -165,12 +177,17 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-t
     <div class="modal-body" id="mBody"></div>
     <div class="owner-section">
       <h3>🏠 Find Property Owner</h3>
-      <p>Use these free SF government tools to look up the owner name and contact info for this address.</p>
-      <div class="owner-links" id="ownerLinks"></div>
+      <p>Follow these steps to get the owner name and phone number:</p>
+      <div class="owner-steps">
+        <div class="owner-step"><div class="step-num">1</div><div>Click <strong>SF Assessor</strong> below → search the address → get the <strong>owner name</strong> (free)</div></div>
+        <div class="owner-step"><div class="step-num">2</div><div>Go to <strong>batchskiptracing.com</strong> → upload owner name + address → get <strong>phone number</strong> (~$0.10)</div></div>
+        <div class="owner-step"><div class="step-num">3</div><div>Call the homeowner — they just filed and <strong>haven't hired anyone yet!</strong></div></div>
+      </div>
+      <div class="owner-buttons" id="ownerButtons"></div>
     </div>
     <div class="cta-section">
       <p>Contact this homeowner before they hire another contractor!</p>
-      <a href="mailto:is@solidbayconstructionsf.com?subject=Lead - SF Permit" id="logLeadBtn">Log This Lead</a>
+      <a href="#" id="logLeadBtn">📧 Log This Lead</a>
     </div>
   </div>
 </div>
@@ -208,13 +225,19 @@ function typeClass(t){
   return'type-other';
 }
 
-function buildOwnerLinks(p){
-  const addrPlain=[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' ');
-  const addrEncoded=encodeURIComponent(addrPlain+' San Francisco CA');
+function getAddr(p){
+  return [p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' ');
+}
+
+function buildOwnerButtons(p){
+  const addr=getAddr(p);
+  const assessorUrl='https://online.sfassessor.org/s/rp-property-search';
+  const googleUrl='https://www.google.com/search?q='+encodeURIComponent(addr+' San Francisco CA property owner');
+  const skipUrl='https://www.batchskiptracing.com';
   return `
-    <a class="owner-link owner-link-green" href="https://sfassessor.org/general-public-services/property-owners-search" target="_blank">SF Assessor →</a>
-    <a class="owner-link owner-link-gold" href="https://propertyinformation.sfgov.org/parcel/${encodeURIComponent(addrPlain)}" target="_blank">SF Property Info →</a>
-    <a class="owner-link owner-link-blue" href="https://www.google.com/search?q=${addrEncoded}+property+owner" target="_blank">Google Search →</a>
+    <a class="owner-btn-link btn-assessor" href="${assessorUrl}" target="_blank">1. SF Assessor Search →</a>
+    <a class="owner-btn-link btn-google" href="${googleUrl}" target="_blank">2. Google Owner →</a>
+    <a class="owner-btn-link btn-skip" href="${skipUrl}" target="_blank">3. Get Phone # →</a>
   `;
 }
 
@@ -227,11 +250,10 @@ async function fetchPermits(){
   const hood=document.getElementById('neighborhoodFilter').value;
   const dateStr=getDateStr(days);
 
-  // Only filed permits — not yet issued
-  let whereClause="filed_date>'"+dateStr+"' AND status='filed'";
-  if(hood) whereClause+=" AND neighborhoods_analysis_boundaries='"+hood+"'";
+  let where="filed_date>'"+dateStr+"' AND status='filed'";
+  if(hood) where+=" AND neighborhoods_analysis_boundaries='"+hood+"'";
 
-  const url='https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date%20DESC&$where='+encodeURIComponent(whereClause);
+  const url='https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date%20DESC&$where='+encodeURIComponent(where);
 
   try{
     const res=await fetch(url);
@@ -266,40 +288,55 @@ function renderTable(data){
   document.getElementById('statAlt').textContent=data.filter(p=>p.permit_type_definition&&p.permit_type_definition.toLowerCase().includes('alt')).length;
   document.getElementById('statsBar').style.display='flex';
 
-  const addrStr=p=>[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' ');
   document.getElementById('permitTable').innerHTML=data.map((p,i)=>`
     <tr onclick="showDetail(${i})">
       <td style="white-space:nowrap">${fmtDate(p.filed_date)}</td>
-      <td><div class="address">${addrStr(p)}</div><div class="permit-no">${p.permit_number||''}</div></td>
+      <td>
+        <div class="address">${getAddr(p)}</div>
+        <div class="permit-no">${p.permit_number||''}</div>
+      </td>
       <td><span class="permit-type ${typeClass(p.permit_type_definition)}">${p.permit_type_definition||'N/A'}</span></td>
       <td style="max-width:180px;font-size:12px;color:var(--muted)">${(p.description||'—').substring(0,70)}${(p.description||'').length>70?'...':''}</td>
       <td style="font-weight:500;white-space:nowrap">${fmtVal(p.estimated_cost)}</td>
-      <td><span class="filed-badge">Filed</span></td>
-      <td><a class="owner-btn" href="https://sfassessor.org/general-public-services/property-owners-search" target="_blank" onclick="event.stopPropagation()">Owner Info</a></td>
-      <td><button class="lead-btn" onclick="event.stopPropagation();showDetail(${i})">View</button></td>
+      <td>
+        <a class="btn-owner"
+          href="https://online.sfassessor.org/s/rp-property-search"
+          target="_blank"
+          onclick="event.stopPropagation()"
+          title="Search ${getAddr(p)} on SF Assessor">
+          Owner Lookup
+        </a>
+      </td>
+      <td><button class="btn-view" onclick="event.stopPropagation();showDetail(${i})">View</button></td>
     </tr>`).join('');
   document.getElementById('tableWrap').style.display='block';
 }
 
 function showDetail(i){
   const p=allPermits[i];if(!p)return;
-  const addr=[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' ')+', SF';
+  const addr=getAddr(p)+', SF';
   document.getElementById('mAddress').textContent=addr;
-  document.getElementById('mPermitNo').textContent='Permit #'+(p.permit_number||'N/A')+' · Filed';
-  document.getElementById('logLeadBtn').href='mailto:is@solidbayconstructionsf.com?subject=Lead - '+addr+'&body=Permit: '+(p.permit_number||'')+'%0ADescription: '+(p.description||'')+'%0AEst. Cost: '+(p.estimated_cost||'');
+  document.getElementById('mPermitNo').textContent='Permit #'+(p.permit_number||'N/A')+' · Filed '+fmtDate(p.filed_date);
+  document.getElementById('logLeadBtn').href='mailto:is@solidbayconstructionsf.com?subject=Lead: '+addr+'&body=Permit%23: '+(p.permit_number||'')+'%0AAddress: '+addr+'%0ADescription: '+(p.description||'')+'%0AEst. Cost: '+fmtVal(p.estimated_cost);
+
   const fields=[
     ['Filed Date',fmtDate(p.filed_date)],
-    ['Type',p.permit_type_definition||'—'],
-    ['Status','Filed — Not Yet Issued'],
+    ['Permit Type',p.permit_type_definition||'—'],
+    ['Status','🟡 Filed — Not Yet Issued'],
     ['Est. Cost',fmtVal(p.estimated_cost)],
     ['Description',p.description||'—'],
     ['Existing Use',p.existing_use||'—'],
     ['Proposed Use',p.proposed_use||'—'],
     ['Neighborhood',p.neighborhoods_analysis_boundaries||'—'],
-    ['Zipcode',p.zipcode||'—']
+    ['Zipcode',p.zipcode||'—'],
+    ['Permit #',p.permit_number||'—'],
   ];
-  document.getElementById('mBody').innerHTML=fields.map(([l,v])=>`<div class="detail-row"><span class="detail-label">${l}</span><span class="detail-value">${v}</span></div>`).join('');
-  document.getElementById('ownerLinks').innerHTML=buildOwnerLinks(p);
+  document.getElementById('mBody').innerHTML=fields.map(([l,v])=>`
+    <div class="detail-row">
+      <span class="detail-label">${l}</span>
+      <span class="detail-value">${v}</span>
+    </div>`).join('');
+  document.getElementById('ownerButtons').innerHTML=buildOwnerButtons(p);
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
@@ -311,15 +348,16 @@ function closeModalBtn(){
 
 function exportCSV(){
   if(!allPermits.length){alert('Run a search first.');return;}
-  const h=['Date','Permit #','Address','Type','Description','Est. Value','Neighborhood'];
+  const h=['Date','Permit #','Address','Neighborhood','Zipcode','Type','Description','Est. Value'];
   const rows=allPermits.map(p=>[
     fmtDate(p.filed_date),
     p.permit_number||'',
-    [p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' '),
+    getAddr(p),
+    p.neighborhoods_analysis_boundaries||'',
+    p.zipcode||'',
     p.permit_type_definition||'',
-    (p.description||'').replace(/,/g,';'),
-    p.estimated_cost||'',
-    p.neighborhoods_analysis_boundaries||''
+    (p.description||'').replace(/,/g,';').replace(/\n/g,' '),
+    p.estimated_cost||''
   ]);
   const csv=[h,...rows].map(r=>r.map(v=>`"${v}"`).join(',')).join('\n');
   const a=document.createElement('a');
