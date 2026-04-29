@@ -204,30 +204,34 @@ async function fetchPermits(){
   const hood=document.getElementById('neighborhoodFilter').value;
   const dateStr=getDateStr(days);
 
-  let where=`filed_date>'${dateStr}'`;
-  if(hood) where+=` AND neighborhoods_analysis_boundaries='${hood}'`;
+  // Build URL using simple query params — no $where to avoid encoding issues
+  let url=`https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date%20DESC&filed_date=${encodeURIComponent('>'+dateStr)}`;
 
-  const fields='permit_number,permit_type_definition,filed_date,issued_date,street_number,street_name,street_suffix,description,estimated_cost,current_status,neighborhoods_analysis_boundaries,zipcode,existing_use,proposed_use';
-  const url=`https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date DESC&$select=${fields}&$where=${encodeURIComponent(where)}`;
+  // Use $where only for neighborhood
+  if(hood){
+    url=`https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date%20DESC&$where=${encodeURIComponent("filed_date>'"+dateStr+"' AND neighborhoods_analysis_boundaries='"+hood+"'")}`;
+  } else {
+    url=`https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date%20DESC&$where=${encodeURIComponent("filed_date>'"+dateStr+"'")}`;
+  }
 
   try{
     const res=await fetch(url);
-    if(!res.ok){
-      const txt=await res.text();
-      throw new Error(`HTTP ${res.status}: ${txt.substring(0,150)}`);
-    }
+    if(!res.ok) throw new Error('HTTP '+res.status);
     let data=await res.json();
+
+    // Client side type filter
     if(type) data=data.filter(p=>
       (p.description&&p.description.toLowerCase().includes(type))||
       (p.permit_type_definition&&p.permit_type_definition.toLowerCase().includes(type))
     );
+
     allPermits=data;
     renderTable(data);
   }catch(e){
     document.getElementById('loadingEl').style.display='none';
     const el=document.getElementById('emptyEl');
     el.style.display='block';
-    el.innerHTML=`<h3>Error</h3><p style="font-size:12px;word-break:break-all;max-width:500px;margin:0 auto">${e.message}</p><br/><button class="btn-search" onclick="fetchPermits()" style="margin-top:12px">Try Again</button>`;
+    el.innerHTML='<h3>Error</h3><p>'+e.message+'</p><br/><button class="btn-search" onclick="fetchPermits()" style="margin-top:12px">Try Again</button>';
   }
 }
 
@@ -252,7 +256,7 @@ function renderTable(data){
       <td><span class="permit-type ${typeClass(p.permit_type_definition)}">${p.permit_type_definition||'N/A'}</span></td>
       <td style="max-width:200px;font-size:12px;color:var(--muted)">${(p.description||'—').substring(0,80)}${(p.description||'').length>80?'...':''}</td>
       <td style="font-weight:500">${fmtVal(p.estimated_cost)}</td>
-      <td><span class="${statusClass(p.current_status)}">${p.current_status||'—'}</span></td>
+      <td><span class="${statusClass(p.status)}">${p.status||'—'}</span></td>
       <td><button class="lead-btn" onclick="event.stopPropagation();showDetail(${i})">View</button></td>
     </tr>`).join('');
   document.getElementById('tableWrap').style.display='block';
@@ -266,7 +270,7 @@ function showDetail(i){
     ['Filed Date',fmtDate(p.filed_date)],
     ['Issued Date',fmtDate(p.issued_date)],
     ['Type',p.permit_type_definition||'—'],
-    ['Status',p.current_status||'—'],
+    ['Status',p.status||'—'],
     ['Est. Cost',fmtVal(p.estimated_cost)],
     ['Description',p.description||'—'],
     ['Existing Use',p.existing_use||'—'],
@@ -292,8 +296,7 @@ function exportCSV(){
     [p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' '),
     p.permit_type_definition||'',
     (p.description||'').replace(/,/g,';'),
-    p.estimated_cost||'',
-    p.current_status||'',
+    p.estimated_cost||'',p.status||'',
     p.neighborhoods_analysis_boundaries||''
   ]);
   const csv=[h,...rows].map(r=>r.map(v=>`"${v}"`).join(',')).join('\n');
