@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SF DBI Permit Tracker | SolidBay Construction SF</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --green: #2E6B3E;
+  --dark-green: #1e4f2c;
+  --gold: #C9A84C;
+  --cream: #FAF8F3;
+  --light: #F2EFE6;
+  --text: #1a2e1a;
+  --muted: #6b7c6b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+header { background: var(--green); padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--cream); letter-spacing: .05em; }
+header p { font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: .1em; text-transform: uppercase; }
+.live-badge { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 11px; color: #fff; letter-spacing: .1em; text-transform: uppercase; }
+.live-dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.filters { background: #fff; border-bottom: 1px solid rgba(46,107,62,0.12); padding: 20px 32px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.filter-group { display: flex; flex-direction: column; gap: 6px; }
+.filter-group label { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.filter-group select, .filter-group input { padding: 8px 14px; border: 1px solid rgba(46,107,62,0.2); background: var(--light); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13px; outline: none; min-width: 160px; }
+.filter-group select:focus, .filter-group input:focus { border-color: var(--green); }
+.btn-search { background: var(--green); color: var(--cream); border: none; padding: 9px 24px; font-family: 'DM Sans', sans-serif; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 500; cursor: pointer; transition: background .2s; }
+.btn-search:hover { background: var(--dark-green); }
+.btn-export { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); padding: 8px 20px; font-family: 'DM Sans', sans-serif; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: all .2s; }
+.btn-export:hover { background: var(--gold); color: #fff; }
+.stats-bar { background: var(--light); padding: 16px 32px; display: flex; gap: 32px; flex-wrap: wrap; border-bottom: 1px solid rgba(46,107,62,0.1); }
+.stat { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold); line-height: 1; }
+.stat-label { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.table-wrap { padding: 24px 32px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead tr { background: var(--green); }
+thead th { padding: 12px 16px; text-align: left; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,0.8); font-weight: 500; white-space: nowrap; }
+tbody tr { border-bottom: 1px solid rgba(46,107,62,0.08); transition: background .15s; cursor: pointer; }
+tbody tr:hover { background: rgba(46,107,62,0.04); }
+tbody td { padding: 12px 16px; color: var(--text); vertical-align: top; }
+.permit-type { display: inline-block; padding: 3px 10px; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; font-weight: 500; }
+.type-new { background: rgba(46,107,62,0.1); color: var(--green); }
+.type-alt { background: rgba(201,168,76,0.15); color: #8a6d1a; }
+.type-demo { background: rgba(192,57,43,0.1); color: #c0392b; }
+.type-other { background: rgba(107,124,107,0.1); color: var(--muted); }
+.status-issued { color: var(--green); font-weight: 500; }
+.status-filed { color: var(--gold); font-weight: 500; }
+.status-other { color: var(--muted); }
+.address { font-weight: 500; color: var(--text); }
+.permit-no { font-size: 11px; color: var(--muted); font-family: monospace; }
+.value { font-weight: 500; }
+.lead-btn { background: var(--green); color: #fff; border: none; padding: 5px 12px; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: background .2s; white-space: nowrap; }
+.lead-btn:hover { background: var(--dark-green); }
+.loading { text-align: center; padding: 60px 32px; color: var(--muted); }
+.spinner { width: 40px; height: 40px; border: 3px solid rgba(46,107,62,0.2); border-top-color: var(--green); border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 16px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.empty { text-align: center; padding: 60px 32px; color: var(--muted); }
+.empty h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--text); margin-bottom: 8px; }
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(26,46,26,0.7); z-index: 999; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
+.modal-overlay.open { display: flex; }
+.modal { background: var(--cream); max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
+.modal-header { background: var(--green); padding: 24px 28px; position: relative; }
+.modal-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: #fff; letter-spacing: .05em; }
+.modal-header p { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+.modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 22px; cursor: pointer; }
+.modal-body { padding: 24px 28px; }
+.detail-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(46,107,62,0.1); font-size: 13px; gap: 16px; }
+.detail-label { color: var(--muted); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; min-width: 140px; }
+.detail-value { color: var(--text); font-weight: 500; text-align: right; }
+.cta-section { background: var(--green); padding: 20px 28px; margin-top: 20px; }
+.cta-section p { color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 12px; }
+.cta-section a { display: inline-block; background: var(--gold); color: #fff; padding: 10px 20px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; font-weight: 500; }
+footer { text-align: center; padding: 20px; font-size: 11px; color: var(--muted); border-top: 1px solid rgba(46,107,62,0.1); }
+@media(max-width:768px) { .filters { padding: 16px; } .table-wrap { padding: 12px; } .stats-bar { padding: 12px 16px; gap: 16px; } header { padding: 16px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>SF DBI Permit Tracker</h1>
+    <p>SolidBay Construction SF · Lead Generation Tool</p>
+  </div>
+  <div class="live-badge">
+    <div class="live-dot"></div>
+    Live SF Open Data
+  </div>
+</header>
+
+<div class="filters">
+  <div class="filter-group">
+    <label>Project Type</label>
+    <select id="typeFilter">
+      <option value="">All Types</option>
+      <option value="kitchen">Kitchen</option>
+      <option value="bathroom">Bathroom</option>
+      <option value="adu">ADU / Garage</option>
+      <option value="addition">Addition</option>
+      <option value="seismic">Seismic / Retrofit</option>
+      <option value="foundation">Foundation</option>
+      <option value="new construction">New Construction</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Neighborhood</label>
+    <select id="neighborhoodFilter">
+      <option value="">All SF</option>
+      <option value="pacific heights">Pacific Heights</option>
+      <option value="noe valley">Noe Valley</option>
+      <option value="mission">Mission District</option>
+      <option value="sunset">Sunset</option>
+      <option value="richmond">Richmond</option>
+      <option value="marina">Marina</option>
+      <option value="castro">Castro</option>
+      <option value="soma">SoMa</option>
+      <option value="hayes valley">Hayes Valley</option>
+      <option value="potrero">Potrero Hill</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>Min Est. Value ($)</label>
+    <input type="number" id="minValue" placeholder="e.g. 50000" min="0" step="10000"/>
+  </div>
+  <div class="filter-group">
+    <label>Days Back</label>
+    <select id="daysFilter">
+      <option value="7">Last 7 days</option>
+      <option value="14">Last 14 days</option>
+      <option value="30" selected>Last 30 days</option>
+      <option value="60">Last 60 days</option>
+      <option value="90">Last 90 days</option>
+    </select>
+  </div>
+  <button class="btn-search" onclick="fetchPermits()">Search Permits</button>
+  <button class="btn-export" onclick="exportCSV()">Export CSV</button>
+</div>
+
+<div class="stats-bar" id="statsBar" style="display:none">
+  <div class="stat"><div class="stat-num" id="statTotal">0</div><div class="stat-label">Permits Found</div></div>
+  <div class="stat"><div class="stat-num" id="statValue">$0</div><div class="stat-label">Total Est. Value</div></div>
+  <div class="stat"><div class="stat-num" id="statNew">0</div><div class="stat-label">New Construction</div></div>
+  <div class="stat"><div class="stat-num" id="statAlt">0</div><div class="stat-label">Alterations</div></div>
+</div>
+
+<div id="content">
+  <div class="loading" id="loadingEl" style="display:none">
+    <div class="spinner"></div>
+    <p>Fetching permits from SF DBI...</p>
+  </div>
+  <div class="empty" id="emptyEl" style="display:none">
+    <h3>No Permits Found</h3>
+    <p>Try adjusting your filters or expanding the date range.</p>
+  </div>
+  <div class="table-wrap" id="tableWrap" style="display:none">
+    <table>
+      <thead>
+        <tr>
+          <th>Filed Date</th>
+          <th>Address</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Est. Value</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="permitTable"></tbody>
+    </table>
+  </div>
+  <div class="empty" id="welcomeEl">
+    <h3>SF Permit Lead Finder</h3>
+    <p style="max-width:400px;margin:12px auto">Search for recently filed building permits across San Francisco. Find homeowners who need a contractor before your competition does.</p>
+    <br/>
+    <button class="btn-search" onclick="fetchPermits()" style="margin-top:8px">Load Latest Permits</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+      <h2 id="mAddress">Permit Details</h2>
+      <p id="mPermitNo"></p>
+    </div>
+    <div class="modal-body" id="mBody"></div>
+    <div class="cta-section">
+      <p>This homeowner needs a contractor. Reach out before your competition does.</p>
+      <a href="mailto:is@solidbayconstructionsf.com?subject=Lead Follow-up - SF Permit">Log This Lead</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Data sourced from <strong>SF Open Data</strong> (data.sfgov.org) · SF Building Permits dataset · Updated daily · SolidBay Construction SF Internal Tool</p>
+</footer>
+
+<script>
+let allPermits = [];
+
+function getDateFilter() {
+  const days = parseInt(document.getElementById('daysFilter').value);
+  const d = new Date();
+  d.setDate(d.getDate() - days);
+  return d.toISOString().split('T')[0] + 'T00:00:00';
+}
+
+function formatValue(val) {
+  if (!val) return '—';
+  const n = parseFloat(val);
+  if (isNaN(n)) return '—';
+  if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+  if (n >= 1000) return '$' + Math.round(n/1000) + 'K';
+  return '$' + n.toLocaleString();
+}
+
+function formatDate(d) {
+  if (!d) return '—';
+  return new Date(d).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+}
+
+function getTypeClass(type) {
+  if (!type) return 'type-other';
+  const t = type.toLowerCase();
+  if (t.includes('new')) return 'type-new';
+  if (t.includes('alt') || t.includes('addition')) return 'type-alt';
+  if (t.includes('demo')) return 'type-demo';
+  return 'type-other';
+}
+
+function getStatusClass(status) {
+  if (!status) return 'status-other';
+  const s = status.toLowerCase();
+  if (s.includes('issued') || s.includes('complete')) return 'status-issued';
+  if (s.includes('filed') || s.includes('pending') || s.includes('plan')) return 'status-filed';
+  return 'status-other';
+}
+
+async function fetchPermits() {
+  document.getElementById('welcomeEl').style.display = 'none';
+  document.getElementById('emptyEl').style.display = 'none';
+  document.getElementById('tableWrap').style.display = 'none';
+  document.getElementById('statsBar').style.display = 'none';
+  document.getElementById('loadingEl').style.display = 'block';
+
+  const dateFrom = getDateFilter();
+  const typeFilter = document.getElementById('typeFilter').value;
+  const neighborhoodFilter = document.getElementById('neighborhoodFilter').value;
+  const minValue = document.getElementById('minValue').value;
+
+  let where = `filed_date>'${dateFrom}'`;
+  if (typeFilter) where += ` AND (upper(description) LIKE upper('%${typeFilter}%') OR upper(permit_type_definition) LIKE upper('%${typeFilter}%'))`;
+  if (neighborhoodFilter) where += ` AND upper(neighborhoods_analysis_boundaries) LIKE upper('%${neighborhoodFilter}%')`;
+  if (minValue) where += ` AND estimated_cost>='${minValue}'`;
+
+  const url = `https://data.sfgov.org/resource/i98e-djp9.json?$where=${encodeURIComponent(where)}&$limit=200&$order=filed_date DESC`;
+
+  try {
+    const res = await fetch(url, {headers: {'X-App-Token': 'solidbay-permit-tracker'}});
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    allPermits = data;
+    renderTable(data);
+  } catch(e) {
+    document.getElementById('loadingEl').style.display = 'none';
+    document.getElementById('emptyEl').style.display = 'block';
+    document.getElementById('emptyEl').innerHTML = `
+      <h3>Connection Error</h3>
+      <p>Could not reach SF Open Data API. Please check your connection and try again.</p>
+      <br/><button class="btn-search" onclick="fetchPermits()" style="margin-top:8px">Try Again</button>
+    `;
+  }
+}
+
+function renderTable(data) {
+  document.getElementById('loadingEl').style.display = 'none';
+  if (!data || data.length === 0) {
+    document.getElementById('emptyEl').style.display = 'block';
+    return;
+  }
+  const totalValue = data.reduce((sum, p) => sum + (parseFloat(p.estimated_cost) || 0), 0);
+  const newCount = data.filter(p => p.permit_type_definition && p.permit_type_definition.toLowerCase().includes('new')).length;
+  const altCount = data.filter(p => p.permit_type_definition && p.permit_type_definition.toLowerCase().includes('alt')).length;
+  document.getElementById('statTotal').textContent = data.length;
+  document.getElementById('statValue').textContent = formatValue(totalValue);
+  document.getElementById('statNew').textContent = newCount;
+  document.getElementById('statAlt').textContent = altCount;
+  document.getElementById('statsBar').style.display = 'flex';
+  const tbody = document.getElementById('permitTable');
+  tbody.innerHTML = data.map((p, i) => `
+    <tr onclick="showDetail(${i})">
+      <td style="white-space:nowrap">${formatDate(p.filed_date)}</td>
+      <td>
+        <div class="address">${p.street_number || ''} ${p.street_name || ''} ${p.street_suffix || ''}</div>
+        <div class="permit-no">${p.permit_number || ''}</div>
+      </td>
+      <td><span class="permit-type ${getTypeClass(p.permit_type_definition)}">${p.permit_type_definition || 'N/A'}</span></td>
+      <td style="max-width:220px;font-size:12px;color:var(--muted)">${(p.description || '—').substring(0,80)}${(p.description||'').length>80?'...':''}</td>
+      <td class="value">${formatValue(p.estimated_cost)}</td>
+      <td><span class="${getStatusClass(p.status)}">${p.status || '—'}</span></td>
+      <td><button class="lead-btn" onclick="event.stopPropagation();showDetail(${i})">View Lead</button></td>
+    </tr>
+  `).join('');
+  document.getElementById('tableWrap').style.display = 'block';
+}
+
+function showDetail(i) {
+  const p = allPermits[i];
+  if (!p) return;
+  const address = `${p.street_number||''} ${p.street_name||''} ${p.street_suffix||''}, SF`.trim();
+  document.getElementById('mAddress').textContent = address;
+  document.getElementById('mPermitNo').textContent = `Permit #${p.permit_number||'N/A'}`;
+  const fields = [
+    ['Filed Date', formatDate(p.filed_date)],
+    ['Permit Type', p.permit_type_definition||'—'],
+    ['Status', p.status||'—'],
+    ['Est. Cost', formatValue(p.estimated_cost)],
+    ['Description', p.description||'—'],
+    ['Existing Use', p.existing_use||'—'],
+    ['Proposed Use', p.proposed_use||'—'],
+    ['Neighborhood', p.neighborhoods_analysis_boundaries||'—'],
+    ['Zipcode', p.zipcode||'—'],
+    ['Issued Date', formatDate(p.issued_date)],
+    ['Applicant', p.applicant||'—'],
+  ];
+  document.getElementById('mBody').innerHTML = fields.map(([label, value]) => `
+    <div class="detail-row">
+      <span class="detail-label">${label}</span>
+      <span class="detail-value">${value}</span>
+    </div>
+  `).join('');
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) { if(e.target===document.getElementById('modalOverlay'))closeModalBtn(); }
+function closeModalBtn() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow=''; }
+
+function exportCSV() {
+  if (!allPermits.length) { alert('No permits to export. Run a search first.'); return; }
+  const headers = ['Filed Date','Permit Number','Address','Type','Description','Est. Cost','Status','Neighborhood'];
+  const rows = allPermits.map(p => [
+    formatDate(p.filed_date),
+    p.permit_number||'',
+    `${p.street_number||''} ${p.street_name||''} ${p.street_suffix||''}`.trim(),
+    p.permit_type_definition||'',
+    (p.description||'').replace(/,/g,';'),
+    p.estimated_cost||'',
+    p.status||'',
+    p.neighborhoods_analysis_boundaries||''
+  ]);
+  const csv = [headers,...rows].map(r=>r.join(',')).join('\n');
+  const blob = new Blob([csv],{type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `sf-permits-${new Date().toISOString().split('T')[0]}.csv`;
+  a.click();
+}
+
+fetchPermits();
+</script>
+</body>
+</html>
