@@ -36,11 +36,11 @@ tbody td{padding:12px 16px;vertical-align:top}
 .type-alt{background:rgba(201,168,76,0.15);color:#8a6d1a}
 .type-demo{background:rgba(192,57,43,0.1);color:#c0392b}
 .type-other{background:rgba(107,124,107,0.1);color:var(--muted)}
-.status-issued{color:var(--green);font-weight:500}
 .status-filed{color:var(--gold);font-weight:500}
 .address{font-weight:500}
 .permit-no{font-size:11px;color:var(--muted);font-family:monospace}
 .lead-btn{background:var(--green);color:#fff;border:none;padding:5px 12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.owner-btn{background:var(--gold);color:#fff;border:none;padding:5px 12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-block}
 .loading{text-align:center;padding:60px 32px;color:var(--muted)}
 .spinner{width:40px;height:40px;border:3px solid rgba(46,107,62,0.2);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -57,11 +57,22 @@ tbody td{padding:12px 16px;vertical-align:top}
 .detail-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(46,107,62,0.1);font-size:13px;gap:16px}
 .detail-label{color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase;min-width:130px}
 .detail-value{color:var(--text);font-weight:500;text-align:right;word-break:break-word;max-width:300px}
+.owner-section{background:var(--light);padding:20px 28px;margin-top:4px;border-top:2px solid var(--gold)}
+.owner-section h3{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--text);margin-bottom:8px}
+.owner-section p{font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.6}
+.owner-links{display:flex;gap:10px;flex-wrap:wrap}
+.owner-link{display:inline-block;padding:8px 16px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;text-decoration:none}
+.owner-link-green{background:var(--green);color:#fff}
+.owner-link-gold{background:var(--gold);color:#fff}
+.owner-link-blue{background:#1a3c5e;color:#fff}
 .cta-section{background:var(--green);padding:20px 28px;margin-top:4px}
 .cta-section p{color:rgba(255,255,255,0.8);font-size:13px;margin-bottom:12px}
 .cta-section a{background:var(--gold);color:#fff;padding:10px 20px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;font-weight:500;display:inline-block}
+.tip-bar{background:rgba(201,168,76,0.1);border-left:3px solid var(--gold);padding:12px 32px;font-size:12px;color:var(--text)}
+.tip-bar strong{color:var(--gold)}
+.filed-badge{display:inline-block;background:rgba(201,168,76,0.15);color:#8a6d1a;padding:3px 10px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
 footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-top:1px solid rgba(46,107,62,0.1)}
-@media(max-width:768px){.filters,.table-wrap{padding:16px}header{padding:16px}}
+@media(max-width:768px){.filters,.table-wrap{padding:16px}header{padding:16px}.tip-bar{padding:12px 16px}}
 </style>
 </head>
 <body>
@@ -71,8 +82,12 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-t
     <h1>SF DBI Permit Tracker</h1>
     <p>SolidBay Construction SF · Lead Generation Tool</p>
   </div>
-  <div class="live-badge"><div class="live-dot"></div>Live SF Open Data</div>
+  <div class="live-badge"><div class="live-dot"></div>Filed Permits Only</div>
 </header>
+
+<div class="tip-bar">
+  🎯 <strong>Showing FILED permits only</strong> — these homeowners applied but haven't hired a contractor yet. Contact them now before your competition does!
+</div>
 
 <div class="filters">
   <div class="filter-group">
@@ -118,25 +133,25 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-t
 </div>
 
 <div class="stats-bar" id="statsBar" style="display:none">
-  <div><div class="stat-num" id="statTotal">0</div><div class="stat-label">Permits Found</div></div>
+  <div><div class="stat-num" id="statTotal">0</div><div class="stat-label">Filed Permits</div></div>
   <div><div class="stat-num" id="statValue">$0</div><div class="stat-label">Total Est. Value</div></div>
   <div><div class="stat-num" id="statNew">0</div><div class="stat-label">New Construction</div></div>
   <div><div class="stat-num" id="statAlt">0</div><div class="stat-label">Alterations</div></div>
 </div>
 
 <div>
-  <div class="loading" id="loadingEl" style="display:none"><div class="spinner"></div><p>Fetching permits from SF DBI...</p></div>
+  <div class="loading" id="loadingEl" style="display:none"><div class="spinner"></div><p>Fetching filed permits from SF DBI...</p></div>
   <div class="empty" id="emptyEl" style="display:none"></div>
   <div class="table-wrap" id="tableWrap" style="display:none">
     <table>
-      <thead><tr><th>Filed Date</th><th>Address</th><th>Type</th><th>Description</th><th>Est. Value</th><th>Status</th><th>Action</th></tr></thead>
+      <thead><tr><th>Filed Date</th><th>Address</th><th>Type</th><th>Description</th><th>Est. Value</th><th>Status</th><th>Owner Info</th><th>Details</th></tr></thead>
       <tbody id="permitTable"></tbody>
     </table>
   </div>
   <div class="empty" id="welcomeEl">
-    <h3>SF Permit Lead Finder</h3>
-    <p style="max-width:400px;margin:12px auto">Find SF homeowners who just filed permits before they hire a contractor.</p>
-    <br/><button class="btn-search" onclick="fetchPermits()" style="margin-top:8px">Load Latest Permits</button>
+    <h3>SF Filed Permit Leads</h3>
+    <p style="max-width:400px;margin:12px auto">Shows only FILED permits — homeowners actively planning who haven't hired a contractor yet.</p>
+    <br/><button class="btn-search" onclick="fetchPermits()" style="margin-top:8px">Load Filed Permits</button>
   </div>
 </div>
 
@@ -148,14 +163,19 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-t
       <p id="mPermitNo"></p>
     </div>
     <div class="modal-body" id="mBody"></div>
+    <div class="owner-section">
+      <h3>🏠 Find Property Owner</h3>
+      <p>Use these free SF government tools to look up the owner name and contact info for this address.</p>
+      <div class="owner-links" id="ownerLinks"></div>
+    </div>
     <div class="cta-section">
-      <p>This homeowner needs a contractor. Reach out before your competition does.</p>
-      <a href="mailto:is@solidbayconstructionsf.com?subject=Lead - SF Permit">Log This Lead</a>
+      <p>Contact this homeowner before they hire another contractor!</p>
+      <a href="mailto:is@solidbayconstructionsf.com?subject=Lead - SF Permit" id="logLeadBtn">Log This Lead</a>
     </div>
   </div>
 </div>
 
-<footer><p>Data from <strong>SF Open Data</strong> · data.sfgov.org · SolidBay Construction SF</p></footer>
+<footer><p>Data from <strong>SF Open Data</strong> · data.sfgov.org · Filed permits only · SolidBay Construction SF Internal Tool</p></footer>
 
 <script>
 let allPermits=[];
@@ -188,11 +208,14 @@ function typeClass(t){
   return'type-other';
 }
 
-function statusClass(s){
-  if(!s)return'';s=s.toLowerCase();
-  if(s.includes('issued')||s.includes('complete'))return'status-issued';
-  if(s.includes('filed')||s.includes('pending')||s.includes('plan'))return'status-filed';
-  return'';
+function buildOwnerLinks(p){
+  const addrPlain=[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' ');
+  const addrEncoded=encodeURIComponent(addrPlain+' San Francisco CA');
+  return `
+    <a class="owner-link owner-link-green" href="https://sfassessor.org/general-public-services/property-owners-search" target="_blank">SF Assessor →</a>
+    <a class="owner-link owner-link-gold" href="https://propertyinformation.sfgov.org/parcel/${encodeURIComponent(addrPlain)}" target="_blank">SF Property Info →</a>
+    <a class="owner-link owner-link-blue" href="https://www.google.com/search?q=${addrEncoded}+property+owner" target="_blank">Google Search →</a>
+  `;
 }
 
 async function fetchPermits(){
@@ -204,27 +227,20 @@ async function fetchPermits(){
   const hood=document.getElementById('neighborhoodFilter').value;
   const dateStr=getDateStr(days);
 
-  // Build URL using simple query params — no $where to avoid encoding issues
-  let url=`https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date%20DESC&filed_date=${encodeURIComponent('>'+dateStr)}`;
+  // Only filed permits — not yet issued
+  let whereClause="filed_date>'"+dateStr+"' AND status='filed'";
+  if(hood) whereClause+=" AND neighborhoods_analysis_boundaries='"+hood+"'";
 
-  // Use $where only for neighborhood
-  if(hood){
-    url=`https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date%20DESC&$where=${encodeURIComponent("filed_date>'"+dateStr+"' AND neighborhoods_analysis_boundaries='"+hood+"'")}`;
-  } else {
-    url=`https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date%20DESC&$where=${encodeURIComponent("filed_date>'"+dateStr+"'")}`;
-  }
+  const url='https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date%20DESC&$where='+encodeURIComponent(whereClause);
 
   try{
     const res=await fetch(url);
     if(!res.ok) throw new Error('HTTP '+res.status);
     let data=await res.json();
-
-    // Client side type filter
     if(type) data=data.filter(p=>
       (p.description&&p.description.toLowerCase().includes(type))||
       (p.permit_type_definition&&p.permit_type_definition.toLowerCase().includes(type))
     );
-
     allPermits=data;
     renderTable(data);
   }catch(e){
@@ -240,7 +256,7 @@ function renderTable(data){
   if(!data||!data.length){
     const el=document.getElementById('emptyEl');
     el.style.display='block';
-    el.innerHTML='<h3>No Permits Found</h3><p>Try expanding your date range.</p>';
+    el.innerHTML='<h3>No Filed Permits Found</h3><p>Try expanding your date range or removing filters.</p>';
     return;
   }
   const total=data.reduce((s,p)=>s+(parseFloat(p.estimated_cost)||0),0);
@@ -249,14 +265,17 @@ function renderTable(data){
   document.getElementById('statNew').textContent=data.filter(p=>p.permit_type_definition&&p.permit_type_definition.toLowerCase().includes('new')).length;
   document.getElementById('statAlt').textContent=data.filter(p=>p.permit_type_definition&&p.permit_type_definition.toLowerCase().includes('alt')).length;
   document.getElementById('statsBar').style.display='flex';
+
+  const addrStr=p=>[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' ');
   document.getElementById('permitTable').innerHTML=data.map((p,i)=>`
     <tr onclick="showDetail(${i})">
       <td style="white-space:nowrap">${fmtDate(p.filed_date)}</td>
-      <td><div class="address">${[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' ')}</div><div class="permit-no">${p.permit_number||''}</div></td>
+      <td><div class="address">${addrStr(p)}</div><div class="permit-no">${p.permit_number||''}</div></td>
       <td><span class="permit-type ${typeClass(p.permit_type_definition)}">${p.permit_type_definition||'N/A'}</span></td>
-      <td style="max-width:200px;font-size:12px;color:var(--muted)">${(p.description||'—').substring(0,80)}${(p.description||'').length>80?'...':''}</td>
-      <td style="font-weight:500">${fmtVal(p.estimated_cost)}</td>
-      <td><span class="${statusClass(p.status)}">${p.status||'—'}</span></td>
+      <td style="max-width:180px;font-size:12px;color:var(--muted)">${(p.description||'—').substring(0,70)}${(p.description||'').length>70?'...':''}</td>
+      <td style="font-weight:500;white-space:nowrap">${fmtVal(p.estimated_cost)}</td>
+      <td><span class="filed-badge">Filed</span></td>
+      <td><a class="owner-btn" href="https://sfassessor.org/general-public-services/property-owners-search" target="_blank" onclick="event.stopPropagation()">Owner Info</a></td>
       <td><button class="lead-btn" onclick="event.stopPropagation();showDetail(${i})">View</button></td>
     </tr>`).join('');
   document.getElementById('tableWrap').style.display='block';
@@ -264,13 +283,14 @@ function renderTable(data){
 
 function showDetail(i){
   const p=allPermits[i];if(!p)return;
-  document.getElementById('mAddress').textContent=[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' ')+', SF';
-  document.getElementById('mPermitNo').textContent='Permit #'+(p.permit_number||'N/A');
+  const addr=[p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' ')+', SF';
+  document.getElementById('mAddress').textContent=addr;
+  document.getElementById('mPermitNo').textContent='Permit #'+(p.permit_number||'N/A')+' · Filed';
+  document.getElementById('logLeadBtn').href='mailto:is@solidbayconstructionsf.com?subject=Lead - '+addr+'&body=Permit: '+(p.permit_number||'')+'%0ADescription: '+(p.description||'')+'%0AEst. Cost: '+(p.estimated_cost||'');
   const fields=[
     ['Filed Date',fmtDate(p.filed_date)],
-    ['Issued Date',fmtDate(p.issued_date)],
     ['Type',p.permit_type_definition||'—'],
-    ['Status',p.status||'—'],
+    ['Status','Filed — Not Yet Issued'],
     ['Est. Cost',fmtVal(p.estimated_cost)],
     ['Description',p.description||'—'],
     ['Existing Use',p.existing_use||'—'],
@@ -279,6 +299,7 @@ function showDetail(i){
     ['Zipcode',p.zipcode||'—']
   ];
   document.getElementById('mBody').innerHTML=fields.map(([l,v])=>`<div class="detail-row"><span class="detail-label">${l}</span><span class="detail-value">${v}</span></div>`).join('');
+  document.getElementById('ownerLinks').innerHTML=buildOwnerLinks(p);
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
@@ -290,19 +311,20 @@ function closeModalBtn(){
 
 function exportCSV(){
   if(!allPermits.length){alert('Run a search first.');return;}
-  const h=['Date','Permit #','Address','Type','Description','Value','Status','Neighborhood'];
+  const h=['Date','Permit #','Address','Type','Description','Est. Value','Neighborhood'];
   const rows=allPermits.map(p=>[
-    fmtDate(p.filed_date),p.permit_number||'',
+    fmtDate(p.filed_date),
+    p.permit_number||'',
     [p.street_number,p.street_name,p.street_suffix].filter(Boolean).join(' '),
     p.permit_type_definition||'',
     (p.description||'').replace(/,/g,';'),
-    p.estimated_cost||'',p.status||'',
+    p.estimated_cost||'',
     p.neighborhoods_analysis_boundaries||''
   ]);
   const csv=[h,...rows].map(r=>r.map(v=>`"${v}"`).join(',')).join('\n');
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
-  a.download=`sf-permits-${new Date().toISOString().split('T')[0]}.csv`;
+  a.download=`sf-filed-permits-${new Date().toISOString().split('T')[0]}.csv`;
   a.click();
 }
 
