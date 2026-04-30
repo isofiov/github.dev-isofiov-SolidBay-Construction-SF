@@ -2,33 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- MAIN PAGES -->
-  <url><loc>https://solidbayconstructionsf.com/</loc><lastmod>2026-04-29</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/blog.html</loc><lastmod>2026-04-29</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/sf-permit-tracker.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/</loc><lastmod>2026-04-30</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/blog.html</loc><lastmod>2026-04-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/green-building.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/free-3d-rendering.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/sf-permit-tracker.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- LOCATION PAGES -->
-  <url><loc>https://solidbayconstructionsf.com/locations/san-francisco.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/locations/tiburon.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/locations/mill-valley.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/locations/san-rafael.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/locations/sausalito.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/locations/marin-city.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/locations/strawberry.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/locations/corte-madera.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/locations/larkspur.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/locations/kentfield.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/locations/ross.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/locations/san-francisco.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/locations/tiburon.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/locations/mill-valley.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/locations/san-rafael.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/locations/sausalito.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/locations/marin-city.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/locations/strawberry.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/locations/corte-madera.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/locations/larkspur.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/locations/kentfield.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/locations/ross.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- ARTICLE PAGES -->
-  <url><loc>https://solidbayconstructionsf.com/articles/kitchen-remodeling-san-francisco.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/articles/bathroom-remodel-cost-san-francisco.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/articles/adu-construction-san-francisco.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/articles/san-francisco-home-renovation-permits.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/articles/home-remodeling-trends-san-francisco-2026.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/articles/victorian-home-renovation-san-francisco.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/articles/best-general-contractor-san-francisco.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/articles/earthquake-retrofit-san-francisco.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/articles/small-space-remodeling-san-francisco.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://solidbayconstructionsf.com/articles/home-addition-guide-san-francisco.html</loc><lastmod>2026-04-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- NEIGHBORHOOD PAGES -->
+  <url><loc>https://solidbayconstructionsf.com/neighborhoods/pacific-heights.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/neighborhoods/noe-valley.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/neighborhoods/marina.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/neighborhoods/russian-hill.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/neighborhoods/cole-valley.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/neighborhoods/castro.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/neighborhoods/sunset.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/neighborhoods/richmond.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/neighborhoods/glen-park.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ORIGINAL ARTICLES -->
+  <url><loc>https://solidbayconstructionsf.com/articles/kitchen-remodeling-san-francisco.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/bathroom-remodel-cost-san-francisco.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/adu-construction-san-francisco.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/san-francisco-home-renovation-permits.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/home-remodeling-trends-san-francisco-2026.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/victorian-home-renovation-san-francisco.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/best-general-contractor-san-francisco.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/earthquake-retrofit-san-francisco.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/small-space-remodeling-san-francisco.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/home-addition-guide-san-francisco.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- NEW MARIN ARTICLES -->
+  <url><loc>https://solidbayconstructionsf.com/articles/adu-contractor-marin-county.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/kitchen-remodel-tiburon.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/kitchen-remodel-marin-county.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/home-addition-marin-county.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/bathroom-remodel-marin-county.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/green-contractor-marin-county.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/seismic-retrofit-marin-county.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/victorian-renovation-san-francisco.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/general-contractor-marin-county.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://solidbayconstructionsf.com/articles/home-renovation-cost-marin-county.html</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
 </urlset>
