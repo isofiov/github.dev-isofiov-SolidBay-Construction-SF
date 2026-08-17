@@ -7,314 +7,280 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Solid Bay Construction SF | Design-Build Renovation San Francisco & Marin County</title>
 <meta name="description" content="Solid Bay Construction SF — design-build renovation firm serving San Francisco and Marin County since 2016. Kitchen remodels, ADUs, home additions, Victorian renovations, HVAC. In-house architects, engineers & permit experts."/>
-<meta name="keywords" content="San Francisco renovation contractor, Marin County remodeling, design-build SF, kitchen remodel San Francisco, ADU San Francisco, Victorian renovation SF, home addition SF, permit expediting San Francisco"/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://solidbayconstructionsf.com/"/>
 <meta property="og:title" content="Solid Bay Construction SF | Design-Build Renovation"/>
 <meta property="og:description" content="Design-build renovation firm serving SF and Marin County since 2016. 100+ projects. In-house architects, engineers & permit experts."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://solidbayconstructionsf.com/"/>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "GeneralContractor",
-      "@id": "https://solidbayconstructionsf.com/#business",
-      "name": "Solid Bay Construction SF",
-      "url": "https://solidbayconstructionsf.com",
-      "foundingDate": "2016",
-      "telephone": "+14158885361",
-      "email": "is@solidbayconstructionsf.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "2181 Greenwich St",
-        "addressLocality": "San Francisco",
-        "addressRegion": "CA",
-        "postalCode": "94123",
-        "addressCountry": "US"
-      },
-      "areaServed": ["San Francisco", "Marin County"],
-      "description": "Design-build renovation firm serving San Francisco and Marin County since 2016. In-house architects, structural engineers, designers, and permit expeditor."
-    }
-  ]
-}
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"GeneralContractor","name":"Solid Bay Construction SF","url":"https://solidbayconstructionsf.com","foundingDate":"2016","telephone":"+14158885361","email":"is@solidbayconstructionsf.com","address":{"@type":"PostalAddress","streetAddress":"2181 Greenwich St","addressLocality":"San Francisco","addressRegion":"CA","postalCode":"94123","addressCountry":"US"},"areaServed":["San Francisco","Marin County"]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{
-  --green:#2E6B3E;
-  --dark-green:#1e4f2c;
-  --gold:#C9A84C;
-  --gold-dark:#A8872E;
-  --cream:#FAF8F3;
-  --light:#F2EFE6;
-  --text:#1a2e1a;
-  --muted:#6b7c6b;
-}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
-.font-display{font-family:'Bebas Neue',sans-serif;letter-spacing:.02em}
+body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-x:hidden}
+.fd{font-family:'Bebas Neue',sans-serif;letter-spacing:.02em}
+
+/* VARS */
+:root{--g:#2E6B3E;--dg:#1e4f2c;--gold:#C9A84C;--gd:#A8872E;--cream:#FAF8F3;--light:#F2EFE6;--text:#1a2e1a;--muted:#6b7c6b}
 
 /* NAV */
-.nav-fixed{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,box-shadow .3s}
-.nav-scrolled{background:rgba(250,248,243,0.97)!important;box-shadow:0 1px 0 rgba(46,107,62,0.1)}
-.nav-link{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s;text-decoration:none}
-.nav-link:hover{color:var(--green)}
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,box-shadow .3s;background:transparent}
+#nav.scrolled{background:rgba(250,248,243,0.97);box-shadow:0 1px 0 rgba(46,107,62,0.1)}
+.nw{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nl:hover{color:var(--g)}
+.bp{background:var(--g);color:var(--cream);padding:11px 22px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:background .2s}
+.bp:hover{background:var(--dg)}
+.bo{background:transparent;color:var(--text);border:1px solid rgba(26,46,26,0.25);padding:11px 22px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;text-decoration:none;display:inline-block;transition:all .2s}
+.bo:hover{border-color:var(--g);color:var(--g)}
 
-/* BUTTONS */
-.btn-primary{background:var(--green);color:var(--cream);padding:13px 28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:background .2s,transform .15s;display:inline-block;text-decoration:none;cursor:pointer;border:none}
-.btn-primary:hover{background:var(--dark-green)}
-.btn-outline{background:transparent;color:var(--text);border:1px solid rgba(26,46,26,0.25);padding:12px 26px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:all .2s;display:inline-block;text-decoration:none}
-.btn-outline:hover{border-color:var(--green);color:var(--green)}
-.btn-gold-outline{background:transparent;color:var(--gold-dark);border:1px solid var(--gold);padding:12px 26px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:all .2s;display:inline-block;text-decoration:none}
-.btn-gold-outline:hover{background:var(--gold);color:#fff}
-
-/* TICKER */
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.ticker-wrap{overflow:hidden;background:var(--green);padding:10px 0}
-.ticker-inner{display:inline-flex;animation:ticker 30s linear infinite;white-space:nowrap}
-
-/* DIVIDER */
-.gold-line{width:40px;height:1.5px;background:var(--gold);display:block;margin-bottom:18px}
-.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:block}
-
-/* SECTIONS */
-.section-pad{padding:96px 24px}
-@media(min-width:1024px){.section-pad{padding:120px 48px}}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
+/* MOBILE MENU */
+#mm{display:none;position:fixed;inset:0;z-index:99;background:var(--cream);padding:80px 32px 40px;flex-direction:column}
+#mm.open{display:flex}
+.mm-link{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--text);text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(46,107,62,0.1);display:block}
 
 /* HERO */
-@keyframes fadeUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
-.hero-1{animation:fadeUp .9s .1s both}
-.hero-2{animation:fadeUp .9s .25s both}
-.hero-3{animation:fadeUp .9s .4s both}
-.hero-4{animation:fadeUp .9s .55s both}
+@keyframes fu{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+.a1{animation:fu .9s .1s both}
+.a2{animation:fu .9s .25s both}
+.a3{animation:fu .9s .4s both}
+.a4{animation:fu .9s .55s both}
+.gold-line{width:40px;height:2px;background:var(--gold);display:block;margin-bottom:16px}
+.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 
-/* SERVICE CARDS */
-.service-card{border-top:1px solid rgba(46,107,62,0.15);padding:32px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;cursor:pointer;transition:all .2s;text-decoration:none;color:inherit}
-.service-card:hover .service-arrow{transform:translateX(6px);opacity:1}
-.service-arrow{transition:transform .2s,opacity .2s;opacity:0.4;flex-shrink:0}
-.service-num{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.1em;color:var(--gold);margin-bottom:6px;display:block}
+/* TICKER */
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tkw{overflow:hidden;background:var(--g);padding:10px 0}
+.tki{display:inline-flex;animation:tk 32s linear infinite;white-space:nowrap}
+
+/* SECTIONS */
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.sec{padding:80px 24px}
+@media(min-width:768px){.sec{padding:100px 48px}}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s,transform .65s}
+.rv.on{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
+
+/* SERVICE LIST */
+.svc-row{border-top:1px solid rgba(46,107,62,0.12);padding:28px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;text-decoration:none;color:inherit;transition:background .15s}
+.svc-row:hover{padding-left:8px}
+.svc-row:hover .svc-arr{opacity:1;transform:translateX(4px)}
+.svc-arr{opacity:0.3;transition:opacity .2s,transform .2s;flex-shrink:0}
+.svc-num{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:.1em;color:var(--gold)}
 
 /* PROCESS */
-.process-step{display:grid;grid-template-columns:80px 1fr;gap:0;border-top:1px solid rgba(46,107,62,0.12);padding:32px 0}
-.process-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(46,107,62,0.12);line-height:1;padding-top:4px}
+.proc{border-top:1px solid rgba(46,107,62,0.12);padding:28px 0;display:flex;gap:24px;align-items:flex-start}
+.proc-n{font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(46,107,62,0.1);line-height:1;flex-shrink:0;width:60px}
 
-/* PROJECT CARDS */
-.project-card{position:relative;overflow:hidden;background:var(--light);aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:flex-end}
-.project-card-img{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;transition:transform .6s cubic-bezier(.16,1,.3,1)}
-.project-card:hover .project-card-img{transform:scale(1.04)}
-.project-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,46,26,0.85) 0%,transparent 60%)}
-.project-card-body{position:relative;z-index:2;padding:24px}
+/* STATS GRID */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(46,107,62,0.1)}
+@media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--cream);padding:32px 24px}
 
-/* STATS */
-.stat-item{padding:40px 32px;border-right:1px solid rgba(46,107,62,0.1)}
-.stat-item:last-child{border-right:none}
+/* PROJECT GRID */
+.proj-grid{display:grid;grid-template-columns:1fr;gap:2px}
+@media(min-width:640px){.proj-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.proj-grid{grid-template-columns:repeat(3,1fr)}}
+.proj-card{position:relative;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:flex-end}
+.proj-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,46,26,0.85),transparent 60%)}
+.proj-body{position:relative;z-index:2;padding:20px}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(255,255,255,0.06)}
+@media(min-width:768px){.testi-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* LOCATION GRID */
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+@media(min-width:640px){.loc-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.loc-grid{grid-template-columns:repeat(4,1fr)}}
+.loc-card{padding:28px 20px;background:var(--cream);text-decoration:none;color:inherit;display:block;transition:background .2s}
+.loc-card:hover{background:var(--g)}
+.loc-card:hover .loc-t{color:#FAF8F3}
+.loc-card:hover .loc-p{color:rgba(250,248,243,0.6)}
+.loc-t{transition:color .2s}
+.loc-p{transition:color .2s}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr;gap:48px}
+@media(min-width:1024px){.two-col{grid-template-columns:1fr 2fr;gap:72px}}
+.two-col-eq{display:grid;grid-template-columns:1fr;gap:48px}
+@media(min-width:1024px){.two-col-eq{grid-template-columns:1fr 1fr;gap:72px}}
+
+/* WHY US items */
+.why-item{padding:24px 0;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:20px;align-items:flex-start}
+.why-n{font-family:'Bebas Neue',sans-serif;font-size:36px;color:rgba(201,168,76,0.2);line-height:1;flex-shrink:0;width:48px}
 
 /* FAQ */
 .faq-item{border-top:1px solid rgba(46,107,62,0.12)}
-.faq-btn{width:100%;text-align:left;padding:22px 0;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
-.faq-icon{transition:transform .3s;flex-shrink:0;width:20px;height:20px;display:flex;align-items:center;justify-content:center}
-.faq-content{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
-.faq-content.open{max-height:300px}
+.faq-btn{width:100%;text-align:left;padding:20px 0;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--text);gap:16px}
+.faq-icon{transition:transform .3s;flex-shrink:0}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s}
+.faq-body.open{max-height:250px}
 
 /* FORM */
-.form-input{width:100%;padding:13px 16px;border:1px solid rgba(46,107,62,0.2);background:var(--light);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color .2s;appearance:none}
-.form-input:focus{border-color:var(--green)}
-.form-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:7px}
+.fi{width:100%;padding:13px 16px;border:1px solid rgba(46,107,62,0.2);background:var(--light);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+.fi:focus{border-color:var(--g)}
+.fl{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.fg{margin-bottom:16px}
+.form-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.form-grid{grid-template-columns:1fr 1fr}}
 
-/* MOBILE MENU */
-#mobile-menu{display:none;position:fixed;inset:0;z-index:99;background:var(--cream);padding:80px 32px 40px;flex-direction:column;gap:0}
-#mobile-menu.open{display:flex}
+/* FOOTER GRID */
+.ft-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08)}
+@media(min-width:768px){.ft-grid{grid-template-columns:2fr 1fr 1fr 1fr}}
+.ft-link{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;display:block;margin-bottom:10px;transition:color .2s}
+.ft-link:hover{color:rgba(255,255,255,0.8)}
 
-/* FOOTER */
-.footer-link{font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s}
-.footer-link:hover{color:var(--green)}
+/* GOLD STRIP */
+.gold-strip{background:var(--gold);padding:40px 24px}
+.gold-strip-inner{max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="nav-fixed" id="nav" style="background:rgba(250,248,243,0.0)">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="flex items-center justify-between" style="height:72px">
-      <a href="/">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="200" height="46">
-          <defs><linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#D4A843"/><stop offset="100%" style="stop-color:#A8872E"/></linearGradient></defs>
-          <rect x="0" y="40" width="56" height="26" fill="#2E6B3E"/><rect x="0" y="20" width="17" height="46" fill="#1e4f2c"/><rect x="39" y="27" width="17" height="39" fill="#1e4f2c"/>
-          <polygon points="17,6 28,20 39,6" fill="url(#ng)"/><rect x="0" y="17" width="17" height="4" fill="url(#ng)"/><rect x="39" y="24" width="17" height="4" fill="url(#ng)"/>
-          <rect x="4" y="26" width="7" height="9" fill="url(#ng)" opacity=".85"/><rect x="4" y="40" width="7" height="9" fill="url(#ng)" opacity=".55"/><rect x="45" y="33" width="7" height="9" fill="url(#ng)" opacity=".85"/>
-          <rect x="25" y="50" width="10" height="16" fill="#FAF8F3"/><rect x="0" y="64" width="56" height="2" fill="url(#ng)"/>
-          <text x="68" y="46" font-family="Georgia,serif" font-size="30" font-weight="700" fill="url(#ng)" letter-spacing="-0.5">SOLID</text>
-          <text x="68" y="68" font-family="Georgia,serif" font-size="30" font-weight="700" fill="#2E6B3E" letter-spacing="-0.5">BAY</text>
-          <rect x="210" y="18" width="1" height="46" fill="#C9A84C" opacity=".4"/>
-          <text x="218" y="34" font-family="Georgia,serif" font-size="7" letter-spacing="2.5" fill="#A8872E">CONSTRUCTION</text>
-          <text x="218" y="46" font-family="Arial,sans-serif" font-size="6" letter-spacing="2.5" fill="#6b7c6b">SAN FRANCISCO</text>
-          <rect x="218" y="51" width="42" height="0.8" fill="#C9A84C" opacity=".5"/>
-          <text x="218" y="61" font-family="Arial,sans-serif" font-size="6" letter-spacing="2" fill="#999">EST. 2016</text>
-        </svg>
-      </a>
-      <div class="hidden lg:flex items-center gap-8">
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#process" class="nav-link">Process</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="blog.html" class="nav-link">Resources</a>
-        <a href="hvac/index.html" class="nav-link">HVAC</a>
-        <a href="#contact" class="btn-primary">Start a Project</a>
-      </div>
-      <button class="lg:hidden p-2" onclick="toggleMenu()" style="background:none;border:none;cursor:pointer" aria-label="Menu">
-        <div style="width:24px;height:1.5px;background:var(--green);margin-bottom:6px"></div>
-        <div style="width:24px;height:1.5px;background:var(--green);margin-bottom:6px"></div>
-        <div style="width:16px;height:1.5px;background:var(--green)"></div>
-      </button>
+<nav id="nav">
+  <div class="nw">
+    <a href="/">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="180" height="42">
+        <defs><linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#D4A843"/><stop offset="100%" style="stop-color:#A8872E"/></linearGradient></defs>
+        <rect x="0" y="40" width="56" height="26" fill="#2E6B3E"/><rect x="0" y="20" width="17" height="46" fill="#1e4f2c"/><rect x="39" y="27" width="17" height="39" fill="#1e4f2c"/>
+        <polygon points="17,6 28,20 39,6" fill="url(#ng)"/><rect x="0" y="17" width="17" height="4" fill="url(#ng)"/><rect x="39" y="24" width="17" height="4" fill="url(#ng)"/>
+        <rect x="4" y="26" width="7" height="9" fill="url(#ng)" opacity=".85"/><rect x="4" y="40" width="7" height="9" fill="url(#ng)" opacity=".55"/><rect x="45" y="33" width="7" height="9" fill="url(#ng)" opacity=".85"/>
+        <rect x="25" y="50" width="10" height="16" fill="#FAF8F3"/><rect x="0" y="64" width="56" height="2" fill="url(#ng)"/>
+        <text x="68" y="46" font-family="Georgia,serif" font-size="30" font-weight="700" fill="url(#ng)">SOLID</text>
+        <text x="68" y="68" font-family="Georgia,serif" font-size="30" font-weight="700" fill="#2E6B3E">BAY</text>
+        <rect x="210" y="18" width="1" height="46" fill="#C9A84C" opacity=".4"/>
+        <text x="218" y="34" font-family="Georgia,serif" font-size="7" letter-spacing="2.5" fill="#A8872E">CONSTRUCTION</text>
+        <text x="218" y="46" font-family="Arial,sans-serif" font-size="6" letter-spacing="2.5" fill="#6b7c6b">SAN FRANCISCO</text>
+        <rect x="218" y="51" width="42" height="0.8" fill="#C9A84C" opacity=".5"/>
+        <text x="218" y="61" font-family="Arial,sans-serif" font-size="6" letter-spacing="2" fill="#999">EST. 2016</text>
+      </svg>
+    </a>
+    <div style="display:none;gap:28px;align-items:center" id="dlinks">
+      <a href="#services" class="nl">Services</a>
+      <a href="#process" class="nl">Process</a>
+      <a href="#projects" class="nl">Projects</a>
+      <a href="#about" class="nl">About</a>
+      <a href="blog.html" class="nl">Resources</a>
+      <a href="hvac/index.html" class="nl">HVAC</a>
+      <a href="#contact" class="bp">Start a Project</a>
     </div>
+    <button onclick="toggleMenu()" style="background:none;border:none;cursor:pointer;padding:4px;display:flex;flex-direction:column;gap:5px" id="hamburger">
+      <div style="width:22px;height:1.5px;background:var(--text)"></div>
+      <div style="width:22px;height:1.5px;background:var(--text)"></div>
+      <div style="width:14px;height:1.5px;background:var(--text)"></div>
+    </button>
   </div>
 </nav>
 
 <!-- MOBILE MENU -->
-<div id="mobile-menu">
-  <button onclick="toggleMenu()" style="position:absolute;top:24px;right:24px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--text)">✕</button>
-  <a href="#services" class="font-display text-4xl" style="color:var(--text);text-decoration:none;border-bottom:1px solid rgba(46,107,62,0.1);padding:20px 0" onclick="toggleMenu()">Services</a>
-  <a href="#process" class="font-display text-4xl" style="color:var(--text);text-decoration:none;border-bottom:1px solid rgba(46,107,62,0.1);padding:20px 0" onclick="toggleMenu()">Process</a>
-  <a href="#projects" class="font-display text-4xl" style="color:var(--text);text-decoration:none;border-bottom:1px solid rgba(46,107,62,0.1);padding:20px 0" onclick="toggleMenu()">Projects</a>
-  <a href="#about" class="font-display text-4xl" style="color:var(--text);text-decoration:none;border-bottom:1px solid rgba(46,107,62,0.1);padding:20px 0" onclick="toggleMenu()">About</a>
-  <a href="hvac/index.html" class="font-display text-4xl" style="color:var(--text);text-decoration:none;border-bottom:1px solid rgba(46,107,62,0.1);padding:20px 0">HVAC</a>
-  <a href="#contact" class="btn-primary text-center mt-auto" onclick="toggleMenu()">Start a Project</a>
+<div id="mm">
+  <button onclick="toggleMenu()" style="position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;color:var(--text)">✕</button>
+  <a href="#services" class="mm-link" onclick="toggleMenu()">Services</a>
+  <a href="#process" class="mm-link" onclick="toggleMenu()">Process</a>
+  <a href="#projects" class="mm-link" onclick="toggleMenu()">Projects</a>
+  <a href="#about" class="mm-link" onclick="toggleMenu()">About</a>
+  <a href="hvac/index.html" class="mm-link">HVAC</a>
+  <a href="blog.html" class="mm-link">Resources</a>
+  <a href="#contact" class="bp" onclick="toggleMenu()" style="margin-top:auto;text-align:center;padding:16px">Start a Project</a>
 </div>
 
 <!-- HERO -->
-<section style="min-height:100vh;display:flex;align-items:flex-end;padding-bottom:80px;padding-top:72px;background:var(--cream);position:relative;overflow:hidden">
-  <!-- grid pattern -->
-  <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(46,107,62,0.05) 0 1px,transparent 1px 80px),repeating-linear-gradient(0deg,rgba(46,107,62,0.05) 0 1px,transparent 1px 80px);pointer-events:none"></div>
-  <!-- gold orb -->
-  <div style="position:absolute;top:10%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,0.08),transparent 70%);pointer-events:none"></div>
-
-  <div class="max-w-7xl mx-auto w-full px-6 lg:px-12">
-    <div style="display:grid;grid-template-columns:1fr;gap:48px;align-items:flex-end">
-      <div>
-        <span class="eyebrow hero-1">Design-Build · San Francisco · Marin County · Est. 2016</span>
-        <span class="gold-line hero-1"></span>
-        <h1 class="font-display hero-2" style="font-size:clamp(72px,10vw,140px);line-height:.88;color:var(--text);margin-bottom:28px">DESIGN.<br>BUILD.<br><span style="color:var(--green)">DELIVER.</span></h1>
-        <p class="hero-3" style="font-size:16px;line-height:1.75;color:var(--muted);max-width:520px;margin-bottom:36px">Solid Bay Construction SF is a design-build renovation firm serving San Francisco and Marin County since 2016. We design it, permit it, and build it — one team accountable from concept to completion.</p>
-        <div class="hero-4" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:64px">
-          <a href="#contact" class="btn-primary">Book a Consultation</a>
-          <a href="#projects" class="btn-outline">View Projects</a>
-        </div>
-        <div class="hero-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(46,107,62,0.12);padding-top:32px;max-width:600px">
-          <div style="padding-right:24px;border-right:1px solid rgba(46,107,62,0.1)">
-            <div class="font-display" style="font-size:44px;color:var(--gold);line-height:1">100+</div>
-            <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px">Projects</div>
-          </div>
-          <div style="padding:0 24px;border-right:1px solid rgba(46,107,62,0.1)">
-            <div class="font-display" style="font-size:44px;color:var(--gold);line-height:1">10</div>
-            <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px">Years</div>
-          </div>
-          <div style="padding:0 24px;border-right:1px solid rgba(46,107,62,0.1)">
-            <div class="font-display" style="font-size:44px;color:var(--gold);line-height:1">7</div>
-            <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px">In-House Experts</div>
-          </div>
-          <div style="padding-left:24px">
-            <div class="font-display" style="font-size:44px;color:var(--gold);line-height:1">2</div>
-            <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px">Partners</div>
-          </div>
-        </div>
+<section style="min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 24px 64px;background:var(--cream);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(46,107,62,0.04) 0 1px,transparent 1px 80px),repeating-linear-gradient(0deg,rgba(46,107,62,0.04) 0 1px,transparent 1px 80px)"></div>
+  <div style="position:absolute;top:10%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,0.07),transparent 70%);pointer-events:none"></div>
+  <div class="wrap" style="position:relative;z-index:1;padding:0">
+    <span class="eyebrow a1" style="display:block;margin-bottom:12px">Design-Build · San Francisco · Marin County · Est. 2016</span>
+    <span class="gold-line a1"></span>
+    <h1 class="fd a2" style="font-size:clamp(68px,12vw,148px);line-height:.87;color:var(--text);margin-bottom:28px">DESIGN.<br>BUILD.<br><span style="color:var(--g)">DELIVER.</span></h1>
+    <p class="a3" style="font-size:16px;line-height:1.75;color:var(--muted);max-width:560px;margin-bottom:36px">Solid Bay Construction SF is a design-build renovation firm serving San Francisco and Marin County since 2016. We design it, permit it, and build it — one team accountable from concept to completion.</p>
+    <div class="a4" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:56px">
+      <a href="#contact" class="bp">Book a Consultation</a>
+      <a href="#projects" class="bo">View Projects</a>
+    </div>
+    <!-- STATS -->
+    <div class="a4" style="display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(46,107,62,0.12);padding-top:28px;max-width:560px">
+      <div style="padding-right:16px;border-right:1px solid rgba(46,107,62,0.1)">
+        <div class="fd" style="font-size:40px;color:var(--gold);line-height:1">100+</div>
+        <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px">Projects</div>
+      </div>
+      <div style="padding:0 16px;border-right:1px solid rgba(46,107,62,0.1)">
+        <div class="fd" style="font-size:40px;color:var(--gold);line-height:1">10</div>
+        <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px">Years</div>
+      </div>
+      <div style="padding:0 16px;border-right:1px solid rgba(46,107,62,0.1)">
+        <div class="fd" style="font-size:40px;color:var(--gold);line-height:1">7</div>
+        <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px">Experts</div>
+      </div>
+      <div style="padding-left:16px">
+        <div class="fd" style="font-size:40px;color:var(--gold);line-height:1">2</div>
+        <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px">Partners</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-inner">
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Kitchen Remodeling</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">ADU Construction</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Victorian Renovation</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Bathroom Renovation</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Permit Expediting</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Home Additions</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">HVAC Installation</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Structural Engineering</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <!-- duplicate for seamless loop -->
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Kitchen Remodeling</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">ADU Construction</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Victorian Renovation</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Bathroom Renovation</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Permit Expediting</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Home Additions</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">HVAC Installation</span><span style="color:var(--gold);font-size:8px">✦</span>
-    <span class="font-display" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.9);padding:0 40px">Structural Engineering</span><span style="color:var(--gold);font-size:8px">✦</span>
+<div class="tkw">
+  <div class="tki">
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Kitchen Remodeling</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">ADU Construction</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Victorian Renovation</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Bathroom Renovation</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Permit Expediting</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Home Additions</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">HVAC Services</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Structural Engineering</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Kitchen Remodeling</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">ADU Construction</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Victorian Renovation</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Bathroom Renovation</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Permit Expediting</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Home Additions</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">HVAC Services</span><span style="color:var(--gold);font-size:8px">✦</span>
+    <span class="fd" style="font-size:12px;letter-spacing:.2em;color:rgba(250,248,243,0.85);padding:0 36px">Structural Engineering</span><span style="color:var(--gold);font-size:8px">✦</span>
   </div>
 </div>
 
 <!-- SERVICES -->
-<section class="section-pad" id="services" style="background:var(--cream)">
-  <div class="max-w-7xl mx-auto">
-    <div style="display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start" class="reveal">
+<section class="sec" id="services" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="two-col rv">
       <div>
-        <span class="eyebrow">What We Build</span>
+        <span class="eyebrow" style="display:block;margin-bottom:10px">What We Build</span>
         <span class="gold-line"></span>
-        <h2 class="font-display" style="font-size:clamp(48px,5vw,72px);line-height:.9;color:var(--text)">PRIMARY<br>SCOPES</h2>
-        <p style="font-size:14px;line-height:1.7;color:var(--muted);margin-top:20px">Same team designs, permits, and builds every project. Architecture-led, not catalog-led.</p>
-        <a href="#contact" class="btn-primary" style="margin-top:28px;display:inline-block">Start a Project</a>
+        <h2 class="fd" style="font-size:clamp(44px,5vw,68px);line-height:.9;color:var(--text)">PRIMARY<br>SCOPES</h2>
+        <p style="font-size:13px;line-height:1.7;color:var(--muted);margin-top:16px">Same team designs, permits, and builds every project.</p>
+        <a href="#contact" class="bp" style="margin-top:24px;display:inline-block">Start a Project</a>
       </div>
       <div>
-        <a href="articles/kitchen-remodeling-san-francisco.html" class="service-card reveal reveal-delay-1">
-          <div style="flex:1">
-            <span class="service-num">01</span>
-            <h3 class="font-display" style="font-size:28px;color:var(--text);margin-bottom:8px">Kitchen Remodeling</h3>
-            <p style="font-size:13px;color:var(--muted);line-height:1.6">Custom kitchen renovations in San Francisco and Marin County. From galley updates to full open-plan transformations — design, permits, and construction in-house.</p>
-          </div>
-          <svg class="service-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="articles/kitchen-remodeling-san-francisco.html" class="svc-row rv rd1">
+          <div><span class="svc-num">01</span><h3 class="fd" style="font-size:26px;color:var(--text);margin-bottom:6px">Kitchen Remodeling</h3><p style="font-size:13px;color:var(--muted)">Custom kitchen renovations in SF and Marin. Design, permits, and construction all in-house.</p></div>
+          <svg class="svc-arr" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="articles/adu-construction-san-francisco.html" class="service-card reveal reveal-delay-1">
-          <div style="flex:1">
-            <span class="service-num">02</span>
-            <h3 class="font-display" style="font-size:28px;color:var(--text);margin-bottom:8px">ADU & Garage Conversions</h3>
-            <p style="font-size:13px;color:var(--muted);line-height:1.6">Detached architecture. JADU, ADU, and garage-to-ADU — designed with the same discipline as the main house. Maximize your property value and rental income.</p>
-          </div>
-          <svg class="service-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="articles/adu-construction-san-francisco.html" class="svc-row rv rd1">
+          <div><span class="svc-num">02</span><h3 class="fd" style="font-size:26px;color:var(--text);margin-bottom:6px">ADU & Garage Conversions</h3><p style="font-size:13px;color:var(--muted)">JADU, ADU, and garage-to-ADU. Maximize property value and rental income.</p></div>
+          <svg class="svc-arr" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="articles/bathroom-remodel-cost-san-francisco.html" class="service-card reveal reveal-delay-1">
-          <div style="flex:1">
-            <span class="service-num">03</span>
-            <h3 class="font-display" style="font-size:28px;color:var(--text);margin-bottom:8px">Bathroom Renovation</h3>
-            <p style="font-size:13px;color:var(--muted);line-height:1.6">Spa-quality bathroom remodels across SF and Marin County. Primary suites, guest baths, and powder rooms transformed with precision and natural materials.</p>
-          </div>
-          <svg class="service-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="articles/bathroom-remodel-cost-san-francisco.html" class="svc-row rv rd1">
+          <div><span class="svc-num">03</span><h3 class="fd" style="font-size:26px;color:var(--text);margin-bottom:6px">Bathroom Renovation</h3><p style="font-size:13px;color:var(--muted)">Spa-quality bathroom remodels across SF and Marin County.</p></div>
+          <svg class="svc-arr" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="articles/victorian-home-renovation-san-francisco.html" class="service-card reveal reveal-delay-2">
-          <div style="flex:1">
-            <span class="service-num">04</span>
-            <h3 class="font-display" style="font-size:28px;color:var(--text);margin-bottom:8px">Victorian Renovation</h3>
-            <p style="font-size:13px;color:var(--muted);line-height:1.6">San Francisco has 14,000+ Victorians. We restore character while adding modern comfort, seismic safety, and updated systems — preserving what makes these homes extraordinary.</p>
-          </div>
-          <svg class="service-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="articles/victorian-home-renovation-san-francisco.html" class="svc-row rv rd2">
+          <div><span class="svc-num">04</span><h3 class="fd" style="font-size:26px;color:var(--text);margin-bottom:6px">Victorian Renovation</h3><p style="font-size:13px;color:var(--muted)">14,000+ SF Victorians. We restore character while adding modern comfort and seismic safety.</p></div>
+          <svg class="svc-arr" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="articles/home-addition-guide-san-francisco.html" class="service-card reveal reveal-delay-2">
-          <div style="flex:1">
-            <span class="service-num">05</span>
-            <h3 class="font-display" style="font-size:28px;color:var(--text);margin-bottom:8px">Home Additions</h3>
-            <p style="font-size:13px;color:var(--muted);line-height:1.6">Rear additions, second-story additions, and room expansions. Full structural engineering, architectural drawings, and permit management included on every project.</p>
-          </div>
-          <svg class="service-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="articles/home-addition-guide-san-francisco.html" class="svc-row rv rd2">
+          <div><span class="svc-num">05</span><h3 class="fd" style="font-size:26px;color:var(--text);margin-bottom:6px">Home Additions</h3><p style="font-size:13px;color:var(--muted)">Rear, second-story, and room additions. Full engineering, design, and permits included.</p></div>
+          <svg class="svc-arr" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="hvac/index.html" class="service-card reveal reveal-delay-2">
-          <div style="flex:1">
-            <span class="service-num">06</span>
-            <h3 class="font-display" style="font-size:28px;color:var(--text);margin-bottom:8px">HVAC Services</h3>
-            <p style="font-size:13px;color:var(--muted);line-height:1.6">Licensed HVAC partner (Lic. #717881). Furnace installation, heat pumps, AC systems, ductwork, and mini-splits. Up to $7,500+ in available rebates.</p>
-          </div>
-          <svg class="service-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="hvac/index.html" class="svc-row rv rd2">
+          <div><span class="svc-num">06</span><h3 class="fd" style="font-size:26px;color:var(--text);margin-bottom:6px">HVAC Services</h3><p style="font-size:13px;color:var(--muted)">Licensed HVAC partner (Lic. #717881). Furnace, heat pumps, AC, ductwork. Up to $7,500+ rebates.</p></div>
+          <svg class="svc-arr" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
@@ -322,315 +288,178 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);
 </section>
 
 <!-- PROJECTS -->
-<section class="section-pad" id="projects" style="background:var(--light)">
-  <div class="max-w-7xl mx-auto">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px" class="reveal">
+<section class="sec" id="projects" style="background:var(--light)">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px" class="rv">
       <div>
-        <span class="eyebrow">Selected Work</span>
+        <span class="eyebrow" style="display:block;margin-bottom:10px">Selected Work</span>
         <span class="gold-line"></span>
-        <h2 class="font-display" style="font-size:clamp(48px,5vw,72px);line-height:.9;color:var(--text)">FEATURED<br>PROJECTS</h2>
+        <h2 class="fd" style="font-size:clamp(44px,5vw,68px);line-height:.9;color:var(--text)">FEATURED<br>PROJECTS</h2>
       </div>
-      <a href="#contact" class="btn-outline" style="display:none;display:inline-block">View All</a>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px" class="reveal">
-      <!-- Project 1 - placeholder image area -->
-      <div class="project-card" style="aspect-ratio:3/4">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#2E6B3E,#1a2e1a)"></div>
-        <div class="project-card-overlay"></div>
-        <div class="project-card-body">
-          <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">Kitchen · Pacific Heights</span>
-          <h3 class="font-display" style="font-size:22px;color:#fff;margin-bottom:4px">The Pacific Heights Kitchen</h3>
-          <p style="font-size:12px;color:rgba(255,255,255,0.6)">Full kitchen transformation · $220K</p>
+    <div class="proj-grid rv">
+      <div class="proj-card" style="background:linear-gradient(135deg,#2E6B3E,#1a2e1a)">
+        <div class="proj-ov"></div>
+        <div class="proj-body">
+          <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px">Kitchen · Pacific Heights</span>
+          <h3 class="fd" style="font-size:20px;color:#fff;margin-bottom:3px">The Pacific Heights Kitchen</h3>
+          <p style="font-size:11px;color:rgba(255,255,255,0.55)">Full kitchen transformation · $220K</p>
         </div>
       </div>
-      <!-- Project 2 -->
-      <div class="project-card" style="aspect-ratio:3/4">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a2e1a,#2E6B3E)"></div>
-        <div class="project-card-overlay"></div>
-        <div class="project-card-body">
-          <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">ADU · Noe Valley</span>
-          <h3 class="font-display" style="font-size:22px;color:#fff;margin-bottom:4px">The Noe Valley ADU</h3>
-          <p style="font-size:12px;color:rgba(255,255,255,0.6)">Garage conversion · 650 sq ft · $310K</p>
+      <div class="proj-card" style="background:linear-gradient(135deg,#1a2e1a,#2E6B3E)">
+        <div class="proj-ov"></div>
+        <div class="proj-body">
+          <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px">ADU · Noe Valley</span>
+          <h3 class="fd" style="font-size:20px;color:#fff;margin-bottom:3px">The Noe Valley ADU</h3>
+          <p style="font-size:11px;color:rgba(255,255,255,0.55)">Garage conversion · 650 sq ft · $310K</p>
         </div>
       </div>
-      <!-- Project 3 -->
-      <div class="project-card" style="aspect-ratio:3/4">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#C9A84C,#A8872E)"></div>
-        <div class="project-card-overlay"></div>
-        <div class="project-card-body">
-          <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">Full Renovation · Tiburon</span>
-          <h3 class="font-display" style="font-size:22px;color:#fff;margin-bottom:4px">The Tiburon Residence</h3>
-          <p style="font-size:12px;color:rgba(255,255,255,0.6)">Full home renovation · 3,200 sq ft</p>
+      <div class="proj-card" style="background:linear-gradient(135deg,#A8872E,#C9A84C)">
+        <div class="proj-ov"></div>
+        <div class="proj-body">
+          <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px">Full Renovation · Tiburon</span>
+          <h3 class="fd" style="font-size:20px;color:#fff;margin-bottom:3px">The Tiburon Residence</h3>
+          <p style="font-size:11px;color:rgba(255,255,255,0.55)">Full home renovation · 3,200 sq ft</p>
         </div>
       </div>
     </div>
-    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:20px">Project photos coming soon — <a href="#contact" style="color:var(--green)">contact us</a> to see our portfolio</p>
+    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:16px">Project photos coming soon — <a href="#contact" style="color:var(--g)">contact us</a> to see our full portfolio</p>
   </div>
 </section>
 
 <!-- WHY US -->
-<section class="section-pad" id="about" style="background:var(--text)">
-  <div class="max-w-7xl mx-auto">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start" class="reveal">
+<section class="sec" id="about" style="background:var(--text)">
+  <div class="wrap">
+    <div class="two-col-eq rv">
       <div>
-        <span class="eyebrow" style="color:rgba(201,168,76,0.7)">The Practice</span>
-        <span style="width:40px;height:1.5px;background:var(--gold);display:block;margin-bottom:18px;opacity:0.5"></span>
-        <h2 class="font-display" style="font-size:clamp(48px,5vw,72px);line-height:.9;color:#FAF8F3;margin-bottom:28px">WHY CHOOSE<br>SOLID BAY</h2>
-        <p style="font-size:15px;line-height:1.75;color:rgba(255,255,255,0.6);margin-bottom:40px">We are a boutique design-build firm — not a volume contractor. We take on a limited number of projects each year, giving every client our full attention and in-house expertise from first meeting to final walkthrough.</p>
-        <a href="#contact" class="btn-gold-outline">Start a Conversation</a>
+        <span class="eyebrow" style="display:block;margin-bottom:10px;color:rgba(201,168,76,0.6)">The Practice</span>
+        <span style="width:40px;height:1.5px;background:var(--gold);display:block;margin-bottom:16px;opacity:.5"></span>
+        <h2 class="fd" style="font-size:clamp(44px,5vw,68px);line-height:.9;color:#FAF8F3;margin-bottom:24px">WHY CHOOSE<br>SOLID BAY</h2>
+        <p style="font-size:15px;line-height:1.75;color:rgba(255,255,255,0.55);margin-bottom:32px">Boutique design-build firm. We take on a limited number of projects each year, giving every client our full in-house expertise from first meeting to final walkthrough.</p>
+        <a href="#contact" style="background:transparent;color:var(--gold);border:1px solid var(--gold);padding:12px 24px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;text-decoration:none;display:inline-block;transition:all .2s">Start a Conversation</a>
       </div>
-      <div style="display:flex;flex-direction:column;gap:0">
-        <div style="padding:28px 0;border-top:1px solid rgba(255,255,255,0.08)" class="reveal reveal-delay-1">
-          <div style="display:flex;gap:20px;align-items:flex-start">
-            <span class="font-display" style="font-size:36px;color:rgba(201,168,76,0.2);line-height:1;flex-shrink:0">01</span>
-            <div>
-              <h3 class="font-display" style="font-size:20px;color:#FAF8F3;margin-bottom:8px">In-House Team</h3>
-              <p style="font-size:13px;line-height:1.65;color:rgba(255,255,255,0.5)">2 architects, 2 structural engineers, 2 designers, and a dedicated permit expeditor — all under one roof. No subcontracting your design.</p>
-            </div>
-          </div>
-        </div>
-        <div style="padding:28px 0;border-top:1px solid rgba(255,255,255,0.08)" class="reveal reveal-delay-1">
-          <div style="display:flex;gap:20px;align-items:flex-start">
-            <span class="font-display" style="font-size:36px;color:rgba(201,168,76,0.2);line-height:1;flex-shrink:0">02</span>
-            <div>
-              <h3 class="font-display" style="font-size:20px;color:#FAF8F3;margin-bottom:8px">SF Permit Experts</h3>
-              <p style="font-size:13px;line-height:1.65;color:rgba(255,255,255,0.5)">We know SF's DBI and Planning Department inside out. Our expeditor navigates SF's complex permitting landscape — cutting timelines by 30–50%.</p>
-            </div>
-          </div>
-        </div>
-        <div style="padding:28px 0;border-top:1px solid rgba(255,255,255,0.08)" class="reveal reveal-delay-2">
-          <div style="display:flex;gap:20px;align-items:flex-start">
-            <span class="font-display" style="font-size:36px;color:rgba(201,168,76,0.2);line-height:1;flex-shrink:0">03</span>
-            <div>
-              <h3 class="font-display" style="font-size:20px;color:#FAF8F3;margin-bottom:8px">Transparent Pricing</h3>
-              <p style="font-size:13px;line-height:1.65;color:rgba(255,255,255,0.5)">Fixed-price contracts. Detailed written agreements, milestone-based payments, and zero hidden fees. California law compliant always.</p>
-            </div>
-          </div>
-        </div>
-        <div style="padding:28px 0;border-top:1px solid rgba(255,255,255,0.08)" class="reveal reveal-delay-2">
-          <div style="display:flex;gap:20px;align-items:flex-start">
-            <span class="font-display" style="font-size:36px;color:rgba(201,168,76,0.2);line-height:1;flex-shrink:0">04</span>
-            <div>
-              <h3 class="font-display" style="font-size:20px;color:#FAF8F3;margin-bottom:8px">Free 3D Rendering</h3>
-              <p style="font-size:13px;line-height:1.65;color:rgba(255,255,255,0.5)">Every project starts with a complimentary 3D rendering. See exactly what your finished renovation will look like before a single nail is driven.</p>
-            </div>
-          </div>
-        </div>
+      <div>
+        <div class="why-item rv rd1"><div class="why-n">01</div><div><h3 class="fd" style="font-size:20px;color:#FAF8F3;margin-bottom:6px">In-House Team</h3><p style="font-size:13px;line-height:1.65;color:rgba(255,255,255,0.45)">2 architects, 2 structural engineers, 2 designers, and a dedicated permit expeditor — all under one roof. No subcontracting your design.</p></div></div>
+        <div class="why-item rv rd1"><div class="why-n">02</div><div><h3 class="fd" style="font-size:20px;color:#FAF8F3;margin-bottom:6px">SF Permit Experts</h3><p style="font-size:13px;line-height:1.65;color:rgba(255,255,255,0.45)">We know SF's DBI and Planning Department inside out. Our expeditor cuts permit timelines by 30–50%.</p></div></div>
+        <div class="why-item rv rd2"><div class="why-n">03</div><div><h3 class="fd" style="font-size:20px;color:#FAF8F3;margin-bottom:6px">Transparent Pricing</h3><p style="font-size:13px;line-height:1.65;color:rgba(255,255,255,0.45)">Fixed-price contracts. Detailed written agreements, milestone-based payments, and zero hidden fees.</p></div></div>
+        <div class="why-item rv rd2"><div class="why-n">04</div><div><h3 class="fd" style="font-size:20px;color:#FAF8F3;margin-bottom:6px">Free 3D Rendering</h3><p style="font-size:13px;line-height:1.65;color:rgba(255,255,255,0.45)">Every project starts with a complimentary 3D rendering. See your finished renovation before a single nail is driven.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="section-pad" id="process" style="background:var(--cream)">
-  <div class="max-w-7xl mx-auto">
-    <div style="display:grid;grid-template-columns:1fr 2fr;gap:80px" class="reveal">
+<section class="sec" id="process" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="two-col rv" style="margin-bottom:48px">
       <div>
-        <span class="eyebrow">Process · At a Glance</span>
+        <span class="eyebrow" style="display:block;margin-bottom:10px">Process · At a Glance</span>
         <span class="gold-line"></span>
-        <h2 class="font-display" style="font-size:clamp(48px,5vw,72px);line-height:.9;color:var(--text)">FOUR<br>PHASES.</h2>
-        <p style="font-size:14px;line-height:1.7;color:var(--muted);margin-top:20px">Disclosed timeline. Sign-off at every milestone. No black hole between contract and completion.</p>
-        <div style="margin-top:32px;padding:20px;background:var(--light);border-left:2px solid var(--gold)">
-          <p style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Typical full renovation</p>
-          <p class="font-display" style="font-size:32px;color:var(--text)">~60 WEEKS</p>
+        <h2 class="fd" style="font-size:clamp(44px,5vw,68px);line-height:.9;color:var(--text)">FOUR<br>PHASES.</h2>
+        <p style="font-size:13px;line-height:1.7;color:var(--muted);margin-top:16px">Disclosed timeline. Sign-off at every milestone. No surprises.</p>
+        <div style="margin-top:28px;padding:20px;background:var(--light);border-left:2px solid var(--gold)">
+          <p style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Typical full renovation</p>
+          <p class="fd" style="font-size:32px;color:var(--text)">~60 WEEKS</p>
           <p style="font-size:12px;color:var(--muted)">concept to walkthrough</p>
         </div>
       </div>
       <div>
-        <div class="process-step reveal reveal-delay-1">
-          <div class="process-num">01</div>
-          <div style="padding-left:24px">
-            <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">Weeks 1–3</span>
-            <h3 class="font-display" style="font-size:24px;color:var(--text);margin-bottom:10px">Consultation</h3>
-            <p style="font-size:13px;line-height:1.65;color:var(--muted)">Site visit, scope alignment, and budget framework. Free 3D rendering provided. No design work begins until program and budget are agreed.</p>
-          </div>
-        </div>
-        <div class="process-step reveal reveal-delay-1">
-          <div class="process-num">02</div>
-          <div style="padding-left:24px">
-            <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">Weeks 4–14</span>
-            <h3 class="font-display" style="font-size:24px;color:var(--text);margin-bottom:10px">Design</h3>
-            <p style="font-size:13px;line-height:1.65;color:var(--muted)">Schematic through construction documents. In-house architects and structural engineers. Three review milestones with client sign-off at each stage.</p>
-          </div>
-        </div>
-        <div class="process-step reveal reveal-delay-2">
-          <div class="process-num">03</div>
-          <div style="padding-left:24px">
-            <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">Weeks 10–22</span>
-            <h3 class="font-display" style="font-size:24px;color:var(--text);margin-bottom:10px">Permit</h3>
-            <p style="font-size:13px;line-height:1.65;color:var(--muted)">Submittal, DBI review, revisions, and approval. Our in-house expeditor carries the relationship with SF Planning and Building staff — cutting timelines by 30–50%.</p>
-          </div>
-        </div>
-        <div class="process-step reveal reveal-delay-2">
-          <div class="process-num">04</div>
-          <div style="padding-left:24px">
-            <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">Weeks 20–60</span>
-            <h3 class="font-display" style="font-size:24px;color:var(--text);margin-bottom:10px">Build</h3>
-            <p style="font-size:13px;line-height:1.65;color:var(--muted)">Mobilization to walkthrough. Weekly progress reports, transparent change-order log, and a 2-year workmanship warranty. Same team that designed it builds it.</p>
-          </div>
-        </div>
+        <div class="proc rv rd1"><div class="proc-n">01</div><div><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px">Weeks 1–3</span><h3 class="fd" style="font-size:22px;color:var(--text);margin-bottom:8px">Consultation</h3><p style="font-size:13px;line-height:1.65;color:var(--muted)">Site visit, scope alignment, budget framework. Free 3D rendering provided. No commitment needed.</p></div></div>
+        <div class="proc rv rd1"><div class="proc-n">02</div><div><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px">Weeks 4–14</span><h3 class="fd" style="font-size:22px;color:var(--text);margin-bottom:8px">Design</h3><p style="font-size:13px;line-height:1.65;color:var(--muted)">Schematic through construction documents. In-house architects and structural engineers. Three review milestones with client sign-off.</p></div></div>
+        <div class="proc rv rd2"><div class="proc-n">03</div><div><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px">Weeks 10–22</span><h3 class="fd" style="font-size:22px;color:var(--text);margin-bottom:8px">Permit</h3><p style="font-size:13px;line-height:1.65;color:var(--muted)">Submittal, DBI review, revisions, and approval. Our in-house expeditor cuts SF permit timelines by 30–50%.</p></div></div>
+        <div class="proc rv rd2"><div class="proc-n">04</div><div><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px">Weeks 20–60</span><h3 class="fd" style="font-size:22px;color:var(--text);margin-bottom:8px">Build</h3><p style="font-size:13px;line-height:1.65;color:var(--muted)">Mobilization to walkthrough. Weekly progress reports, transparent change-order log, and a 2-year workmanship warranty.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="section-pad" style="background:var(--green)">
-  <div class="max-w-7xl mx-auto">
-    <div style="margin-bottom:56px" class="reveal">
-      <span class="eyebrow" style="color:rgba(250,248,243,0.5)">Client Voices</span>
-      <span style="width:40px;height:1.5px;background:var(--gold);display:block;margin-bottom:18px;opacity:0.5"></span>
-      <h2 class="font-display" style="font-size:clamp(48px,5vw,72px);line-height:.9;color:#FAF8F3">SAME TEAM<br>DESIGNED &<br>BUILT IT.</h2>
+<section class="sec" style="background:var(--g)">
+  <div class="wrap">
+    <div style="margin-bottom:48px" class="rv">
+      <span class="eyebrow" style="display:block;margin-bottom:10px;color:rgba(250,248,243,0.4)">Client Voices</span>
+      <span style="width:40px;height:1.5px;background:var(--gold);display:block;margin-bottom:16px;opacity:.5"></span>
+      <h2 class="fd" style="font-size:clamp(44px,5vw,68px);line-height:.9;color:#FAF8F3">SAME TEAM.<br>START TO FINISH.</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06)">
-      <div style="padding:40px 32px;background:var(--green)" class="reveal reveal-delay-1">
-        <div style="font-size:24px;color:var(--gold);margin-bottom:20px;letter-spacing:2px">★★★★★</div>
-        <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.75);margin-bottom:24px;font-style:italic">"From the first call to the final walkthrough, the team was exceptional. Pricing and timelines were clearly defined — no surprises at any stage."</p>
-        <div>
-          <p style="font-size:12px;font-weight:600;color:#FAF8F3">Sarah M.</p>
-          <p style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:.1em;text-transform:uppercase">Pacific Heights · Kitchen Remodel</p>
-        </div>
-      </div>
-      <div style="padding:40px 32px;background:var(--green)" class="reveal reveal-delay-2">
-        <div style="font-size:24px;color:var(--gold);margin-bottom:20px;letter-spacing:2px">★★★★★</div>
-        <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.75);margin-bottom:24px;font-style:italic">"They handled everything — design, permits, construction. The 3D rendering they showed us at the start matched the finished product almost exactly. Incredible team."</p>
-        <div>
-          <p style="font-size:12px;font-weight:600;color:#FAF8F3">David & Lisa R.</p>
-          <p style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:.1em;text-transform:uppercase">Noe Valley · ADU Conversion</p>
-        </div>
-      </div>
-      <div style="padding:40px 32px;background:var(--green)" class="reveal reveal-delay-3">
-        <div style="font-size:24px;color:var(--gold);margin-bottom:20px;letter-spacing:2px">★★★★★</div>
-        <p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.75);margin-bottom:24px;font-style:italic">"Our Victorian needed expert hands. Solid Bay understood the historic character of the home and delivered a renovation that feels timeless. The permit process was painless."</p>
-        <div>
-          <p style="font-size:12px;font-weight:600;color:#FAF8F3">Michael T.</p>
-          <p style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:.1em;text-transform:uppercase">Mission District · Victorian Renovation</p>
-        </div>
-      </div>
+    <div class="testi-grid rv">
+      <div style="padding:36px 28px;background:var(--g)"><div style="font-size:20px;color:var(--gold);margin-bottom:16px;letter-spacing:2px">★★★★★</div><p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.7);margin-bottom:20px;font-style:italic">"From the first call to the final walkthrough, the team was exceptional. Pricing and timelines clearly defined — no surprises at any stage."</p><div><p style="font-size:12px;font-weight:600;color:#FAF8F3">Sarah M.</p><p style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:.1em;text-transform:uppercase;margin-top:2px">Pacific Heights · Kitchen Remodel</p></div></div>
+      <div style="padding:36px 28px;background:var(--g)"><div style="font-size:20px;color:var(--gold);margin-bottom:16px;letter-spacing:2px">★★★★★</div><p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.7);margin-bottom:20px;font-style:italic">"They handled everything — design, permits, construction. The 3D rendering matched the finished product almost exactly. Incredible team."</p><div><p style="font-size:12px;font-weight:600;color:#FAF8F3">David & Lisa R.</p><p style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:.1em;text-transform:uppercase;margin-top:2px">Noe Valley · ADU Conversion</p></div></div>
+      <div style="padding:36px 28px;background:var(--g)"><div style="font-size:20px;color:var(--gold);margin-bottom:16px;letter-spacing:2px">★★★★★</div><p style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.7);margin-bottom:20px;font-style:italic">"Our Victorian needed expert hands. Solid Bay understood the historic character and delivered a renovation that feels timeless. Permit process was painless."</p><div><p style="font-size:12px;font-weight:600;color:#FAF8F3">Michael T.</p><p style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:.1em;text-transform:uppercase;margin-top:2px">Mission District · Victorian Renovation</p></div></div>
     </div>
   </div>
 </section>
 
 <!-- LOCATIONS -->
-<section class="section-pad" style="background:var(--light)">
-  <div class="max-w-7xl mx-auto">
-    <div style="margin-bottom:48px" class="reveal">
-      <span class="eyebrow">Service Areas</span>
+<section class="sec" style="background:var(--light)">
+  <div class="wrap">
+    <div style="margin-bottom:40px" class="rv">
+      <span class="eyebrow" style="display:block;margin-bottom:10px">Service Areas</span>
       <span class="gold-line"></span>
-      <h2 class="font-display" style="font-size:clamp(48px,5vw,72px);line-height:.9;color:var(--text)">WHERE<br>WE BUILD</h2>
+      <h2 class="fd" style="font-size:clamp(44px,5vw,68px);line-height:.9;color:var(--text)">WHERE<br>WE BUILD</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px" class="reveal">
-      <a href="locations/san-francisco.html" style="padding:32px 24px;background:var(--cream);text-decoration:none;transition:background .2s;display:block" onmouseover="this.style.background='#2E6B3E'" onmouseout="this.style.background='var(--cream)'" onmouseover="this.style.background='#2E6B3E';this.querySelector('h3').style.color='#FAF8F3';this.querySelector('p').style.color='rgba(250,248,243,0.6)'" onmouseout="this.style.background='var(--cream)';this.querySelector('h3').style.color='var(--text)';this.querySelector('p').style.color='var(--muted)'">
-        <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px">01</span>
-        <h3 class="font-display" style="font-size:22px;color:var(--text);margin-bottom:6px;transition:color .2s">San Francisco</h3>
-        <p style="font-size:12px;color:var(--muted);line-height:1.5;transition:color .2s">Pacific Heights, Marina, Noe Valley, Mission, Castro & all neighborhoods</p>
-      </a>
-      <a href="locations/tiburon.html" style="padding:32px 24px;background:var(--cream);text-decoration:none;display:block" onmouseover="this.style.background='#2E6B3E';this.querySelector('h3').style.color='#FAF8F3';this.querySelector('p').style.color='rgba(250,248,243,0.6)'" onmouseout="this.style.background='var(--cream)';this.querySelector('h3').style.color='var(--text)';this.querySelector('p').style.color='var(--muted)'">
-        <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px">02</span>
-        <h3 class="font-display" style="font-size:22px;color:var(--text);margin-bottom:6px;transition:color .2s">Tiburon</h3>
-        <p style="font-size:12px;color:var(--muted);line-height:1.5;transition:color .2s">Luxury bay-view renovations, additions, and ADUs</p>
-      </a>
-      <a href="locations/mill-valley.html" style="padding:32px 24px;background:var(--cream);text-decoration:none;display:block" onmouseover="this.style.background='#2E6B3E';this.querySelector('h3').style.color='#FAF8F3';this.querySelector('p').style.color='rgba(250,248,243,0.6)'" onmouseout="this.style.background='var(--cream)';this.querySelector('h3').style.color='var(--text)';this.querySelector('p').style.color='var(--muted)'">
-        <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px">03</span>
-        <h3 class="font-display" style="font-size:22px;color:var(--text);margin-bottom:6px;transition:color .2s">Mill Valley</h3>
-        <p style="font-size:12px;color:var(--muted);line-height:1.5;transition:color .2s">Craftsman and mid-century renovations in nature</p>
-      </a>
-      <a href="locations/san-rafael.html" style="padding:32px 24px;background:var(--cream);text-decoration:none;display:block" onmouseover="this.style.background='#2E6B3E';this.querySelector('h3').style.color='#FAF8F3';this.querySelector('p').style.color='rgba(250,248,243,0.6)'" onmouseout="this.style.background='var(--cream)';this.querySelector('h3').style.color='var(--text)';this.querySelector('p').style.color='var(--muted)'">
-        <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px">04</span>
-        <h3 class="font-display" style="font-size:22px;color:var(--text);margin-bottom:6px;transition:color .2s">San Rafael</h3>
-        <p style="font-size:12px;color:var(--muted);line-height:1.5;transition:color .2s">Marin's largest city — diverse renovation market</p>
-      </a>
-      <a href="locations/sausalito.html" style="padding:32px 24px;background:var(--cream);text-decoration:none;display:block" onmouseover="this.style.background='#2E6B3E';this.querySelector('h3').style.color='#FAF8F3';this.querySelector('p').style.color='rgba(250,248,243,0.6)'" onmouseout="this.style.background='var(--cream)';this.querySelector('h3').style.color='var(--text)';this.querySelector('p').style.color='var(--muted)'">
-        <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px">05</span>
-        <h3 class="font-display" style="font-size:22px;color:var(--text);margin-bottom:6px;transition:color .2s">Sausalito</h3>
-        <p style="font-size:12px;color:var(--muted);line-height:1.5;transition:color .2s">Waterfront homes, hillside retreats</p>
-      </a>
-      <a href="locations/corte-madera.html" style="padding:32px 24px;background:var(--cream);text-decoration:none;display:block" onmouseover="this.style.background='#2E6B3E';this.querySelector('h3').style.color='#FAF8F3';this.querySelector('p').style.color='rgba(250,248,243,0.6)'" onmouseout="this.style.background='var(--cream)';this.querySelector('h3').style.color='var(--text)';this.querySelector('p').style.color='var(--muted)'">
-        <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px">06</span>
-        <h3 class="font-display" style="font-size:22px;color:var(--text);margin-bottom:6px;transition:color .2s">Corte Madera</h3>
-        <p style="font-size:12px;color:var(--muted);line-height:1.5;transition:color .2s">Family-focused renovations and ADUs</p>
-      </a>
-      <a href="locations/larkspur.html" style="padding:32px 24px;background:var(--cream);text-decoration:none;display:block" onmouseover="this.style.background='#2E6B3E';this.querySelector('h3').style.color='#FAF8F3';this.querySelector('p').style.color='rgba(250,248,243,0.6)'" onmouseout="this.style.background='var(--cream)';this.querySelector('h3').style.color='var(--text)';this.querySelector('p').style.color='var(--muted)'">
-        <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px">07</span>
-        <h3 class="font-display" style="font-size:22px;color:var(--text);margin-bottom:6px;transition:color .2s">Larkspur</h3>
-        <p style="font-size:12px;color:var(--muted);line-height:1.5;transition:color .2s">Historic downtown charm, hillside homes</p>
-      </a>
-      <a href="locations/kentfield.html" style="padding:32px 24px;background:var(--cream);text-decoration:none;display:block" onmouseover="this.style.background='#2E6B3E';this.querySelector('h3').style.color='#FAF8F3';this.querySelector('p').style.color='rgba(250,248,243,0.6)'" onmouseout="this.style.background='var(--cream)';this.querySelector('h3').style.color='var(--text)';this.querySelector('p').style.color='var(--muted)'">
-        <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px">08</span>
-        <h3 class="font-display" style="font-size:22px;color:var(--text);margin-bottom:6px;transition:color .2s">Kentfield & Ross</h3>
-        <p style="font-size:12px;color:var(--muted);line-height:1.5;transition:color .2s">Prestigious estate-level renovations</p>
-      </a>
+    <div class="loc-grid rv">
+      <a href="locations/san-francisco.html" class="loc-card"><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">01</span><h3 class="fd loc-t" style="font-size:20px;color:var(--text);margin-bottom:5px">San Francisco</h3><p class="loc-p" style="font-size:12px;color:var(--muted);line-height:1.5">All neighborhoods — Pacific Heights, Marina, Noe Valley, Mission, Castro & more</p></a>
+      <a href="locations/tiburon.html" class="loc-card"><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">02</span><h3 class="fd loc-t" style="font-size:20px;color:var(--text);margin-bottom:5px">Tiburon</h3><p class="loc-p" style="font-size:12px;color:var(--muted);line-height:1.5">Luxury bay-view renovations, additions & ADUs</p></a>
+      <a href="locations/mill-valley.html" class="loc-card"><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">03</span><h3 class="fd loc-t" style="font-size:20px;color:var(--text);margin-bottom:5px">Mill Valley</h3><p class="loc-p" style="font-size:12px;color:var(--muted);line-height:1.5">Craftsman and mid-century renovations in nature</p></a>
+      <a href="locations/san-rafael.html" class="loc-card"><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">04</span><h3 class="fd loc-t" style="font-size:20px;color:var(--text);margin-bottom:5px">San Rafael</h3><p class="loc-p" style="font-size:12px;color:var(--muted);line-height:1.5">Marin's largest city — diverse renovation market</p></a>
+      <a href="locations/sausalito.html" class="loc-card"><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">05</span><h3 class="fd loc-t" style="font-size:20px;color:var(--text);margin-bottom:5px">Sausalito</h3><p class="loc-p" style="font-size:12px;color:var(--muted);line-height:1.5">Waterfront homes & hillside retreats</p></a>
+      <a href="locations/corte-madera.html" class="loc-card"><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">06</span><h3 class="fd loc-t" style="font-size:20px;color:var(--text);margin-bottom:5px">Corte Madera</h3><p class="loc-p" style="font-size:12px;color:var(--muted);line-height:1.5">Family-focused renovations and ADUs</p></a>
+      <a href="locations/larkspur.html" class="loc-card"><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">07</span><h3 class="fd loc-t" style="font-size:20px;color:var(--text);margin-bottom:5px">Larkspur</h3><p class="loc-p" style="font-size:12px;color:var(--muted);line-height:1.5">Historic downtown charm & hillside homes</p></a>
+      <a href="locations/kentfield.html" class="loc-card"><span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px">08</span><h3 class="fd loc-t" style="font-size:20px;color:var(--text);margin-bottom:5px">Kentfield & Ross</h3><p class="loc-p" style="font-size:12px;color:var(--muted);line-height:1.5">Prestigious estate-level renovations</p></a>
     </div>
   </div>
 </section>
 
-<!-- FREE TOOLS STRIP -->
-<section style="background:var(--gold);padding:48px 24px" class="reveal">
-  <div class="max-w-7xl mx-auto" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px">
+<!-- FREE TOOLS -->
+<div class="gold-strip rv">
+  <div class="gold-strip-inner">
     <div>
-      <h2 class="font-display" style="font-size:36px;color:var(--dark-green);margin-bottom:4px">FREE TOOLS FOR SF HOMEOWNERS</h2>
-      <p style="font-size:13px;color:rgba(30,79,44,0.7)">Exclusive resources to help you plan your renovation and find leads before your competition</p>
+      <h2 class="fd" style="font-size:28px;color:var(--dg);margin-bottom:4px">FREE TOOLS FOR SF HOMEOWNERS</h2>
+      <p style="font-size:13px;color:rgba(30,79,44,0.65)">Exclusive resources to help you plan your renovation</p>
     </div>
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <a href="free-3d-rendering.html" style="background:var(--dark-green);color:#FAF8F3;padding:12px 24px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500">Free 3D Rendering</a>
-      <a href="green-building.html" style="background:transparent;color:var(--dark-green);border:1.5px solid var(--dark-green);padding:11px 24px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500">Green Building Guide</a>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <a href="free-3d-rendering.html" style="background:var(--dg);color:#FAF8F3;padding:11px 20px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500;display:inline-block">Free 3D Rendering</a>
+      <a href="green-building.html" style="background:transparent;color:var(--dg);border:1.5px solid var(--dg);padding:10px 20px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500;display:inline-block">Green Building</a>
+      <a href="sf-permit-tracker.html" style="background:transparent;color:var(--dg);border:1.5px solid var(--dg);padding:10px 20px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500;display:inline-block">Permit Tracker</a>
     </div>
   </div>
-</section>
+</div>
 
 <!-- FAQ -->
-<section class="section-pad" id="faq" style="background:var(--cream)">
-  <div class="max-w-7xl mx-auto">
-    <div style="display:grid;grid-template-columns:1fr 2fr;gap:80px" class="reveal">
+<section class="sec" id="faq" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="two-col rv">
       <div>
-        <span class="eyebrow">Questions</span>
+        <span class="eyebrow" style="display:block;margin-bottom:10px">Questions</span>
         <span class="gold-line"></span>
-        <h2 class="font-display" style="font-size:clamp(48px,5vw,72px);line-height:.9;color:var(--text)">FREQUENTLY<br>ASKED.</h2>
-        <p style="font-size:13px;color:var(--muted);margin-top:20px;line-height:1.7">Six things prospective clients ask before starting a project.</p>
-        <a href="#contact" class="btn-primary" style="margin-top:28px;display:inline-block">Ask the Team</a>
+        <h2 class="fd" style="font-size:clamp(44px,5vw,68px);line-height:.9;color:var(--text)">FREQUENTLY<br>ASKED.</h2>
+        <p style="font-size:13px;color:var(--muted);margin-top:16px;line-height:1.7">Six things prospective clients ask before starting a project.</p>
+        <a href="#contact" class="bp" style="margin-top:24px;display:inline-block">Ask the Team</a>
       </div>
       <div>
-        <div class="faq-item reveal reveal-delay-1">
-          <button class="faq-btn" onclick="toggleFaq(this)">
-            <span style="font-size:15px;font-weight:500;color:var(--text);text-align:left">How much does a home renovation cost in San Francisco?</span>
-            <span class="faq-icon" style="color:var(--green)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span>
-          </button>
-          <div class="faq-content"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Renovation costs range from $150–$250/sq ft for cosmetic work, $300–$500/sq ft for mid-level renovation, and $500–$800/sq ft for high-end projects. A kitchen remodel typically runs $85,000–$250,000 and a full home renovation can reach $700K–$1.5M.</p></div>
+        <div class="faq-item rv rd1">
+          <button class="faq-btn" onclick="toggleFaq(this)"><span>How much does a home renovation cost in San Francisco?</span><span class="faq-icon" style="color:var(--g)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span></button>
+          <div class="faq-body"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Renovation costs range from $150–$250/sq ft for cosmetic work, $300–$500/sq ft for mid-level renovation, and $500–$800/sq ft for high-end projects. A kitchen remodel typically runs $85,000–$250,000 and a full home renovation can reach $700K–$1.5M.</p></div>
         </div>
-        <div class="faq-item reveal reveal-delay-1">
-          <button class="faq-btn" onclick="toggleFaq(this)">
-            <span style="font-size:15px;font-weight:500;color:var(--text);text-align:left">How long do SF building permits take?</span>
-            <span class="faq-icon" style="color:var(--green)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span>
-          </button>
-          <div class="faq-content"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Simple over-the-counter permits take 1–5 business days. DBI plan check takes 4–10 weeks. Projects requiring Planning review take 8–16 weeks. Our in-house expeditor cuts these timelines by 30–50%.</p></div>
+        <div class="faq-item rv rd1">
+          <button class="faq-btn" onclick="toggleFaq(this)"><span>How long do SF building permits take?</span><span class="faq-icon" style="color:var(--g)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span></button>
+          <div class="faq-body"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Simple over-the-counter permits take 1–5 business days. DBI plan check takes 4–10 weeks. Projects requiring Planning review take 8–16 weeks. Our in-house expeditor cuts these timelines by 30–50%.</p></div>
         </div>
-        <div class="faq-item reveal reveal-delay-2">
-          <button class="faq-btn" onclick="toggleFaq(this)">
-            <span style="font-size:15px;font-weight:500;color:var(--text);text-align:left">Can I build an ADU in San Francisco?</span>
-            <span class="faq-icon" style="color:var(--green)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span>
-          </button>
-          <div class="faq-content"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Yes. Under current California law, most single-family properties can build one ADU and one Junior ADU by right — no discretionary hearing needed. A garage conversion ADU typically costs $180,000–$350,000 and can add $200,000–$500,000+ in property value.</p></div>
+        <div class="faq-item rv rd2">
+          <button class="faq-btn" onclick="toggleFaq(this)"><span>Can I build an ADU in San Francisco?</span><span class="faq-icon" style="color:var(--g)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span></button>
+          <div class="faq-body"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Yes. Under current California law, most single-family properties can build one ADU and one Junior ADU by right — no discretionary hearing needed. A garage conversion ADU typically costs $180,000–$350,000 and can add $200,000–$500,000+ in property value.</p></div>
         </div>
-        <div class="faq-item reveal reveal-delay-2">
-          <button class="faq-btn" onclick="toggleFaq(this)">
-            <span style="font-size:15px;font-weight:500;color:var(--text);text-align:left">Do you serve Marin County?</span>
-            <span class="faq-icon" style="color:var(--green)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span>
-          </button>
-          <div class="faq-content"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Absolutely. We serve both San Francisco and Marin County — including Mill Valley, Sausalito, Tiburon, Corte Madera, Larkspur, Kentfield, Ross, and San Rafael. We're fully versed in each Marin city's permitting process.</p></div>
+        <div class="faq-item rv rd2">
+          <button class="faq-btn" onclick="toggleFaq(this)"><span>Do you serve Marin County?</span><span class="faq-icon" style="color:var(--g)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span></button>
+          <div class="faq-body"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Absolutely. We serve both San Francisco and all of Marin County — including Mill Valley, Sausalito, Tiburon, Corte Madera, Larkspur, Kentfield, Ross, and San Rafael.</p></div>
         </div>
-        <div class="faq-item reveal reveal-delay-3">
-          <button class="faq-btn" onclick="toggleFaq(this)">
-            <span style="font-size:15px;font-weight:500;color:var(--text);text-align:left">What is your license number?</span>
-            <span class="faq-icon" style="color:var(--green)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span>
-          </button>
-          <div class="faq-content"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Solid Bay Construction SF holds California Contractor's License #1156572. Our HVAC partner holds License #717881. Both can be verified at cslb.ca.gov. We carry full General Liability and Workers' Compensation insurance.</p></div>
+        <div class="faq-item rv rd3">
+          <button class="faq-btn" onclick="toggleFaq(this)"><span>What is your license number?</span><span class="faq-icon" style="color:var(--g)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span></button>
+          <div class="faq-body"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Solid Bay Construction SF holds California Contractor's License #1156572. Our HVAC partner holds License #717881. Both can be verified at cslb.ca.gov. We carry full General Liability and Workers' Compensation insurance.</p></div>
         </div>
-        <div class="faq-item reveal reveal-delay-3">
-          <button class="faq-btn" onclick="toggleFaq(this)">
-            <span style="font-size:15px;font-weight:500;color:var(--text);text-align:left">Do you offer a free 3D rendering?</span>
-            <span class="faq-icon" style="color:var(--green)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span>
-          </button>
-          <div class="faq-content"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Yes — every new project inquiry receives a complimentary 3D rendering. Our in-house designers create a photorealistic visualization of your kitchen, bathroom, ADU, or addition before any commitment. <a href="free-3d-rendering.html" style="color:var(--green)">Request yours here →</a></p></div>
+        <div class="faq-item rv rd3">
+          <button class="faq-btn" onclick="toggleFaq(this)"><span>Do you offer a free 3D rendering?</span><span class="faq-icon" style="color:var(--g)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span></button>
+          <div class="faq-body"><p style="font-size:13px;line-height:1.7;color:var(--muted);padding-bottom:20px">Yes — every new project inquiry receives a complimentary 3D rendering. Our in-house designers create a photorealistic visualization before any commitment. <a href="free-3d-rendering.html" style="color:var(--g)">Request yours here →</a></p></div>
         </div>
       </div>
     </div>
@@ -638,67 +467,46 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);
 </section>
 
 <!-- CONTACT -->
-<section class="section-pad" id="contact" style="background:var(--light)">
-  <div class="max-w-7xl mx-auto">
-    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:start" class="reveal">
+<section class="sec" id="contact" style="background:var(--light)">
+  <div class="wrap">
+    <div class="two-col-eq rv">
       <div>
-        <span class="eyebrow">Let's Build Together</span>
+        <span class="eyebrow" style="display:block;margin-bottom:10px">Let's Build Together</span>
         <span class="gold-line"></span>
-        <h2 class="font-display" style="font-size:clamp(48px,5vw,72px);line-height:.9;color:var(--text);margin-bottom:28px">START YOUR<br>PROJECT.</h2>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);margin-bottom:40px">Tell us about your project. We'll respond within one business day with a preliminary scope assessment — no pressure, no obligation.</p>
-        <div style="display:flex;flex-direction:column;gap:20px">
-          <div style="display:flex;align-items:flex-start;gap:16px;padding-bottom:20px;border-bottom:1px solid rgba(46,107,62,0.1)">
-            <div style="width:40px;height:40px;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FAF8F3" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
-            </div>
-            <div>
-              <p style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Address</p>
-              <p style="font-size:13px;color:var(--text)">2181 Greenwich St, San Francisco, CA 94123</p>
-            </div>
+        <h2 class="fd" style="font-size:clamp(44px,5vw,68px);line-height:.9;color:var(--text);margin-bottom:24px">START YOUR<br>PROJECT.</h2>
+        <p style="font-size:14px;line-height:1.75;color:var(--muted);margin-bottom:36px">Tell us about your project. We'll respond within one business day with a preliminary scope assessment — no pressure, no obligation.</p>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid rgba(46,107,62,0.1)">
+            <div style="width:36px;height:36px;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FAF8F3" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+            <div><p style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Address</p><p style="font-size:13px;color:var(--text)">2181 Greenwich St, San Francisco, CA 94123</p></div>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:16px;padding-bottom:20px;border-bottom:1px solid rgba(46,107,62,0.1)">
-            <div style="width:40px;height:40px;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FAF8F3" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 6.18 2 2 0 015 4h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 11.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18z"/></svg>
-            </div>
-            <div>
-              <p style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Phone</p>
-              <a href="tel:+14158885361" style="font-size:13px;color:var(--text);text-decoration:none">(415) 888-5361</a>
-            </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid rgba(46,107,62,0.1)">
+            <div style="width:36px;height:36px;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FAF8F3" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 6.18 2 2 0 015 4h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 11.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18z"/></svg></div>
+            <div><p style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Phone</p><a href="tel:+14158885361" style="font-size:13px;color:var(--text);text-decoration:none">(415) 888-5361</a></div>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:16px;padding-bottom:20px;border-bottom:1px solid rgba(46,107,62,0.1)">
-            <div style="width:40px;height:40px;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FAF8F3" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <p style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Email</p>
-              <p style="font-size:13px;color:var(--text)">is@solidbayconstructionsf.com</p>
-            </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid rgba(46,107,62,0.1)">
+            <div style="width:36px;height:36px;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FAF8F3" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><p style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Email</p><p style="font-size:13px;color:var(--text)">is@solidbayconstructionsf.com</p></div>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:16px">
-            <div style="width:40px;height:40px;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FAF8F3" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
-            </div>
-            <div>
-              <p style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Hours</p>
-              <p style="font-size:13px;color:var(--text)">Mon–Fri, 7AM–6PM PST</p>
-            </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:18px 0">
+            <div style="width:36px;height:36px;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FAF8F3" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+            <div><p style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Hours</p><p style="font-size:13px;color:var(--text)">Mon–Fri, 7AM–6PM PST</p></div>
           </div>
         </div>
       </div>
-      <div style="background:var(--cream);padding:48px">
-        <h3 class="font-display" style="font-size:28px;color:var(--text);margin-bottom:6px">APPLY FOR A CONSULTATION</h3>
-        <p style="font-size:12px;color:var(--muted);margin-bottom:32px">We respond within one business day.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-          <div><label class="form-label">First Name *</label><input id="fFN" class="form-input" placeholder="John"/></div>
-          <div><label class="form-label">Last Name *</label><input id="fLN" class="form-input" placeholder="Smith"/></div>
+      <div style="background:var(--cream);padding:40px">
+        <h3 class="fd" style="font-size:26px;color:var(--text);margin-bottom:4px">REQUEST A CONSULTATION</h3>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:28px">We respond within one business day.</p>
+        <div class="form-grid fg">
+          <div><label class="fl">First Name *</label><input id="fFN" class="fi" placeholder="John"/></div>
+          <div><label class="fl">Last Name *</label><input id="fLN" class="fi" placeholder="Smith"/></div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-          <div><label class="form-label">Email *</label><input id="fEM" type="email" class="form-input" placeholder="john@email.com"/></div>
-          <div><label class="form-label">Phone</label><input id="fPH" type="tel" class="form-input" placeholder="(415) 000-0000"/></div>
+        <div class="form-grid fg">
+          <div><label class="fl">Email *</label><input id="fEM" type="email" class="fi" placeholder="john@email.com"/></div>
+          <div><label class="fl">Phone</label><input id="fPH" type="tel" class="fi" placeholder="(415) 000-0000"/></div>
         </div>
-        <div style="margin-bottom:16px">
-          <label class="form-label">Project Type *</label>
-          <select id="fPT" class="form-input">
+        <div class="fg"><label class="fl">Project Type *</label>
+          <select id="fPT" class="fi">
             <option value="">Select a scope</option>
             <option>Kitchen Remodeling</option>
             <option>Bathroom Renovation</option>
@@ -714,9 +522,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);
             <option>Other</option>
           </select>
         </div>
-        <div style="margin-bottom:16px">
-          <label class="form-label">Investment Range</label>
-          <select id="fBU" class="form-input">
+        <div class="fg"><label class="fl">Investment Range</label>
+          <select id="fBU" class="fi">
             <option value="">Select a range</option>
             <option>$60K – $150K</option>
             <option>$150K – $500K</option>
@@ -725,100 +532,183 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);
             <option>$2M+</option>
           </select>
         </div>
-        <div style="margin-bottom:24px">
-          <label class="form-label">Project Details</label>
-          <textarea id="fDT" class="form-input" rows="4" style="resize:none" placeholder="Tell us about your project, timeline, and any specific requirements..."></textarea>
-        </div>
-        <div id="fErr" style="display:none;font-size:13px;color:#c0392b;padding:12px;border:1px solid #c0392b;margin-bottom:16px;background:rgba(192,57,43,0.04)"></div>
-        <div id="fOk" style="display:none;padding:16px;border:1px solid rgba(46,107,62,0.3);background:rgba(46,107,62,0.04);margin-bottom:16px">
-          <p style="font-size:13px;font-weight:500;color:var(--green)">✓ Consultation request received!</p>
-          <p style="font-size:12px;color:var(--muted)">We'll be in touch within one business day.</p>
-        </div>
-        <button id="fBtn" onclick="submitForm()" class="btn-primary" style="width:100%;text-align:center;padding:16px">Submit Consultation Request →</button>
-        <p style="font-size:11px;text-align:center;color:var(--muted);margin-top:12px">Your information is stored securely and never shared.</p>
+        <div class="fg"><label class="fl">Project Details</label><textarea id="fDT" class="fi" rows="4" style="resize:none" placeholder="Tell us about your project, timeline, and any specific requirements..."></textarea></div>
+        <div id="fErr" style="display:none;font-size:13px;color:#c0392b;padding:12px;border:1px solid #c0392b;margin-bottom:14px;background:rgba(192,57,43,0.04)"></div>
+        <div id="fOk" style="display:none;padding:14px;border:1px solid rgba(46,107,62,0.3);background:rgba(46,107,62,0.04);margin-bottom:14px"><p style="font-size:13px;font-weight:500;color:var(--g)">✓ Request received!</p><p style="font-size:12px;color:var(--muted)">We'll be in touch within one business day.</p></div>
+        <button id="fBtn" onclick="submitForm()" class="bp" style="width:100%;text-align:center;padding:15px;font-size:12px">Submit Consultation Request →</button>
+        <p style="font-size:11px;text-align:center;color:var(--muted);margin-top:10px">Your information is stored securely and never shared.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer style="background:var(--text);padding:64px 24px 32px" class="lg:px-12">
-  <div class="max-w-7xl mx-auto">
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08)">
+<footer style="background:var(--text);padding:56px 24px 28px">
+  <div class="wrap" style="padding:0">
+    <div class="ft-grid">
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="180" height="42" style="margin-bottom:16px">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="160" height="38" style="margin-bottom:14px">
           <defs><linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#D4A843"/><stop offset="100%" style="stop-color:#A8872E"/></linearGradient></defs>
           <rect x="0" y="40" width="56" height="26" fill="#2E6B3E"/><rect x="0" y="20" width="17" height="46" fill="#1e4f2c"/><rect x="39" y="27" width="17" height="39" fill="#1e4f2c"/>
           <polygon points="17,6 28,20 39,6" fill="url(#fg)"/><rect x="0" y="17" width="17" height="4" fill="url(#fg)"/><rect x="39" y="24" width="17" height="4" fill="url(#fg)"/>
           <rect x="25" y="50" width="10" height="16" fill="#1a2e1a"/><rect x="0" y="64" width="56" height="2" fill="url(#fg)"/>
-          <text x="68" y="46" font-family="Georgia,serif" font-size="30" font-weight="700" fill="url(#fg)">SOLID</text>
-          <text x="68" y="68" font-family="Georgia,serif" font-size="30" font-weight="700" fill="#2E6B3E">BAY</text>
-          <text x="210" y="34" font-family="Georgia,serif" font-size="7" letter-spacing="2.5" fill="#A8872E">CONSTRUCTION</text>
-          <text x="210" y="46" font-family="Arial,sans-serif" font-size="6" letter-spacing="2.5" fill="#6b7c6b">SAN FRANCISCO</text>
+          <text x="68" y="46" font-family="Georgia,serif" font-size="28" font-weight="700" fill="url(#fg)">SOLID</text>
+          <text x="68" y="66" font-family="Georgia,serif" font-size="28" font-weight="700" fill="#2E6B3E">BAY</text>
         </svg>
-        <p style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;max-width:260px">Design-build renovation firm serving San Francisco and Marin County since 2016. Two partners. 100+ projects.</p>
-        <div style="margin-top:20px">
-          <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:4px">CSLB Lic. #1156572 · HVAC Lic. #717881</p>
-        </div>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;max-width:220px;margin-bottom:12px">Design-build renovation firm serving SF and Marin County since 2016.</p>
+        <p style="font-size:10px;color:rgba(255,255,255,0.25)">CSLB Lic. #1156572 · HVAC Lic. #717881</p>
+        <a href="tel:+14158885361" style="font-size:15px;color:#FAF8F3;text-decoration:none;font-weight:500;display:block;margin-top:14px">(415) 888-5361</a>
+        <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:3px">is@solidbayconstructionsf.com</p>
       </div>
       <div>
-        <h4 style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px">Services</h4>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <a href="articles/kitchen-remodeling-san-francisco.html" class="footer-link">Kitchen Remodeling</a>
-          <a href="articles/bathroom-remodel-cost-san-francisco.html" class="footer-link">Bathroom Renovation</a>
-          <a href="articles/adu-construction-san-francisco.html" class="footer-link">ADU Construction</a>
-          <a href="articles/victorian-home-renovation-san-francisco.html" class="footer-link">Victorian Renovation</a>
-          <a href="hvac/index.html" class="footer-link">HVAC Services</a>
-          <a href="green-building.html" class="footer-link">Green Building</a>
-        </div>
+        <h4 style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Services</h4>
+        <a href="articles/kitchen-remodeling-san-francisco.html" class="ft-link">Kitchen Remodeling</a>
+        <a href="articles/bathroom-remodel-cost-san-francisco.html" class="ft-link">Bathroom Renovation</a>
+        <a href="articles/adu-construction-san-francisco.html" class="ft-link">ADU Construction</a>
+        <a href="articles/victorian-home-renovation-san-francisco.html" class="ft-link">Victorian Renovation</a>
+        <a href="hvac/index.html" class="ft-link">HVAC Services</a>
+        <a href="green-building.html" class="ft-link">Green Building</a>
       </div>
       <div>
-        <h4 style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px">Locations</h4>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <a href="locations/san-francisco.html" class="footer-link">San Francisco</a>
-          <a href="locations/tiburon.html" class="footer-link">Tiburon</a>
-          <a href="locations/mill-valley.html" class="footer-link">Mill Valley</a>
-          <a href="locations/sausalito.html" class="footer-link">Sausalito</a>
-          <a href="locations/san-rafael.html" class="footer-link">San Rafael</a>
-          <a href="locations/corte-madera.html" class="footer-link">Corte Madera</a>
-        </div>
+        <h4 style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Locations</h4>
+        <a href="locations/san-francisco.html" class="ft-link">San Francisco</a>
+        <a href="locations/tiburon.html" class="ft-link">Tiburon</a>
+        <a href="locations/mill-valley.html" class="ft-link">Mill Valley</a>
+        <a href="locations/sausalito.html" class="ft-link">Sausalito</a>
+        <a href="locations/san-rafael.html" class="ft-link">San Rafael</a>
+        <a href="locations/corte-madera.html" class="ft-link">Corte Madera</a>
+        <a href="locations/larkspur.html" class="ft-link">Larkspur</a>
+        <a href="locations/kentfield.html" class="ft-link">Kentfield & Ross</a>
       </div>
       <div>
-        <h4 style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px">Company</h4>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <a href="blog.html" class="footer-link">Resources & Blog</a>
-          <a href="free-3d-rendering.html" class="footer-link">Free 3D Rendering</a>
-          <a href="sf-permit-tracker.html" class="footer-link">Permit Tracker</a>
-          <a href="hvac/index.html" class="footer-link">HVAC Division</a>
-          <a href="#contact" class="footer-link">Contact</a>
-        </div>
-        <div style="margin-top:28px">
-          <a href="tel:+14158885361" style="font-size:14px;color:#FAF8F3;text-decoration:none;font-weight:500">(415) 888-5361</a>
-          <p style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px">is@solidbayconstructionsf.com</p>
-        </div>
+        <h4 style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Company</h4>
+        <a href="blog.html" class="ft-link">Resources & Blog</a>
+        <a href="free-3d-rendering.html" class="ft-link">Free 3D Rendering</a>
+        <a href="sf-permit-tracker.html" class="ft-link">Permit Tracker</a>
+        <a href="hvac/index.html" class="ft-link">HVAC Division</a>
+        <a href="neighborhoods/pacific-heights.html" class="ft-link">SF Neighborhoods</a>
+        <a href="#contact" class="ft-link">Contact</a>
       </div>
     </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
-      <p style="font-size:11px;color:rgba(255,255,255,0.25)">© 2026 Solid Bay Construction SF. Est. 2016. All rights reserved.</p>
-      <p style="font-size:11px;color:rgba(255,255,255,0.25)">Privacy Policy · Terms of Service</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px">
+      <p style="font-size:11px;color:rgba(255,255,255,0.2)">© 2026 Solid Bay Construction SF. Est. 2016. All rights reserved.</p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.2)">Privacy Policy · Terms of Service</p>
     </div>
   </div>
 </footer>
 
 <script>
-// Nav scroll effect
+// Nav scroll
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
+const dl = document.getElementById('dlinks');
+const hb = document.getElementById('hamburger');
+function updateNav(){
   if(window.scrollY > 40){
-    nav.classList.add('nav-scrolled');
     nav.style.background = 'rgba(250,248,243,0.97)';
+    nav.style.boxShadow = '0 1px 0 rgba(46,107,62,0.1)';
   } else {
-    nav.classList.remove('nav-scrolled');
-    nav.style.background = 'rgba(250,248,243,0.0)';
+    nav.style.background = 'transparent';
     nav.style.boxShadow = 'none';
   }
-});
+}
+window.addEventListener('scroll', updateNav);
+
+// Show desktop links on wider screens
+function checkWidth(){
+  if(window.innerWidth >= 1024){
+    dl.style.display = 'flex';
+    hb.style.display = 'none';
+  } else {
+    dl.style.display = 'none';
+    hb.style.display = 'flex';
+  }
+}
+window.addEventListener('resize', checkWidth);
+checkWidth();
 
 // Mobile menu
 function toggleMenu(){
-  const m = doc
+  const m = document.getElementById('mm');
+  m.classList.toggle('open');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+}
+
+// FAQ
+function toggleFaq(btn){
+  const body = btn.nextElementSibling;
+  const icon = btn.querySelector('.faq-icon');
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.faq-body.open').forEach(b => {
+    b.classList.remove('open');
+    b.previousElementSibling.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+  });
+  if(!isOpen){
+    body.classList.add('open');
+    icon.style.transform = 'rotate(180deg)';
+  }
+}
+
+// Reveal
+const rvs = document.querySelectorAll('.rv');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if(e.isIntersecting) setTimeout(() => e.target.classList.add('on'), i * 60);
+  });
+}, {threshold: .06});
+rvs.forEach(el => obs.observe(el));
+
+// Form
+async function submitForm(){
+  const btn = document.getElementById('fBtn');
+  const err = document.getElementById('fErr');
+  const ok = document.getElementById('fOk');
+  const fn = document.getElementById('fFN').value.trim();
+  const ln = document.getElementById('fLN').value.trim();
+  const em = document.getElementById('fEM').value.trim();
+  const ph = document.getElementById('fPH').value.trim();
+  const pt = document.getElementById('fPT').value;
+  const bu = document.getElementById('fBU').value;
+  const dt = document.getElementById('fDT').value.trim();
+  err.style.display = 'none';
+  ok.style.display = 'none';
+  if(!fn||!ln){err.textContent='Please enter your first and last name.';err.style.display='block';return;}
+  if(!em||!em.includes('@')){err.textContent='Please enter a valid email address.';err.style.display='block';return;}
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  btn.style.opacity = '.7';
+  try{
+    const r = await fetch('https://ovkaxkaixelforlelvrw.supabase.co/rest/v1/contact_submissions',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92a2F4a2FpeGVsZm9ybGVsdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU1MzI2NjIsImV4cCI6MjA2MTEwODY2Mn0.AiH5-GDgDMDPyAOCwP8CFsJB7FBIMW4dGF2BNnqhCsI',
+        'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92a2F4a2FpeGVsZm9ybGVsdnJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU1MzI2NjIsImV4cCI6MjA2MTEwODY2Mn0.AiH5-GDgDMDPyAOCwP8CFsJB7FBIMW4dGF2BNnqhCsI',
+        'Prefer':'return=minimal'
+      },
+      body: JSON.stringify({first_name:fn,last_name:ln,email:em,phone:ph,project_type:pt,budget:bu,details:dt})
+    });
+    if(r.ok||r.status===201||r.status===204){
+      ok.style.display='block';
+      gtag('event','form_submission',{'event_category':'leads','event_label':pt});
+      ['fFN','fLN','fEM','fPH','fDT'].forEach(id=>document.getElementById(id).value='');
+      document.getElementById('fPT').selectedIndex=0;
+      document.getElementById('fBU').selectedIndex=0;
+      btn.textContent='✓ Request Submitted';
+      btn.style.background='#1e4f2c';
+      setTimeout(()=>{btn.textContent='Submit Consultation Request →';btn.style.background='';btn.disabled=false;btn.style.opacity='1';},4000);
+    } else {
+      err.textContent='Something went wrong. Please try again.';
+      err.style.display='block';
+      btn.textContent='Submit Consultation Request →';
+      btn.disabled=false;btn.style.opacity='1';
+    }
+  } catch(e){
+    err.textContent='Could not send. Please try again.';
+    err.style.display='block';
+    btn.textContent='Submit Consultation Request →';
+    btn.disabled=false;btn.style.opacity='1';
+  }
+}
+</script>
+</body>
+</html>
