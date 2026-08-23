@@ -25,11 +25,13 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
 :root{--g:#2E6B3E;--dg:#1e4f2c;--gold:#C9A84C;--gd:#A8872E;--cream:#FAF8F3;--light:#F2EFE6;--text:#1a2e1a;--muted:#6b7c6b}
 
 /* NAV */
-#nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,box-shadow .3s;background:transparent}
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,box-shadow .3s;background:linear-gradient(to bottom,rgba(8,16,8,.65),rgba(8,16,8,0))}
 #nav.scrolled{background:rgba(250,248,243,0.97);box-shadow:0 1px 0 rgba(46,107,62,0.1)}
 .nw{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
-.nl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
-.nl:hover{color:var(--g)}
+.nl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85);text-decoration:none;transition:color .2s}
+.nl:hover{color:var(--gold)}
+#nav.scrolled .nl{color:var(--muted)}
+#nav.scrolled .nl:hover{color:var(--g)}
 .bp{background:var(--g);color:var(--cream);padding:11px 22px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;text-decoration:none;border:none;cursor:pointer;display:inline-block;transition:background .2s}
 .bp:hover{background:var(--dg)}
 .bo{background:transparent;color:var(--text);border:1px solid rgba(26,46,26,0.25);padding:11px 22px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;text-decoration:none;display:inline-block;transition:all .2s}
@@ -154,10 +156,10 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
         <text x="68" y="46" font-family="Georgia,serif" font-size="30" font-weight="700" fill="url(#ng)">SOLID</text>
         <text x="68" y="68" font-family="Georgia,serif" font-size="30" font-weight="700" fill="#2E6B3E">BAY</text>
         <rect x="210" y="18" width="1" height="46" fill="#C9A84C" opacity=".4"/>
-        <text x="218" y="34" font-family="Georgia,serif" font-size="7" letter-spacing="2.5" fill="#A8872E">CONSTRUCTION</text>
-        <text x="218" y="46" font-family="Arial,sans-serif" font-size="6" letter-spacing="2.5" fill="#6b7c6b">SAN FRANCISCO</text>
+        <text x="218" y="34" font-family="Georgia,serif" font-size="7" letter-spacing="2.5" fill="#EADFB8">CONSTRUCTION</text>
+        <text x="218" y="46" font-family="Arial,sans-serif" font-size="6" letter-spacing="2.5" fill="#E5E5E5">SAN FRANCISCO</text>
         <rect x="218" y="51" width="42" height="0.8" fill="#C9A84C" opacity=".5"/>
-        <text x="218" y="61" font-family="Arial,sans-serif" font-size="6" letter-spacing="2" fill="#999">EST. 2016</text>
+        <text x="218" y="61" font-family="Arial,sans-serif" font-size="6" letter-spacing="2" fill="#CCC">EST. 2016</text>
       </svg>
     </a>
     <div style="display:none;gap:28px;align-items:center" id="dlinks">
@@ -167,6 +169,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
       <a href="#about" class="nl">About</a>
       <a href="blog.html" class="nl">Resources</a>
       <a href="hvac/index.html" class="nl">HVAC</a>
+      <a href="tel:+14158885361" class="nl" style="white-space:nowrap">(415) 888-5361</a>
       <a href="#contact" class="bp">Start a Project</a>
     </div>
     <button onclick="toggleMenu()" style="background:none;border:none;cursor:pointer;padding:4px;display:flex;flex-direction:column;gap:5px" id="hamburger">
@@ -186,6 +189,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
   <a href="#about" class="mm-link" onclick="toggleMenu()">About</a>
   <a href="hvac/index.html" class="mm-link">HVAC</a>
   <a href="blog.html" class="mm-link">Resources</a>
+  <a href="tel:+14158885361" class="mm-link" style="color:var(--g)">(415) 888-5361</a>
   <a href="#contact" class="bp" onclick="toggleMenu()" style="margin-top:auto;text-align:center;padding:16px">Start a Project</a>
 </div>
 
@@ -609,11 +613,9 @@ const dl = document.getElementById('dlinks');
 const hb = document.getElementById('hamburger');
 function updateNav(){
   if(window.scrollY > 40){
-    nav.style.background = 'rgba(250,248,243,0.97)';
-    nav.style.boxShadow = '0 1px 0 rgba(46,107,62,0.1)';
+    nav.classList.add('scrolled');
   } else {
-    nav.style.background = 'transparent';
-    nav.style.boxShadow = 'none';
+    nav.classList.remove('scrolled');
   }
 }
 window.addEventListener('scroll', updateNav);
