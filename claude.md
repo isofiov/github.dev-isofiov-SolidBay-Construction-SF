@@ -1,13 +1,14 @@
-# SolidBay Construction SF — Claude Rules
+# Solid Bay Construction SF — Claude Rules
 
 ## Brand Identity
-- Company: SolidBay Construction SF
+- Company: Solid Bay Construction SF
 - Founded: 2016
 - Location: 2181 Greenwich St, San Francisco, CA 94123
 - Service Areas: San Francisco & Marin County
 - Specialty: Residential & Commercial Renovation
 - Team: 2 Partners, 2 Designers, 2 Structural Engineers, 2 Architects, 1 Expeditor
 - Projects: 100+ completed
+- Phone: (415) 888-5361
 
 ## Brand Colors
 - Forest Green (primary): #2E6B3E
@@ -62,3 +63,4 @@
 - Team member names (only roles)
 - Oakland or East Bay references
 - North Bay references (only SF and Marin County)
+- The old "SolidBay" spelling (always use "Solid Bay" with a space) or the outdated phone number (415) 994-9520 — always use (415) 888-5361
