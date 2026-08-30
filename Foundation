@@ -1,1 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garage Conversions, Foundation Repair & Full Home Remodels | San Francisco & Marin | Solid Bay Construction</title>
+<meta name="description" content="Licensed general contractor (CA #1156572) serving San Francisco & Marin County. Garage-to-ADU conversions, foundation repair & retrofit, and full house remodels. Free estimate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1C2321;
+    --paper:#EAE3D3;
+    --brick:#8C3B2A;
+    --aggregate:#8B8880;
+    --brass:#B8863B;
+    --line: rgba(28,35,33,0.14);
+    --paper-line: rgba(234,227,211,0.18);
+    --radius: 3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Roboto Slab', serif;
+    font-weight:700;
+    margin:0;
+    line-height:1.15;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  .measure{max-width:62ch;}
 
+  /* focus visibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+    outline:2px solid var(--brick);
+    outline-offset:2px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    background:var(--charcoal);
+    color:var(--paper);
+    padding:12px 0;
+    font-size:14px;
+  }
+  .topbar .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;}
+  .topbar a.call{
+    color:var(--paper);
+    text-decoration:none;
+    font-weight:600;
+    border-bottom:1px solid var(--brass);
+  }
+  .topbar .license{color:var(--aggregate);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:72px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4vw, 3.1rem);
+    letter-spacing:-0.01em;
+  }
+  .hero .sub{
+    margin-top:20px;
+    font-size:1.15rem;
+    color:#3a423f;
+  }
+  .hero .cta-row{
+    margin-top:32px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 26px;
+    border-radius:var(--radius);
+    font-weight:600;
+    text-decoration:none;
+    font-size:1rem;
+    border:1px solid transparent;
+    cursor:pointer;
+    font-family:'Inter',sans-serif;
+  }
+  .btn-primary{
+    background:var(--brass);
+    color:var(--charcoal);
+  }
+  .btn-primary:hover{background:#a8792f;}
+  .btn-ghost{
+    background:transparent;
+    border:1px solid var(--charcoal);
+    color:var(--charcoal);
+  }
+  .btn-ghost:hover{background:var(--charcoal); color:var(--paper);}
+
+  .trust-card{
+    background:var(--charcoal);
+    color:var(--paper);
+    padding:28px;
+    border-radius:var(--radius);
+  }
+  .trust-card .badge-row{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px solid var(--paper-line);
+    padding-bottom:14px;
+    margin-bottom:14px;
+    font-size:0.92rem;
+  }
+  .trust-card .badge-row:last-child{border-bottom:none; margin-bottom:0;}
+  .trust-card .label{color:var(--aggregate);}
+  .trust-card .value{font-weight:600; text-align:right;}
+
+  /* ---------- services ---------- */
+  .services{padding:64px 0; border-bottom:1px solid var(--line);}
+  .services h2{font-size:clamp(1.6rem,3vw,2.2rem); max-width:36ch;}
+  .services .intro{margin-top:14px; color:#3a423f;}
+  .service-grid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--paper);
+    padding:32px 28px;
+  }
+  .service-card h3{font-size:1.25rem; color:var(--brick);}
+  .service-card p{margin-top:12px; color:#3a423f; font-size:0.98rem;}
+  .service-card .scope{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-size:0.88rem;
+    color:var(--aggregate);
+  }
+
+  /* ---------- process ---------- */
+  .process{padding:64px 0; border-bottom:1px solid var(--line);}
+  .process h2{font-size:clamp(1.6rem,3vw,2.2rem);}
+  .steps{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+  }
+  .step{position:relative; padding-top:44px;}
+  .step .num{
+    font-family:'Roboto Slab',serif;
+    font-size:2rem;
+    color:var(--brass);
+    position:absolute;
+    top:0; left:0;
+  }
+  .step h3{font-size:1.02rem; font-family:'Inter',sans-serif; font-weight:600;}
+  .step p{margin-top:8px; font-size:0.92rem; color:#3a423f;}
+
+  /* ---------- proof ---------- */
+  .proof{padding:64px 0; border-bottom:1px solid var(--line); background:#E2D9C4;}
+  .proof .wrap{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .proof h2{font-size:clamp(1.5rem,3vw,2rem);}
+  .proof .stat-row{display:flex; gap:40px; margin-top:28px; flex-wrap:wrap;}
+  .stat .num{font-family:'Roboto Slab',serif; font-size:2.4rem; color:var(--brick);}
+  .stat .label{font-size:0.88rem; color:var(--aggregate); margin-top:4px;}
+  .proof .areas{font-size:0.95rem; color:#3a423f;}
+  .proof .areas strong{display:block; margin-bottom:8px; color:var(--charcoal);}
+
+  /* ---------- lead form ---------- */
+  .lead{padding:72px 0; background:var(--charcoal); color:var(--paper);}
+  .lead .grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
+  .lead h2{color:var(--paper); font-size:clamp(1.6rem,3vw,2.2rem);}
+  .lead .sub{margin-top:14px; color:var(--aggregate); max-width:44ch;}
+  .lead form{display:grid; gap:14px;}
+  .lead label{font-size:0.85rem; color:var(--aggregate); display:block; margin-bottom:6px;}
+  .lead input, .lead select, .lead textarea{
+    width:100%;
+    padding:12px 14px;
+    background:#242C29;
+    border:1px solid var(--paper-line);
+    border-radius:var(--radius);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    font-size:0.98rem;
+  }
+  .lead textarea{resize:vertical; min-height:90px;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .lead .btn-primary{width:100%; padding:15px; margin-top:6px;}
+  .form-note{font-size:0.82rem; color:var(--aggregate); margin-top:12px;}
+  #formStatus{font-size:0.92rem; margin-top:10px;}
+
+  /* ---------- footer ---------- */
+  footer{padding:32px 0; font-size:0.85rem; color:var(--aggregate);}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+  @media (max-width: 860px){
+    .hero .grid, .proof .wrap, .lead .grid{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr 1fr;}
+    .row2{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="license">CA License #1156572 &middot; San Francisco &amp; Marin County</span>
+    <a class="call" href="tel:+14158885361">(415) 888-5361</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <h1>Garage conversions, foundation work, and full house remodels — built to pass inspection the first time.</h1>
+      <p class="sub measure">Solid Bay Construction has handled the structural end of San Francisco and Marin remodels since 2016 — the permits, the retrofits, the load-bearing changes that most contractors subcontract out. We do that work directly.</p>
+      <div class="cta-row">
+        <a href="#estimate" class="btn btn-primary">Request a free estimate</a>
+        <a href="tel:+14158885361" class="btn btn-ghost">Call (415) 888-5361</a>
+      </div>
+    </div>
+    <div class="trust-card">
+      <div class="badge-row"><span class="label">Licensed &amp; insured</span><span class="value">CA #1156572</span></div>
+      <div class="badge-row"><span class="label">In business since</span><span class="value">2016</span></div>
+      <div class="badge-row"><span class="label">Service area</span><span class="value">SF &amp; Marin</span></div>
+      <div class="badge-row"><span class="label">Specialty</span><span class="value">Structural &amp; foundation</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <h2>Three jobs that live and die on the structural work</h2>
+    <p class="intro measure">These are the projects where the permit set and the framing matter more than the finishes. Here's what each one actually involves.</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Garage conversions</h3>
+        <p>Converting a garage into an ADU, office, or living space means new foundation work at the door opening, insulation, egress windows, and a mechanical plan that meets code — not just drywall over the old slab.</p>
+        <div class="scope">Typical scope: foundation infill, framing, electrical/plumbing rough-in, permit-ready ADU plans.</div>
+      </div>
+      <div class="service-card">
+        <h3>Foundation repair &amp; retrofit</h3>
+        <p>Seismic retrofits, cripple wall bracing, and foundation repair for older SF and Marin homes — the work that determines whether the rest of the remodel has something solid to sit on.</p>
+        <div class="scope">Typical scope: seismic bolting, shear wall install, foundation crack repair, drainage correction.</div>
+      </div>
+      <div class="service-card">
+        <h3>Full house remodels</h3>
+        <p>Whole-home remodels where structural changes — removed walls, added floors, reconfigured layouts — are part of the plan, coordinated with permitting from day one instead of discovered mid-project.</p>
+        <div class="scope">Typical scope: structural engineering coordination, permit submission, full interior/exterior build-out.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <h2>How a project moves from call to permit to build</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="num">1</span>
+        <h3>Site visit &amp; scope</h3>
+        <p>We walk the property and identify what's structural vs. cosmetic before you get a number.</p>
+      </div>
+      <div class="step">
+        <span class="num">2</span>
+        <h3>Estimate &amp; plan</h3>
+        <p>A written estimate with a scope of work — no verbal ballparks on structural jobs.</p>
+      </div>
+      <div class="step">
+        <span class="num">3</span>
+        <h3>Permitting</h3>
+        <p>We prepare and submit the permit set with SF DBI or the relevant Marin jurisdiction.</p>
+      </div>
+      <div class="step">
+        <span class="num">4</span>
+        <h3>Build &amp; inspection</h3>
+        <p>Work proceeds against the approved plans, scheduled around required inspections.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <div>
+      <h2>Ten years of the work that doesn't show up in "after" photos</h2>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="num">10</div>
+          <div class="label">years in business</div>
+        </div>
+        <div class="stat">
+          <div class="num">58+</div>
+          <div class="label">SF &amp; Marin pages of project detail</div>
+        </div>
+        <div class="stat">
+          <div class="num">2</div>
+          <div class="label">counties served directly</div>
+        </div>
+      </div>
+    </div>
+    <div class="areas">
+      <strong>Where we work</strong>
+      San Francisco (Cow Hollow, Marina, Pacific Heights, Noe Valley, and citywide) and Marin County (Mill Valley, Sausalito, San Rafael, and surrounding areas).
+    </div>
+  </div>
+</section>
+
+<section class="lead" id="estimate">
+  <div class="wrap grid">
+    <div>
+      <h2>Get a written estimate for your project</h2>
+      <p class="sub">Tell us what you're working with. For structural jobs — garage conversions, foundation, full remodels — we'll follow up to schedule a site visit before quoting.</p>
+    </div>
+    <div>
+      <form id="leadForm">
+        <div class="row2">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="address">Property address</label>
+          <input type="text" id="address" name="address" placeholder="Street, city">
+        </div>
+        <div>
+          <label for="project_type">Project type</label>
+          <select id="project_type" name="project_type">
+            <option value="garage_conversion">Garage conversion</option>
+            <option value="foundation">Foundation repair / retrofit</option>
+            <option value="full_remodel">Full house remodel</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="details">Project details</label>
+          <textarea id="details" name="details" placeholder="What are you looking to do?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Request estimate</button>
+        <div id="formStatus"></div>
+        <p class="form-note">We respond within one business day. No obligation.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Solid Bay Construction SF &middot; CA License #1156572</span>
+    <span>(415) 888-5361 &middot; is@solidbayconstructionsf.com</span>
+  </div>
+</footer>
+
+<script>
+  // TODO: replace SUPABASE_EDGE_FUNCTION_URL with your existing lead-capture
+  // endpoint (the same one your other lead forms already post to).
+  const SUPABASE_EDGE_FUNCTION_URL = "https://ovkaxkaixelforlelvrw.supabase.co/functions/v1/submit-lead";
+
+  const form = document.getElementById('leadForm');
+  const status = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    status.textContent = "Sending...";
+    const payload = {
+      name: form.name.value,
+      phone: form.phone.value,
+      email: form.email.value,
+      address: form.address.value,
+      project_type: form.project_type.value,
+      details: form.details.value,
+      source_page: "structural-remodel-sf"
+    };
+    try {
+      const res = await fetch(SUPABASE_EDGE_FUNCTION_URL, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        status.textContent = "Thanks — we'll be in touch within one business day.";
+        form.reset();
+      } else {
+        status.textContent = "Something went wrong. Please call (415) 888-5361 instead.";
+      }
+    } catch (err) {
+      status.textContent = "Something went wrong. Please call (415) 888-5361 instead.";
+    }
+  });
+</script>
+
+</body>
+</html>
