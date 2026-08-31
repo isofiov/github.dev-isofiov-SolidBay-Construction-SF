@@ -26,6 +26,11 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a}
 .step-num{width:40px;height:40px;background:#2E6B3E;color:#FAF8F3;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;flex-shrink:0}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
 .reveal.visible{opacity:1;transform:translateY(0)}
+.faq-item{border-top:1px solid rgba(46,107,62,0.12)}
+.faq-btn{width:100%;text-align:left;padding:20px 0;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:#1a2e1a;gap:16px}
+.faq-icon{transition:transform .3s;flex-shrink:0}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s}
+.faq-body.open{max-height:250px}
 </style>
 </head>
 <body>
@@ -127,8 +132,30 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a}
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- WHY RENDERING MATTERS (new substantive section) -->
 <section class="py-20 px-6 lg:px-12" style="background:#FAF8F3">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div class="reveal">
+        <p class="tag-line mb-4">Why It Matters</p>
+        <div class="section-divider"></div>
+        <h2 class="font-display text-4xl md:text-5xl mb-6" style="color:#1a2e1a">A RENDERING CATCHES<br>PROBLEMS A FLOOR<br>PLAN CAN'T</h2>
+        <p class="text-base leading-relaxed mb-4" style="color:#6b7c6b">A 2D floor plan tells you where a wall or an island goes, but it doesn't tell you how the space actually feels once you're standing in it. We've had clients look at a rendering and realize the island they'd planned would crowd the walkway to the back door, or that a wall of upper cabinets would block a window they didn't want to lose — the kind of thing that's obvious once you can see it, and easy to miss on paper.</p>
+        <p class="text-base leading-relaxed" style="color:#6b7c6b">Because the rendering is produced by our own in-house design team rather than outsourced, it's built from the same measurements, structural constraints, and material selections that go into your actual permit set and construction drawings — not a generic mockup. What you see in the rendering is what we're pricing and what we're building.</p>
+      </div>
+      <div class="reveal">
+        <p class="tag-line mb-4">What We Need From You</p>
+        <div class="section-divider"></div>
+        <h2 class="font-display text-4xl md:text-5xl mb-6" style="color:#1a2e1a">MAKING A GOOD<br>RENDERING</h2>
+        <p class="text-base leading-relaxed mb-4" style="color:#6b7c6b">The rendering is only as accurate as what we start with. For most requests, a short phone consultation covering rough room dimensions, what's staying versus changing, and any inspiration photos is enough to get started. For larger projects — full additions, ADUs, or anything involving structural changes — we'll usually ask to see the space in person or review existing floor plans so the rendering reflects real constraints like ceiling height, window placement, and load-bearing walls.</p>
+        <p class="text-base leading-relaxed" style="color:#6b7c6b">If you're still deciding between two or three directions for a space, that's a normal starting point — many clients request a rendering specifically to compare options side by side before settling on one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="py-20 px-6 lg:px-12" style="background:#F2EFE6">
   <div class="max-w-7xl mx-auto">
     <div class="reveal mb-12 text-center">
       <p class="tag-line mb-4 justify-center">Simple 3-Step Process</p>
@@ -156,7 +183,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a}
 </section>
 
 <!-- PROJECT TYPES -->
-<section class="py-20 px-6 lg:px-12" style="background:#F2EFE6">
+<section class="py-20 px-6 lg:px-12" style="background:#FAF8F3">
   <div class="max-w-7xl mx-auto">
     <div class="reveal mb-12">
       <p class="tag-line mb-4">What We Can Render</p>
@@ -164,35 +191,64 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a}
       <h2 class="font-display text-5xl" style="color:#1a2e1a">FREE RENDERINGS FOR<br>EVERY PROJECT TYPE</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="reveal p-8" style="background:#FAF8F3">
+      <div class="reveal p-8" style="background:#F2EFE6">
         <div class="text-3xl mb-3">🍳</div>
         <h3 class="font-display text-xl mb-2" style="color:#1a2e1a">Kitchen Remodels</h3>
         <p class="text-sm" style="color:#6b7c6b">See your new cabinetry, countertops, island, appliances, and lighting before committing to any selections. Compare open-plan vs galley layouts side by side.</p>
       </div>
-      <div class="reveal p-8" style="background:#FAF8F3">
+      <div class="reveal p-8" style="background:#F2EFE6">
         <div class="text-3xl mb-3">🚿</div>
         <h3 class="font-display text-xl mb-2" style="color:#1a2e1a">Bathroom Renovations</h3>
         <p class="text-sm" style="color:#6b7c6b">Visualize tile patterns, vanity placement, shower design, soaking tub positioning, and lighting before any work begins.</p>
       </div>
-      <div class="reveal p-8" style="background:#FAF8F3">
+      <div class="reveal p-8" style="background:#F2EFE6">
         <div class="text-3xl mb-3">🏠</div>
         <h3 class="font-display text-xl mb-2" style="color:#1a2e1a">ADU Construction</h3>
         <p class="text-sm" style="color:#6b7c6b">See your garage conversion or new detached ADU rendered in full 3D — interior layout, exterior design, and site placement all visualized.</p>
       </div>
-      <div class="reveal p-8" style="background:#FAF8F3">
+      <div class="reveal p-8" style="background:#F2EFE6">
         <div class="text-3xl mb-3">📐</div>
         <h3 class="font-display text-xl mb-2" style="color:#1a2e1a">Home Additions</h3>
         <p class="text-sm" style="color:#6b7c6b">Visualize how your rear addition, second-story addition, or room expansion will look from both inside and outside before permitting begins.</p>
       </div>
-      <div class="reveal p-8" style="background:#FAF8F3">
+      <div class="reveal p-8" style="background:#F2EFE6">
         <div class="text-3xl mb-3">🏡</div>
         <h3 class="font-display text-xl mb-2" style="color:#1a2e1a">Full Home Renovations</h3>
         <p class="text-sm" style="color:#6b7c6b">For larger projects, we render the key spaces — kitchen, primary suite, living areas — to give you a complete vision of your renovated home.</p>
       </div>
-      <div class="reveal p-8" style="background:#FAF8F3">
+      <div class="reveal p-8" style="background:#F2EFE6">
         <div class="text-3xl mb-3">🏛️</div>
         <h3 class="font-display text-xl mb-2" style="color:#1a2e1a">Victorian Renovations</h3>
         <p class="text-sm" style="color:#6b7c6b">See how modern updates integrate with your Victorian's original character — preserving what you love while adding what you need.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ (new section) -->
+<section class="py-20 px-6 lg:px-12" style="background:#F2EFE6">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal mb-12">
+      <p class="tag-line mb-4">Common Questions</p>
+      <div class="section-divider"></div>
+      <h2 class="font-display text-5xl" style="color:#1a2e1a">3D RENDERING FAQ</h2>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12">
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)"><span>Is the rendering really free, with no strings attached?</span><span class="faq-icon" style="color:#2E6B3E"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span></button>
+        <div class="faq-body"><p class="text-sm leading-relaxed pb-5" style="color:#6b7c6b">Yes. There's no fee for the rendering and no obligation to hire us for construction afterward. It's part of how we make the case for our design work upfront, before you've committed to anything.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)"><span>What if I decide not to move forward with the project?</span><span class="faq-icon" style="color:#2E6B3E"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span></button>
+        <div class="faq-body"><p class="text-sm leading-relaxed pb-5" style="color:#6b7c6b">That's fine — the rendering is yours to keep either way. Some clients use it to help decide whether a renovation is worth pursuing at all, or to get quotes from other contractors.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)"><span>Do you need to visit my property first?</span><span class="faq-icon" style="color:#2E6B3E"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span></button>
+        <div class="faq-body"><p class="text-sm leading-relaxed pb-5" style="color:#6b7c6b">Not always. Smaller projects like a kitchen or bathroom refresh can often be rendered from photos and rough measurements. Larger projects — additions, ADUs, or anything touching structure — usually need a site visit or existing floor plans so the rendering reflects real constraints.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-btn" onclick="toggleFaq(this)"><span>How many design options will I see?</span><span class="faq-icon" style="color:#2E6B3E"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg></span></button>
+        <div class="faq-body"><p class="text-sm leading-relaxed pb-5" style="color:#6b7c6b">It depends on the scope of your project and what we discuss in the initial consultation — some clients get one refined direction, others get two or three layout or material options to compare side by side.</p></div>
       </div>
     </div>
   </div>
@@ -249,6 +305,20 @@ const reveals=document.querySelectorAll('.reveal');
 const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80)})},{threshold:.1});
 reveals.forEach(el=>obs.observe(el));
 
+function toggleFaq(btn){
+  const body = btn.nextElementSibling;
+  const icon = btn.querySelector('.faq-icon');
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.faq-body.open').forEach(b => {
+    b.classList.remove('open');
+    b.previousElementSibling.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+  });
+  if(!isOpen){
+    body.classList.add('open');
+    icon.style.transform = 'rotate(180deg)';
+  }
+}
+
 async function submitForm(){
   const name=document.getElementById('fname').value.trim();
   const phone=document.getElementById('fphone').value.trim();
@@ -281,7 +351,6 @@ async function submitForm(){
       throw new Error('Submission failed');
     }
   }catch(e){
-    // Fallback — still show success and send email
     document.getElementById('formArea').style.display='none';
     document.getElementById('successMsg').style.display='block';
     window.location.href=`mailto:is@solidbayconstructionsf.com?subject=Free 3D Rendering Request - ${type}&body=Name: ${name}%0APhone: ${phone}%0AEmail: ${email}%0AProject: ${type}%0ALocation: ${location}%0A%0A${desc}`;
