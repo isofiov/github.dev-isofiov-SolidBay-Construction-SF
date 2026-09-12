@@ -350,9 +350,11 @@ async function submitForm(){
       document.getElementById('successMsg').style.display='block';
       gtag('event','3d_rendering_request',{project_type:type,location});
     } else {
-      throw new Error('Submission failed');
+      const errBody = await res.text();
+      throw new Error('Status ' + res.status + ': ' + errBody);
     }
   }catch(e){
+    alert('DEBUG: ' + e.message);
     document.getElementById('formArea').style.display='none';
     document.getElementById('successMsg').style.display='block';
     window.location.href=`mailto:is@solidbayconstructionsf.com?subject=Free 3D Rendering Request - ${type}&body=Name: ${name}%0APhone: ${phone}%0AEmail: ${email}%0AProject: ${type}%0ALocation: ${location}%0A%0A${desc}`;
