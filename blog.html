@@ -92,7 +92,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a}
     <h1 class="font-display mb-4" style="font-size:clamp(52px,7vw,88px);line-height:.93;color:#1a2e1a">BLOG &<br><span style="color:#2E6B3E">PROJECTS</span></h1>
     <p class="text-base leading-relaxed max-w-xl mb-10" style="color:#6b7c6b">Expert renovation insights, how-to guides, and completed project case studies from Solid Bay Construction SF — your trusted renovation partner in San Francisco and Marin County since 2016.</p>
     <div class="flex gap-8 md:gap-12 pt-8 border-t stats-row" style="border-color:rgba(46,107,62,0.12)">
-      <div><div class="font-display text-4xl" style="color:#C9A84C">101</div><div class="text-xs tracking-widest uppercase mt-1" style="color:#6b7c6b">Blog Articles</div></div>
+      <div><div class="font-display text-4xl" style="color:#C9A84C">104</div><div class="text-xs tracking-widest uppercase mt-1" style="color:#6b7c6b">Blog Articles</div></div>
       <div><div class="font-display text-4xl" style="color:#C9A84C">20</div><div class="text-xs tracking-widest uppercase mt-1" style="color:#6b7c6b">Project Case Studies</div></div>
       <div><div class="font-display text-4xl" style="color:#C9A84C">2</div><div class="text-xs tracking-widest uppercase mt-1" style="color:#6b7c6b">Service Areas</div></div>
       <div><div class="font-display text-4xl" style="color:#C9A84C">10</div><div class="text-xs tracking-widest uppercase mt-1" style="color:#6b7c6b">Years of Expertise</div></div>
@@ -103,7 +103,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a}
 <!-- TABS -->
 <div class="border-b sticky top-16 md:top-20 z-40 px-6 lg:px-12" style="background:rgba(250,248,243,0.97);border-color:rgba(46,107,62,0.12)">
   <div class="max-w-7xl mx-auto flex gap-0">
-    <button class="tab-btn active" onclick="switchTab('blog',this)">Blog Articles (101)</button>
+    <button class="tab-btn active" onclick="switchTab('blog',this)">Blog Articles (104)</button>
     <button class="tab-btn" onclick="switchTab('projects',this)">Project Portfolio (20)</button>
   </div>
 </div>
@@ -115,7 +115,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a}
       <h2 class="font-display text-3xl md:text-4xl mb-2" style="color:#1a2e1a">Renovation Insights & Guides</h2>
       <p class="text-sm mb-6" style="color:#6b7c6b">100 SEO-optimized articles covering San Francisco permit tips, renovation guides, Marin County projects, and more.</p>
       <div class="flex gap-2 flex-wrap" id="filterBtns">
-        <button class="filter-btn active" onclick="filterBlogs('all',this)">All (101)</button>
+        <button class="filter-btn active" onclick="filterBlogs('all',this)">All (104)</button>
         <button class="filter-btn" onclick="filterBlogs('residential',this)">Residential</button>
         <button class="filter-btn" onclick="filterBlogs('commercial',this)">Commercial</button>
         <button class="filter-btn" onclick="filterBlogs('permits',this)">Permits</button>
@@ -268,6 +268,9 @@ const blogs=[
   {id:109,cat:'design',area:'sf',title:'Small Space Remodeling in San Francisco: Maximize Every Inch',excerpt:'SF homes are famously compact. Smart remodeling strategies to make small spaces feel larger and work harder.',readTime:'6 min',tags:['small space remodeling SF','small home renovation SF','maximize space SF'],url:'articles/small-space-remodeling-san-francisco.html',body:`<p>Expert strategies for remodeling small spaces in San Francisco homes.</p><p><a href="articles/small-space-remodeling-san-francisco.html" style="color:#2E6B3E;font-weight:bold">Read the full article →</a></p>`},
   {id:110,cat:'residential',area:'sf',title:'Home Addition Guide for San Francisco Homeowners',excerpt:'Adding square footage in SF is complex but high-value. A complete guide to home additions — costs, permits, and design.',readTime:'8 min',tags:['home addition SF','SF house expansion','add square footage SF'],url:'articles/home-addition-guide-san-francisco.html',body:`<p>Your complete guide to planning and building a home addition in San Francisco.</p><p><a href="articles/home-addition-guide-san-francisco.html" style="color:#2E6B3E;font-weight:bold">Read the full article →</a></p>`},
   {id:111,cat:'residential',area:'sf',title:'Central Richmond Home Remodel: A Project Journal',excerpt:'Follow along in real time: a 3rd story addition, full foundation retrofit, and complete interior remodel in the Central Richmond — real photos, updated as it happens.',readTime:'6 min',tags:['Central Richmond remodel','foundation retrofit SF','home addition SF','project journal'],url:'articles/central-richmond-remodel-project-journal.html',body:`<p>Real progress photos from an active 3rd story addition and foundation retrofit in San Francisco's Central Richmond neighborhood.</p><p><a href="articles/central-richmond-remodel-project-journal.html" style="color:#2E6B3E;font-weight:bold">Read the full journal →</a></p>`},
+  {id:112,cat:'design',area:'sf',title:'Top 7 Kitchen Design Trends for San Francisco Homes in 2026',excerpt:'From waterfall islands to hidden scullery pantries — the kitchen design trends our SF design-build team is actually specifying in 2026.',readTime:'6 min',tags:['kitchen design trends SF','kitchen trends 2026','SF kitchen remodel'],url:'articles/kitchen-design-trends-san-francisco-2026.html',body:`<p>The kitchen design trends we're specifying on current San Francisco projects.</p><p><a href="articles/kitchen-design-trends-san-francisco-2026.html" style="color:#2E6B3E;font-weight:bold">Read the full article →</a></p>`},
+  {id:113,cat:'design',area:'sf',title:'Top 7 Bathroom & Powder Room Design Trends for San Francisco Homes in 2026',excerpt:'From zellige tile to curbless showers to bold powder rooms — the bathroom design trends our SF team is building in 2026.',readTime:'6 min',tags:['bathroom design trends SF','powder room trends','SF bathroom remodel'],url:'articles/bathroom-design-trends-san-francisco-2026.html',body:`<p>The bathroom and powder room design trends we're specifying on current San Francisco projects.</p><p><a href="articles/bathroom-design-trends-san-francisco-2026.html" style="color:#2E6B3E;font-weight:bold">Read the full article →</a></p>`},
+  {id:114,cat:'design',area:'sf',title:'Top 7 Garage Conversion Trends in San Francisco for 2026',excerpt:'From rental ADUs to home gyms to EV-ready storage — what SF homeowners are actually building when they convert a garage in 2026.',readTime:'6 min',tags:['garage conversion trends SF','garage conversion ideas','ADU trends SF'],url:'articles/garage-conversion-trends-san-francisco-2026.html',body:`<p>What SF homeowners are actually building when they convert a garage in 2026.</p><p><a href="articles/garage-conversion-trends-san-francisco-2026.html" style="color:#2E6B3E;font-weight:bold">Read the full article →</a></p>`},
 ];
 
 const projects=[
