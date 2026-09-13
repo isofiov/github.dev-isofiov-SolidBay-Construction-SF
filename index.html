@@ -320,6 +320,21 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
       </div>
     </div>
     <div class="proj-grid rv">
+      <div class="proj-card" style="background:url('images/central-richmond/demo-1-framing-exposed.jpg') center/cover;cursor:pointer" onclick="openLightbox(0)">
+        <span style="position:absolute;top:12px;left:12px;z-index:3;background:var(--gold);color:#1a2e1a;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px">● In Progress</span>
+        <div class="proj-ov"></div>
+        <div class="proj-body">
+          <span style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px">Addition & Remodel · Central Richmond, SF</span>
+          <h3 class="fd" style="font-size:20px;color:#fff;margin-bottom:3px">The Central Richmond Remodel</h3>
+          <p style="font-size:11px;color:rgba(255,255,255,0.55);margin-bottom:10px">3rd story addition · foundation work · full house remodel</p>
+          <div style="display:flex;gap:6px;align-items:center">
+            <img src="images/central-richmond/demo-2-full-gut-thumb.jpg" onclick="event.stopPropagation();openLightbox(1)" style="width:32px;height:32px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.3)"/>
+            <img src="images/central-richmond/foundation-1-excavation-thumb.jpg" onclick="event.stopPropagation();openLightbox(2)" style="width:32px;height:32px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.3)"/>
+            <img src="images/central-richmond/foundation-2-new-wall-thumb.jpg" onclick="event.stopPropagation();openLightbox(3)" style="width:32px;height:32px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.3)"/>
+            <span style="font-size:10px;color:var(--gold);margin-left:4px">View all photos (8) →</span>
+          </div>
+        </div>
+      </div>
       <div class="proj-card" style="background:linear-gradient(135deg,#2E6B3E,#1a2e1a)">
         <div class="proj-ov"></div>
         <div class="proj-body">
@@ -345,9 +360,21 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
         </div>
       </div>
     </div>
-    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:16px">Project photos coming soon — <a href="#contact" style="color:var(--g)">contact us</a> to see our full portfolio</p>
+    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:16px">More project photos coming soon — <a href="#contact" style="color:var(--g)">contact us</a> to see our full portfolio</p>
   </div>
 </section>
+
+<!-- PROGRESS PHOTO LIGHTBOX -->
+<div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(10,15,10,0.95);z-index:999;align-items:center;justify-content:center;flex-direction:column;padding:24px" onclick="if(event.target===this)closeLightbox()">
+  <button onclick="closeLightbox()" style="position:absolute;top:20px;right:24px;background:none;border:none;font-size:32px;color:#fff;cursor:pointer;line-height:1">✕</button>
+  <img id="lightboxImg" src="" alt="Central Richmond remodel progress photo" style="max-width:90vw;max-height:72vh;object-fit:contain;border-radius:4px"/>
+  <p id="lightboxCaption" style="color:#fff;font-size:13px;margin-top:16px;text-align:center;max-width:600px"></p>
+  <div style="display:flex;gap:20px;align-items:center;margin-top:18px">
+    <button onclick="navLightbox(-1)" style="background:none;border:1px solid rgba(255,255,255,0.3);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:18px">‹</button>
+    <span id="lightboxCount" style="color:rgba(255,255,255,0.6);font-size:12px"></span>
+    <button onclick="navLightbox(1)" style="background:none;border:1px solid rgba(255,255,255,0.3);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:18px">›</button>
+  </div>
+</div>
 
 <!-- WHY US -->
 <section class="sec" id="about" style="background:var(--text)">
@@ -656,6 +683,46 @@ function toggleMenu(){
   m.classList.toggle('open');
   document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
 }
+
+// Central Richmond progress photo lightbox
+const crPhotos=[
+  {src:'images/central-richmond/demo-1-framing-exposed.jpg',caption:'Full interior gut — framing exposed and ready for structural work'},
+  {src:'images/central-richmond/demo-2-full-gut.jpg',caption:'Demo complete — stripped to studs throughout'},
+  {src:'images/central-richmond/foundation-1-excavation.jpg',caption:'Foundation excavation underway'},
+  {src:'images/central-richmond/foundation-2-new-wall.jpg',caption:'New foundation stem wall formed'},
+  {src:'images/central-richmond/foundation-3-rebar-cage.jpg',caption:'Rebar cage tied and set in the footing trench'},
+  {src:'images/central-richmond/foundation-4-wall-pour-wet.jpg',caption:'Foundation wall poured'},
+  {src:'images/central-richmond/foundation-5-wall-finished.jpg',caption:'Foundation wall finished and cured'},
+  {src:'images/central-richmond/foundation-6-pier-footing.jpg',caption:'New concrete pier footing with anchor bolts set'}
+];
+let crIndex=0;
+function openLightbox(i){
+  crIndex=i;
+  showLightboxImg();
+  document.getElementById('lightbox').style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').style.display='none';
+  document.body.style.overflow='';
+}
+function navLightbox(dir){
+  crIndex=(crIndex+dir+crPhotos.length)%crPhotos.length;
+  showLightboxImg();
+}
+function showLightboxImg(){
+  document.getElementById('lightboxImg').src=crPhotos[crIndex].src;
+  document.getElementById('lightboxCaption').textContent=crPhotos[crIndex].caption;
+  document.getElementById('lightboxCount').textContent=(crIndex+1)+' / '+crPhotos.length;
+}
+document.addEventListener('keydown',function(e){
+  const lb=document.getElementById('lightbox');
+  if(lb.style.display==='flex'){
+    if(e.key==='Escape')closeLightbox();
+    if(e.key==='ArrowRight')navLightbox(1);
+    if(e.key==='ArrowLeft')navLightbox(-1);
+  }
+});
 
 // FAQ
 function toggleFaq(btn){
