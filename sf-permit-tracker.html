@@ -193,7 +193,7 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);border-t
   </div>
 </div>
 
-<footer><p>Data from <strong>SF Open Data</strong> · data.sfgov.org · Filed permits only · Solid Bay Construction SF Internal Tool</p>  <div google-add-preferred-source-btn data-theme="light" style="margin-top:12px"></div>
+<footer><p>Data from <strong>SF Open Data</strong> · data.sf.gov · Filed permits only · Solid Bay Construction SF Internal Tool</p>  <div google-add-preferred-source-btn data-theme="light" style="margin-top:12px"></div>
 </footer>
 
 <script>
@@ -255,7 +255,7 @@ async function fetchPermits(){
   let where="filed_date>'"+dateStr+"' AND status='filed'";
   if(hood) where+=" AND neighborhoods_analysis_boundaries='"+hood+"'";
 
-  const url='https://data.sfgov.org/resource/i98e-djp9.json?$limit=500&$order=filed_date%20DESC&$where='+encodeURIComponent(where);
+  const url='https://data.sf.gov/resource/i98e-djp9.json?$limit=500&$order=filed_date%20DESC&$where='+encodeURIComponent(where);
 
   try{
     const res=await fetch(url);
