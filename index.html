@@ -357,8 +357,11 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
           <div style="display:flex;gap:6px;align-items:center">
             <img src="images/central-richmond/crew-3-foundation-work-thumb.jpg" alt="Solid Bay crew finishing foundation work in Central Richmond" onclick="event.stopPropagation();openLightbox(17)" style="width:32px;height:32px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.3)"/>
             <img src="images/central-richmond/foundation-14-pier-poured-thumb.jpg" alt="Freshly poured concrete pier footing" onclick="event.stopPropagation();openLightbox(18)" style="width:32px;height:32px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.3)"/>
-            <img src="images/central-richmond/foundation-17-new-footing-demo-thumb.jpg" alt="Breaking out old slab for a new footing" onclick="event.stopPropagation();openLightbox(21)" style="width:32px;height:32px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.3)"/>
-            <span style="font-size:10px;color:var(--gold);margin-left:4px">View all photos (22) →</span>
+            <span style="position:relative;display:inline-block;width:32px;height:32px" onclick="event.stopPropagation();openLightbox(23)">
+              <img src="images/central-richmond/video-2-crew-finishing-pour-poster-thumb.jpg" alt="Video: crew finishing a concrete pour" style="width:32px;height:32px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.3)"/>
+              <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;text-shadow:0 0 3px rgba(0,0,0,0.8)">▶</span>
+            </span>
+            <span style="font-size:10px;color:var(--gold);margin-left:4px">View all photos & videos (25) →</span>
           </div>
           <a href="articles/central-richmond-remodel-project-journal.html" onclick="event.stopPropagation()" style="font-size:10px;color:rgba(255,255,255,0.75);display:inline-block;margin-top:8px;text-decoration:underline">Read the full project journal →</a>
         </div>
@@ -396,6 +399,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
 <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(10,15,10,0.95);z-index:999;align-items:center;justify-content:center;flex-direction:column;padding:24px" onclick="if(event.target===this)closeLightbox()">
   <button onclick="closeLightbox()" style="position:absolute;top:20px;right:24px;background:none;border:none;font-size:32px;color:#fff;cursor:pointer;line-height:1">✕</button>
   <img id="lightboxImg" src="" alt="Central Richmond remodel progress photo" style="max-width:90vw;max-height:72vh;object-fit:contain;border-radius:4px"/>
+  <video id="lightboxVideo" controls playsinline style="display:none;max-width:90vw;max-height:72vh;border-radius:4px"></video>
   <p id="lightboxCaption" style="color:#fff;font-size:13px;margin-top:16px;text-align:center;max-width:600px"></p>
   <div style="display:flex;gap:20px;align-items:center;margin-top:18px">
     <button onclick="navLightbox(-1)" style="background:none;border:1px solid rgba(255,255,255,0.3);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:18px">‹</button>
@@ -752,7 +756,10 @@ const crPhotos=[
   {src:'images/central-richmond/foundation-14-pier-poured.jpg',caption:'Freshly poured concrete pier footing'},
   {src:'images/central-richmond/foundation-15-column-base-plate.jpg',caption:'Concrete pier poured with steel column base plate set'},
   {src:'images/central-richmond/foundation-16-stem-wall-cured.jpg',caption:'New foundation stem wall cured and stripped of forms'},
-  {src:'images/central-richmond/foundation-17-new-footing-demo.jpg',caption:'Breaking out the old slab for the next footing'}
+  {src:'images/central-richmond/foundation-17-new-footing-demo.jpg',caption:'Breaking out the old slab for the next footing'},
+  {type:'video',src:'images/central-richmond/video-1-concrete-pour.mp4',poster:'images/central-richmond/video-1-concrete-pour-poster.jpg',caption:'Concrete pour complete in the new footing form'},
+  {type:'video',src:'images/central-richmond/video-2-crew-finishing-pour.mp4',poster:'images/central-richmond/video-2-crew-finishing-pour-poster.jpg',caption:'Solid Bay crew finishing and leveling the fresh pour'},
+  {type:'video',src:'images/central-richmond/video-3-vibrating-concrete.mp4',poster:'images/central-richmond/video-3-vibrating-concrete-poster.jpg',caption:'Using a concrete vibrator to consolidate the pour and remove air pockets'}
 ];
 let crIndex=0;
 function openLightbox(i){
@@ -763,6 +770,7 @@ function openLightbox(i){
 }
 function closeLightbox(){
   document.getElementById('lightbox').style.display='none';
+  document.getElementById('lightboxVideo').pause();
   document.body.style.overflow='';
 }
 function navLightbox(dir){
@@ -770,8 +778,22 @@ function navLightbox(dir){
   showLightboxImg();
 }
 function showLightboxImg(){
-  document.getElementById('lightboxImg').src=crPhotos[crIndex].src;
-  document.getElementById('lightboxCaption').textContent=crPhotos[crIndex].caption;
+  const item=crPhotos[crIndex];
+  const imgEl=document.getElementById('lightboxImg');
+  const vidEl=document.getElementById('lightboxVideo');
+  vidEl.pause();
+  if(item.type==='video'){
+    imgEl.style.display='none';
+    vidEl.style.display='block';
+    vidEl.src=item.src;
+    vidEl.poster=item.poster;
+  } else {
+    vidEl.style.display='none';
+    vidEl.removeAttribute('src');
+    imgEl.style.display='block';
+    imgEl.src=item.src;
+  }
+  document.getElementById('lightboxCaption').textContent=item.caption;
   document.getElementById('lightboxCount').textContent=(crIndex+1)+' / '+crPhotos.length;
 }
 document.addEventListener('keydown',function(e){
