@@ -361,7 +361,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
               <img src="images/central-richmond/video-2-crew-finishing-pour-poster-thumb.jpg" alt="Video: crew finishing a concrete pour" style="width:32px;height:32px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.3)"/>
               <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;text-shadow:0 0 3px rgba(0,0,0,0.8)">▶</span>
             </span>
-            <span style="font-size:10px;color:var(--gold);margin-left:4px">View all photos & videos (25) →</span>
+            <span style="font-size:10px;color:var(--gold);margin-left:4px;cursor:pointer" onclick="event.stopPropagation();openLightbox(0)">View all photos & videos (46) →</span>
           </div>
           <a href="articles/central-richmond-remodel-project-journal.html" onclick="event.stopPropagation()" style="font-size:10px;color:rgba(255,255,255,0.75);display:inline-block;margin-top:8px;text-decoration:underline">Read the full project journal →</a>
         </div>
@@ -847,7 +847,28 @@ const crPhotos=[
   {src:'images/central-richmond/foundation-17-new-footing-demo.jpg',caption:'Breaking out the old slab for the next footing'},
   {type:'video',src:'images/central-richmond/video-1-concrete-pour.mp4',poster:'images/central-richmond/video-1-concrete-pour-poster.jpg',caption:'Concrete pour complete in the new footing form'},
   {type:'video',src:'images/central-richmond/video-2-crew-finishing-pour.mp4',poster:'images/central-richmond/video-2-crew-finishing-pour-poster.jpg',caption:'Solid Bay crew finishing and leveling the fresh pour'},
-  {type:'video',src:'images/central-richmond/video-3-vibrating-concrete.mp4',poster:'images/central-richmond/video-3-vibrating-concrete-poster.jpg',caption:'Using a concrete vibrator to consolidate the pour and remove air pockets'}
+  {type:'video',src:'images/central-richmond/video-3-vibrating-concrete.mp4',poster:'images/central-richmond/video-3-vibrating-concrete-poster.jpg',caption:'Using a concrete vibrator to consolidate the pour and remove air pockets'},
+  {src:'images/central-richmond/24th-ave-1-rebar-opening.jpg',caption:'New rebar cage tied at a foundation opening'},
+  {src:'images/central-richmond/24th-ave-2-trench-excavation.jpg',caption:'Foundation trench excavation underway'},
+  {src:'images/central-richmond/24th-ave-3-trench-ready.jpg',caption:'New foundation trench dug and ready for forms'},
+  {src:'images/central-richmond/24th-ave-4-existing-living-room.jpg',caption:'Original hardwood floors in a room ahead of the remodel'},
+  {src:'images/central-richmond/24th-ave-5-existing-kitchen.jpg',caption:'Original kitchen before renovation reaches this room'},
+  {src:'images/central-richmond/24th-ave-6-jobsite-signage.jpg',caption:'Solid Bay signage posted at the 24th Ave job site'},
+  {src:'images/central-richmond/24th-ave-7-trench-conduit.jpg',caption:'Foundation trench with utility conduit run before backfill'},
+  {src:'images/central-richmond/24th-ave-8-existing-hallway.jpg',caption:'Original interior hallway ahead of the addition work'},
+  {src:'images/central-richmond/24th-ave-9-kitchen-demo.jpg',caption:'Kitchen mid-demo — cabinets and fixtures removed'},
+  {src:'images/central-richmond/24th-ave-10-framing-exposed.jpg',caption:'New framing opened up during the addition'},
+  {src:'images/central-richmond/24th-ave-11-interior-framing.jpg',caption:'Interior framing exposed during the gut'},
+  {src:'images/central-richmond/24th-ave-12-exterior.jpg',caption:'Exterior of the home during the remodel'},
+  {src:'images/central-richmond/24th-ave-13-wall-framing.jpg',caption:'New wall framing going up throughout the addition'},
+  {src:'images/central-richmond/24th-ave-14-framing-debris.jpg',caption:'Framing and debris during structural work'},
+  {src:'images/central-richmond/24th-ave-15-window-framed.jpg',caption:'New window opening framed on the addition'},
+  {src:'images/central-richmond/24th-ave-16-framing-progress.jpg',caption:'Structural framing mid-construction'},
+  {src:'images/central-richmond/24th-ave-17-framing-electrical.jpg',caption:'Framing with electrical panel and rough wiring visible'},
+  {src:'images/central-richmond/24th-ave-18-framing-living-area.jpg',caption:'Framing progressing through the main living area'},
+  {type:'video',src:'images/central-richmond/video-4-24th-ave-subfloor-demo.mp4',poster:'images/central-richmond/video-4-24th-ave-subfloor-demo-poster.jpg',caption:'Removing the old subfloor during demo'},
+  {type:'video',src:'images/central-richmond/video-5-24th-ave-exterior-signage.mp4',poster:'images/central-richmond/video-5-24th-ave-exterior-signage-poster.jpg',caption:'Solid Bay signage and scaffolding at the 24th Ave job site'},
+  {type:'video',src:'images/central-richmond/video-6-24th-ave-crew-hauling-material.mp4',poster:'images/central-richmond/video-6-24th-ave-crew-hauling-material-poster.jpg',caption:'Crew hauling material to the site'}
 ];
 const galleries={
   'central-richmond':crPhotos,
