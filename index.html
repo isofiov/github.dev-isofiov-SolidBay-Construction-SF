@@ -207,7 +207,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
       <a href="#about" class="nl">About</a>
       <a href="blog.html" class="nl">Resources</a>
       <a href="hvac/index.html" class="nl">HVAC</a>
-      <a href="tel:+14158885361" class="nl" style="white-space:nowrap">(415) 888-5361</a>
+      <a href="tel:+14158885361" class="nl" style="white-space:nowrap" onclick="gtag('event','phone_click',{'event_category':'leads','event_label':'nav'})">(415) 888-5361</a>
       <a href="#contact" class="bp">Start a Project</a>
     </div>
     <button onclick="toggleMenu()" style="background:none;border:none;cursor:pointer;padding:4px;display:flex;flex-direction:column;gap:5px" id="hamburger">
@@ -227,7 +227,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
   <a href="#about" class="mm-link" onclick="toggleMenu()">About</a>
   <a href="hvac/index.html" class="mm-link">HVAC</a>
   <a href="blog.html" class="mm-link">Resources</a>
-  <a href="tel:+14158885361" class="mm-link" style="color:var(--g)">(415) 888-5361</a>
+  <a href="tel:+14158885361" class="mm-link" style="color:var(--g)" onclick="gtag('event','phone_click',{'event_category':'leads','event_label':'mobile_menu'})">(415) 888-5361</a>
   <a href="#contact" class="bp" onclick="toggleMenu()" style="margin-top:auto;text-align:center;padding:16px">Start a Project</a>
 </div>
 
@@ -702,7 +702,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
           </div>
           <div style="display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid rgba(46,107,62,0.1)">
             <div style="width:36px;height:36px;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FAF8F3" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 6.18 2 2 0 015 4h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 11.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18z"/></svg></div>
-            <div><p style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Phone</p><a href="tel:+14158885361" style="font-size:13px;color:var(--text);text-decoration:none">(415) 888-5361</a></div>
+            <div><p style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px">Phone</p><a href="tel:+14158885361" style="font-size:13px;color:var(--text);text-decoration:none" onclick="gtag('event','phone_click',{'event_category':'leads','event_label':'contact_section'})">(415) 888-5361</a></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid rgba(46,107,62,0.1)">
             <div style="width:36px;height:36px;background:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FAF8F3" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
@@ -777,7 +777,7 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F3;color:#1a2e1a;overflow-
         </svg>
         <p style="font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;max-width:220px;margin-bottom:12px">Design-build renovation firm serving SF and Marin County since 2016.</p>
         <p style="font-size:10px;color:rgba(255,255,255,0.25)">CSLB Lic. #1156572 · HVAC Lic. #717881</p>
-        <a href="tel:+14158885361" style="font-size:15px;color:#FAF8F3;text-decoration:none;font-weight:500;display:block;margin-top:14px">(415) 888-5361</a>
+        <a href="tel:+14158885361" style="font-size:15px;color:#FAF8F3;text-decoration:none;font-weight:500;display:block;margin-top:14px" onclick="gtag('event','phone_click',{'event_category':'leads','event_label':'footer'})">(415) 888-5361</a>
         <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:3px">is@solidbayconstructionsf.com</p>
         <a href="https://maps.app.goo.gl/YDYF9HEu8dz3LnwW6" target="_blank" rel="noopener" style="font-size:11px;color:var(--gold);display:inline-block;margin-top:10px">Find & Review Us on Google →</a>
         <div google-add-preferred-source-btn data-theme="dark"></div>
